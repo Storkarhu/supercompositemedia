@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supercomposite Media - AI Research, Entertainment Services & Official LOAB™ Merch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c3f8b 0%, #502781 50%, #000000 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-price {
+            font-size: 1.1rem;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-variants {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .view-product-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .view-product-btn:hover {
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+            transform: scale(1.05);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.2rem;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 3rem;
+            color: #ff6b6b;
+            font-size: 1.2rem;
+        }
+        
+        .entertainment-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 1rem;
+        }
+        
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .category-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .category-count {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            margin-top: 3rem;
+        }
+        
+        .trademark {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 1024px) {
+            .nav {
+                gap: 1rem;
+            }
+            
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .nav-link {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">Supercomposite Media</h1>
+        <p class="tagline">AI Research, Entertainment Services & Official LOAB™ Merch</p>
+        <p style="font-size: 0.85rem; opacity: 0.9; margin: 0.5rem 0;">LOAB™ is a trademark of Supercomposite Media. <a href="https://loab.ai" target="_blank" style="color: #4CAF50; text-decoration: none; border-bottom: 1px solid #4CAF50;">Visit loab.ai →</a></p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Original multimedia art by Steph Maj Swanson of Supercomposite Media. All rights reserved.</p>
+        <nav class="nav">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#merchandise" class="nav-link active">LOAB Merchandise</a>
+            <a href="#art-merchandise" class="nav-link">Supercomposite Art Merchandise</a>
+            <a href="#entertainment" class="nav-link">Entertainment</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <section class="section" id="about">
+            <h2 class="section-title">About Supercomposite Media</h2>
+            <div class="entertainment-section">
+                <p>[Placeholder for Supercomposite Media company information and background]</p>
+            </div>
+        </section>
+
+        <!-- LOAB Merchandise Section -->
+        <section class="section" id="merchandise">
+            <h2 class="section-title">LOAB™ Merchandise Collection</h2>
+            <div id="productsContainer">
+                <div class="loading">Loading LOAB™ products...</div>
+            </div>
+        </section>
+
+        <!-- Supercomposite Art Merchandise Collection Section -->
+        <section class="section" id="art-merchandise">
+            <h2 class="section-title">Supercomposite Art Merchandise Collection</h2>
+            <div class="entertainment-section">
+                <p>[Placeholder for Supercomposite Art Merchandise Collection description and content]</p>
+            </div>
+        </section>
+
+        <!-- Entertainment Services Section -->
+        <section class="section entertainment-section" id="entertainment">
+            <h2 class="section-title">Entertainment Services</h2>
+            
+            <h3>Information on the Emergent Character</h3>
+            <p>[Placeholder for LOAB™ emergent character information and current events in AI image synthesis]</p>
+            
+            <h3>Videos Featuring the Emergent Character</h3>
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <p>[Placeholder for Hamburg Talk Video Embed]<br>
+                    <small>(YouTube embed will be placed here)</small></p>
+                </div>
+            </div>
+            
+            <h3>AI Image Synthesis & Character Development Information</h3>
+            <p>[Placeholder for information about AI image synthesis models, prompt engineering, and character development with AI systems]</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="trademark">
+            © 2025 Supercomposite Media. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Complete Printify API data - alphabetized by title (all 16 products included)
+        const mockApiData = {
+            "data": [
+                {
+                    "id": "6884e72b081f2eb3210a2c68",
+                    "title": "LOAB™- Embroidered Corduroy Cap",
+                    "description": "Elevate your casual wardrobe with this stylish Vintage Corduroy Cap. Crafted from high-quality 100% cotton corduroy.",
+                    "variants": [
+                        {"price": 2998, "title": "One size / Olive"},
+                        {"price": 2998, "title": "One size / Black"},
+                        {"price": 2998, "title": "One size / Navy Blue"},
+                        {"price": 2998, "title": "One size / Dark Brown"},
+                        {"price": 2998, "title": "One size / Burgundy"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6884e72b081f2eb3210a2c68/118698/109485/loab-embroidered-corduroy-cap.jpg?camera_label=front"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21939863"}
+                },
+                {
+                    "id": "6884e82535f0c41bb9090ba1",
+                    "title": "LOAB™- Embroidered Knit Beanie",
+                    "description": "Stay stylish and cozy with this chic knit beanie, perfect for adding a touch of warmth to your winter wardrobe.",
+                    "variants": [
+                        {"price": 3015, "title": "Red / One size"},
+                        {"price": 3015, "title": "Black / One size"},
+                        {"price": 3015, "title": "Dark Navy / One size"},
+                        {"price": 3015, "title": "Gray / One size"},
+                        {"price": 3015, "title": "White / One size"},
+                        {"price": 3015, "title": "Dark Green / One size"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6884e82535f0c41bb9090ba1/118231/109442/loab-embroidered-knit-beanie.jpg?camera_label=front"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21939932"}
+                },
+                {
+                    "id": "68840c25179478e7600e20da",
+                    "title": "LOAB™- Embroidered Knit Beanie",
+                    "description": "Stay stylish and cozy with this chic knit beanie, perfect for adding a touch of warmth to your winter wardrobe.",
+                    "variants": [
+                        {"price": 3015, "title": "Red / One size"},
+                        {"price": 3015, "title": "Black / One size"},
+                        {"price": 3015, "title": "Dark Navy / One size"},
+                        {"price": 3015, "title": "Gray / One size"},
+                        {"price": 3015, "title": "White / One size"},
+                        {"price": 3015, "title": "Dark Green / One size"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/68840c25179478e7600e20da/118233/109442/loab-embroidered-knit-beanie.jpg?camera_label=front"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21938398"}
+                },
+                {
+                    "id": "6883eddcef5e3d1ac50937ff",
+                    "title": "LOAB™- Flip Flops",
+                    "description": "Step into comfort and style with these vibrant flip flops, perfect for warm weather and lazy beach days.",
+                    "variants": [
+                        {"price": 1945, "title": "S / Black sole"},
+                        {"price": 1945, "title": "M / Black sole"},
+                        {"price": 1945, "title": "L / Black sole"},
+                        {"price": 1945, "title": "XL / Black sole"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6883eddcef5e3d1ac50937ff/72177/15334/loab-flip-flops.jpg?camera_label=front"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21938408"}
+                },
+                {
+                    "id": "6884e147e999b8b0c30467bd",
+                    "title": "LOAB™- High Waisted Yoga Leggings",
+                    "description": "Elevate your workout wardrobe with these stunning high waisted yoga leggings. Featuring a vibrant all-over print.",
+                    "variants": [
+                        {"price": 5770, "title": "XS"},
+                        {"price": 5770, "title": "S"},
+                        {"price": 5770, "title": "M"},
+                        {"price": 5770, "title": "L"},
+                        {"price": 5770, "title": "XL"},
+                        {"price": 6307, "title": "2XL"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6884e147e999b8b0c30467bd/67982/7991/loab-high-waisted-yoga-leggings.jpg?camera_label=front"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21939597"}
+                },
+                {
+                    "id": "6883f8a3af9232822102858c",
+                    "title": "LOAB™- High Waisted Yoga Leggings",
+                    "description": "Elevate your workout wardrobe with these stunning high waisted yoga leggings. Featuring a vibrant all-over print.",
+                    "variants": [
+                        {"price": 5770, "title": "XS"},
+                        {"price": 5770, "title": "S"},
+                        {"price": 5770, "title": "M"},
+                        {"price": 5770, "title": "L"},
+                        {"price": 5770, "title": "XL"},
+                        {"price": 6307, "title": "2XL"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6883f8a3af9232822102858c/67982/7991/loab-high-waisted-yoga-leggings.jpg?camera_label=front"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21927609"}
+                },
+                {
+                    "id": "6883ef7a35f0c41bb908d25f",
+                    "title": "LOAB™- Men's Indoor Slippers",
+                    "description": "Step into comfort with these cozy Men's Indoor Slippers. Designed for relaxation.",
+                    "variants": [
+                        {"price": 1610, "title": "US 11 - 12 / Black sole"},
+                        {"price": 1610, "title": "US 13 - 14 / Black sole"},
+                        {"price": 1610, "title": "US 7 - 8 / Black sole"},
+                        {"price": 1610, "title": "US 9 - 10 / Black sole"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6883ef7a35f0c41bb908d25f/76881/42316/loab-mens-indoor-slippers.jpg?camera_label=left-and-right-slipper"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21930207"}
+                },
+                {
+                    "id": "68840e85af92328221028af7",
+                    "title": "LOAB™- Men's Pajama Pants",
+                    "description": "Introducing our stylish Men's Pajama Pants, crafted for comfort and relaxation. Made from 100% brushed polyester.",
+                    "variants": [
+                        {"price": 5637, "title": "XS"},
+                        {"price": 5637, "title": "S"},
+                        {"price": 5637, "title": "M"},
+                        {"price": 5637, "title": "L"},
+                        {"price": 5637, "title": "XL"},
+                        {"price": 6173, "title": "2XL"},
+                        {"price": 6442, "title": "3XL"},
+                        {"price": 6710, "title": "4XL"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/68840e85af92328221028af7/94861/78776/loab-mens-pajama-pants.jpg?camera_label=front"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21938387"}
+                },
+                {
+                    "id": "6884ee9aaf9232822102bf0d",
+                    "title": "LOAB™- Poly Scarf",
+                    "description": "Made from high quality poly voile and poly chiffon, this sheer scarf is extremely light and airy. Outstanding quality print turns it into a head turning style accessory.",
+                    "variants": [
+                        {"price": 2313, "title": "Poly voile / 25\" × 25\""},
+                        {"price": 5575, "title": "Poly voile / 50\" × 50\""},
+                        {"price": 2965, "title": "Poly chiffon / 25\" × 25\""},
+                        {"price": 8100, "title": "Poly chiffon / 50\" × 50\""}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6884ee9aaf9232822102bf0d/42318/45951/loab-poly-scarf.jpg?camera_label=flat"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21940396"}
+                },
+                {
+                    "id": "6884e0977b1a5c5bf901397d",
+                    "title": "LOAB™- Poly Scarf",
+                    "description": "Made from high quality poly voile and poly chiffon, this sheer scarf is extremely light and airy.",
+                    "variants": [
+                        {"price": 2313, "title": "Poly voile / 25\" × 25\""},
+                        {"price": 5575, "title": "Poly voile / 50\" × 50\""},
+                        {"price": 2965, "title": "Poly chiffon / 25\" × 25\""},
+                        {"price": 8100, "title": "Poly chiffon / 50\" × 50\""}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6884e0977b1a5c5bf901397d/42318/45951/loab-poly-scarf.jpg?camera_label=flat"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21939484"}
+                },
+                {
+                    "id": "6883ddbf5e011b980101397c",
+                    "title": "LOAB™- Poly Scarf",
+                    "description": "Made from high quality poly voile and poly chiffon, this sheer scarf is extremely light and airy.",
+                    "variants": [
+                        {"price": 2313, "title": "Poly voile / 25\" × 25\""},
+                        {"price": 5575, "title": "Poly voile / 50\" × 50\""},
+                        {"price": 2965, "title": "Poly chiffon / 25\" × 25\""},
+                        {"price": 8100, "title": "Poly chiffon / 50\" × 50\""}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6883ddbf5e011b980101397c/42318/45951/loab-poly-scarf.jpg?camera_label=flat"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21938381"}
+                },
+                {
+                    "id": "6883e8c535f0c41bb908d0df",
+                    "title": "LOAB™- Socks",
+                    "description": "Step into comfort and style with these vibrant crew-length socks. Designed to brighten up any outfit.",
+                    "variants": [
+                        {"price": 1167, "title": "L"},
+                        {"price": 1167, "title": "M"},
+                        {"price": 1167, "title": "S"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6883e8c535f0c41bb908d0df/45134/53204/loab-socks.jpg?camera_label=pose-1"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21938386"}
+                },
+                {
+                    "id": "6883ed2b1fd9f775a6078fca",
+                    "title": "LOAB™- Unisex Sweatshirt",
+                    "description": "Stay cozy and stylish with this unisex sweatshirt, perfect for any casual outing or just lounging at home.",
+                    "variants": [
+                        {"price": 3920, "title": "Fire Red / S"},
+                        {"price": 3920, "title": "Black / L"},
+                        {"price": 4268, "title": "Black / 2XL"},
+                        {"price": 3920, "title": "Steel Grey / S"},
+                        {"price": 3920, "title": "Ash / L"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6883ed2b1fd9f775a6078fca/36126/234/loab-unisex-sweatshirt.jpg?camera_label=front"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21938411"}
+                },
+                {
+                    "id": "6883ebbb081f2eb32109f2fd",
+                    "title": "LOAB™- Unisex T-shirt",
+                    "description": "Elevate your wardrobe with this Unisex Garment-Dyed T-shirt, a perfect blend of comfort and style.",
+                    "variants": [
+                        {"price": 2068, "title": "Navy / S"},
+                        {"price": 2068, "title": "Black / M"},
+                        {"price": 2278, "title": "Black / 2XL"},
+                        {"price": 2943, "title": "White / 4XL"},
+                        {"price": 2148, "title": "Boysenberry / S"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/6883ebbb081f2eb32109f2fd/73204/100629/loab-unisex-t-shirt.jpg?camera_label=folded"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21938407"}
+                },
+                {
+                    "id": "68841815e999b8b0c30438ce",
+                    "title": "LOAB™- Women's Indoor Slippers",
+                    "description": "Step into comfort with these stylish women's indoor slippers, designed to enhance your everyday relaxation.",
+                    "variants": [
+                        {"price": 1610, "title": "US 7 - 8 / Black sole"},
+                        {"price": 1610, "title": "US 9 - 10 / Black sole"},
+                        {"price": 1610, "title": "US 11 - 12 / Black sole"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/68841815e999b8b0c30438ce/81807/51857/loab-womens-indoor-slippers.jpg?camera_label=left-and-right-slipper"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21938418"}
+                },
+                {
+                    "id": "68840d4bd9d9487c710f8872",
+                    "title": "LOAB™- Women's Pajama Pants",
+                    "description": "Experience ultimate comfort with these Women's Pajama Pants, designed for relaxation and style.",
+                    "variants": [
+                        {"price": 5368, "title": "S"},
+                        {"price": 5368, "title": "M"},
+                        {"price": 5368, "title": "L"},
+                        {"price": 5368, "title": "XL"},
+                        {"price": 5905, "title": "2XL"},
+                        {"price": 6173, "title": "3XL"},
+                        {"price": 6442, "title": "4XL"},
+                        {"price": 5368, "title": "XS"}
+                    ],
+                    "images": [{"src": "https://images-api.printify.com/mockup/68840d4bd9d9487c710f8872/94291/78774/loab-womens-pajama-pants.jpg?camera_label=front"}],
+                    "external": {"handle": "https://supercomposite-media.printify.me/product/21938394"}
+                }
+            ]
+        };
+
+        function formatPrice(priceInCents) {
+            return `${(priceInCents / 100).toFixed(2)}`;
+        }
+
+        function getProductImage(product) {
+            if (product.images && product.images.length > 0) {
+                return product.images[0].src;
+            }
+            return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxPQULihKIgUHJvZHVjdDwvdGV4dD48L3N2Zz4=';
+        }
+
+        function getProductPriceRange(variants) {
+            if (!variants || variants.length === 0) return 'Price not available';
+            
+            const prices = variants.map(v => v.price);
+            const minPrice = Math.min(...prices);
+            const maxPrice = Math.max(...prices);
+            
+            if (minPrice === maxPrice) {
+                return formatPrice(minPrice);
+            } else {
+                return `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}`;
+            }
+        }
+
+        function createProductCard(product) {
+            const variantCount = product.variants ? product.variants.length : 0;
+            const priceRange = getProductPriceRange(product.variants);
+            
+            return `
+                <div class="product-card">
+                    <img src="${getProductImage(product)}" alt="${product.title}" class="product-image" loading="lazy">
+                    <div class="product-info">
+                        <div class="product-title">${product.title}</div>
+                        <div class="product-price">${priceRange}</div>
+                        <div class="product-variants">${variantCount} variant${variantCount !== 1 ? 's' : ''} available</div>
+                        <button class="view-product-btn" onclick="window.open('${product.external?.handle || '#'}', '_blank')">
+                            View Product
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayProducts(products) {
+            const container = document.getElementById('productsContainer');
+            
+            if (products.length === 0) {
+                container.innerHTML = '<div class="error">No products found</div>';
+                return;
+            }
+
+            const productsHtml = products.map(createProductCard).join('');
+            container.innerHTML = `<div class="products-grid">${productsHtml}</div>`;
+        }
+
+        // Load products (using actual Printify API data)
+        function loadProducts() {
+            try {
+                const products = mockApiData.data;
+                displayProducts(products);
+                
+            } catch (error) {
+                console.error('Error loading products:', error);
+                document.getElementById('productsContainer').innerHTML = 
+                    '<div class="error">Error loading products. Please try again later.</div>';
+            }
+        }
+
+        // Navigation functionality
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                link.classList.add('active');
+                
+                // Scroll to section
+                const target = link.getAttribute('href');
+                if (target.startsWith('#')) {
+                    const section = document.querySelector(target);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Load products when page loads
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+</body>
+</html>
