@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steph Maj Swanson, a.k.a. Supercomposite - artist, writer, speaker, creator of Loab</title>
-    <meta name="description" content="Steph Maj Swanson is a multimedia artist and writer based in Uppsala, Sweden. She is best known for her story about the AI-generated character Loab.">
+    <title>Supercomposite Media - Multimedia Art, Writing & Critical AI Discourse</title>
+    <meta name="description" content="Supercomposite Media is a multimedia art and writing practice led by Steph Maj Swanson, offering critical AI discourse, public speaking, and creative content.">
     
     <style>
         * {
@@ -16,7 +16,7 @@
         body {
             font-family: 'Open Sans', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #ffffff;
             background: #000;
         }
 
@@ -32,40 +32,86 @@
         }
 
         .logo-container {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .logo-container img {
-            width: 300px;
+            width: 500px;
             height: auto;
-            max-width: 80vw;
+            max-width: 90vw;
         }
 
-        .hero-title {
+        .company-title {
             color: #ffffff;
-            font-size: 4rem;
-            font-weight: 400;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            letter-spacing: normal;
+            letter-spacing: 0.1em;
         }
 
-        .hero-subtitle {
-            color: #ffffff;
-            font-size: 2rem;
-            font-weight: 300;
+        .principal-name {
+            color: #cccccc;
+            font-size: 1.2rem;
+            font-weight: 400;
             margin-bottom: 2rem;
         }
 
         .hero-description {
             color: #ffffff;
-            font-size: 1.2rem;
-            font-weight: 600;
-            max-width: 600px;
+            font-size: 1.3rem;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .services-section {
+            background: #111;
+            padding: 4rem 2rem;
+        }
+
+        .services-container {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
+        .services-title {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: #222;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .service-card h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #cccccc;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
         .main-content {
-            background: #ffffff;
+            background: #000;
             padding: 4rem 2rem;
         }
 
@@ -79,12 +125,19 @@
             display: flex;
             gap: 2rem;
             align-items: flex-start;
+            border-bottom: 1px solid #333;
+            padding-bottom: 3rem;
+        }
+
+        .section:last-child {
+            border-bottom: none;
         }
 
         .section-image {
             width: 200px;
             height: auto;
             flex-shrink: 0;
+            border: 1px solid #333;
         }
 
         .section-content {
@@ -94,14 +147,14 @@
         .section-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #000;
+            color: #fff;
             margin-bottom: 1rem;
         }
 
         .section-text {
             font-size: 1rem;
             line-height: 1.6;
-            color: #333;
+            color: #cccccc;
         }
 
         .section-text p {
@@ -109,27 +162,29 @@
         }
 
         .section-text a {
-            color: #000;
+            color: #ffffff;
             font-weight: bold;
+            text-decoration: underline;
         }
 
         .quote-section {
-            background: #f5f5f5;
+            background: #222;
             padding: 2rem;
             margin: 2rem 0;
             text-align: center;
+            border: 1px solid #333;
         }
 
         .quote {
             font-size: 1.1rem;
             font-style: italic;
             margin-bottom: 1rem;
-            color: #333;
+            color: #cccccc;
         }
 
         .quote-author {
             font-weight: bold;
-            color: #000;
+            color: #fff;
         }
 
         .writing-links {
@@ -138,16 +193,17 @@
 
         .writing-link {
             display: block;
-            color: #000;
+            color: #ffffff;
             text-decoration: underline;
             margin-bottom: 0.5rem;
             font-weight: normal;
         }
 
         .social-footer {
-            background: #000;
-            padding: 2rem;
+            background: #111;
+            padding: 3rem 2rem;
             text-align: center;
+            border-top: 1px solid #333;
         }
 
         .social-title {
@@ -158,24 +214,28 @@
         }
 
         .social-links {
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         .social-links a {
-            color: white;
-            text-decoration: none;
+            color: #cccccc;
+            text-decoration: underline;
             margin: 0 1rem;
             font-size: 1rem;
         }
 
+        .social-links a:hover {
+            color: #ffffff;
+        }
+
         .contact-info {
-            color: #ccc;
+            color: #cccccc;
             font-size: 1rem;
         }
 
         .contact-info a {
             color: #fff;
-            text-decoration: none;
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -189,16 +249,16 @@
                 margin: 0 auto;
             }
             
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.5rem;
+            .company-title {
+                font-size: 2rem;
             }
             
             .logo-container img {
-                width: 250px;
+                width: 350px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -206,13 +266,54 @@
 <body>
     <section class="hero-section">
         <div class="logo-container">
-            <img src="gallery/LOGO%20Supercomposite%20White%20on%20Transparent.png" alt="Supercomposite Logo">
+            <img src="gallery/LOGO%20Supercomposite%20White%20on%20Transparent.png" alt="Supercomposite Media Logo">
         </div>
-        <h1 class="hero-title">Steph Maj Swanson</h1>
-        <h2 class="hero-subtitle">(Supercomposite)</h2>
+        <h1 class="company-title">SUPERCOMPOSITE MEDIA</h1>
+        <p class="principal-name">Principal: Steph Maj Swanson</p>
         <p class="hero-description">
-            Steph Maj Swanson, f.k.a. Supercomposite, is a multimedia artist and writer based in Uppsala, Sweden.
+            A multimedia art and writing practice specializing in critical AI discourse, creative content, and public speaking. 
+            Based in Uppsala, Sweden.
         </p>
+    </section>
+
+    <section class="services-section">
+        <div class="services-container">
+            <h2 class="services-title">Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Public Speaking & Lectures</h3>
+                    <p>Critical perspectives on AI, creative labor, and technology ethics. Available in English and Swedish for conferences, universities, and corporate events.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Writing & Content Creation</h3>
+                    <p>Investigative journalism, critical essays, and creative content exploring the intersection of AI, art, and society.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Multimedia Art Projects</h3>
+                    <p>Video installations, AI art projects, and experimental media work that challenges conventional narratives around technology.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Screenwriting</h3>
+                    <p>Original screenplays for film and video projects, specializing in technology-focused narratives and experimental storytelling formats.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Digital Music Composition</h3>
+                    <p>Electronic music production and sound design for multimedia projects, available across streaming platforms and for licensing.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Film Programming & Curation</h3>
+                    <p>Specialized programming focusing on algorithmic themes, AI ethics, and the intersection of technology and creative expression.</p>
+                </div>
+                <div class="service-card">
+                    <h3>AI Ethics Consulting</h3>
+                    <p>Advisory services for organizations navigating the ethical implications of AI implementation and creative labor disruption.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Creative Direction</h3>
+                    <p>Strategic creative vision for projects exploring technology's impact on art, culture, and human expression.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <div class="main-content">
@@ -222,7 +323,8 @@
                 <div class="section-content">
                     <h2 class="section-title">Loab</h2>
                     <div class="section-text">
-                        <p>Steph is best known for <a href="https://twitter.com/supercomposite/status/1567162288087470081">her story</a> about the AI-generated cryptid <strong>Loab</strong>, which <em>Forbes</em> praised as "genuinely interesting and unsettling" and which <em>The Atlantic</em> dubbed "a form of expression that has never existed before." A multitude of other media outlets have featured Loab, including <em>Rolling Stone</em>, <em>Der Spiegel</em>, <em>Artnet News</em>, BBC Radio, and the ABC. To learn more about Loab, visit <a href="http://loab.ai/">loab.ai</a> or <a href="https://twitter.com/supercomposite/status/1567162288087470081">read the original viral Twitter thread</a>.</p>
+                        <p>Supercomposite Media gained international recognition for <a href="https://twitter.com/supercomposite/status/1567162288087470081">the story of Loab</a>, an AI-generated cryptid that <em>Forbes</em> praised as "genuinely interesting and unsettling" and <em>The Atlantic</em> dubbed "a form of expression that has never existed before." The project sparked global conversations about AI ethics and creative expression, featured across media outlets including <em>Rolling Stone</em>, <em>Der Spiegel</em>, <em>Artnet News</em>, BBC Radio, and ABC.</p>
+                        <p>To learn more about Loab, visit <a href="http://loab.ai/">loab.ai</a> or <a href="https://twitter.com/supercomposite/status/1567162288087470081">read the original viral Twitter thread</a>.</p>
                     </div>
                 </div>
             </section>
@@ -245,21 +347,23 @@
             <section class="section">
                 <img src="gallery/IMG_5202%2011%20Edited%20-%20storf5b8.jpg" alt="Public speaking" class="section-image">
                 <div class="section-content">
-                    <h2 class="section-title">Public speaking</h2>
+                    <h2 class="section-title">Speaking Engagements</h2>
                     <div class="section-text">
-                        <p>Steph is a speaker at events and conferences, where she shares her unique critical perspective on topics such as AI and creative labor. In 2023, she held talks at DEF CON in Las Vegas, the Chaos Communication Congress in Hamburg, and for Svenska Tecknare (the Swedish Illustrators' Union) in Stockholm. In 2024 she spoke at IDA in Copenhagen and is slated to speak at the Belgrade Museum of Contemporary Art in November.</p>
-                        <p><em>Steph håller föredrag med ett unikt kritiskt blick mot AI - även på svenska!</em></p>
-                        <p>For talk enquiries, email <a href="mailto:contact@supercompo.site">contact@supercompo.site</a>.</p>
+                        <p>Steph delivers talks at major conferences and institutions, sharing critical perspectives on AI and creative labor. Recent engagements include DEF CON Las Vegas (2023), Chaos Communication Congress Hamburg (2023), Svenska Tecknare Stockholm (2023), IDA Copenhagen (2024), and upcoming appearances at Belgrade Museum of Contemporary Art (2024).</p>
+                        <p><em>Föredrag tillgängliga på svenska med unikt kritiskt perspektiv på AI och kreativt arbete.</em></p>
+                        <p>For speaking inquiries: <a href="mailto:contact@supercompo.site">contact@supercompo.site</a></p>
                     </div>
                 </div>
             </section>
 
             <section class="section">
-                <img src="gallery/Defcon%20cut.00_07_19_22.Still009-ts1692465003f5b8.png" alt="Suicide III film" class="section-image">
+                <div style="width: 200px; flex-shrink: 0;">
+                    <iframe width="200" height="113" src="https://www.youtube.com/embed/hJxRD4YX1RU" frameborder="0" allowfullscreen style="border: 1px solid #333;"></iframe>
+                </div>
                 <div class="section-content">
                     <h2 class="section-title"><em>Suicide III</em></h2>
                     <div class="section-text">
-                        <p>Steph wrote and directed the short film <strong><em>Suicide III</em></strong> (2023) as a part of ARRG!'s video art installation at DEF CON 31 in Las Vegas. The film uses deepfakes and other synthetic imagery in an attempt to weave a satirical counter-narrative to AI hype. In 2024, <em>Suicide III</em> screened at The Museum of the Moving Image in New York, and is slated to be shown at Uppsala Short Film Festival and Videomedeja in Novi Sad, Serbia.</p>
+                        <p>Original short film written and directed by Steph for ARRG!'s video art installation at DEF CON 31 Las Vegas (2023). The work employs deepfakes and synthetic imagery to construct a satirical counter-narrative to AI hype culture. Screened at The Museum of the Moving Image New York (2024), Uppsala Short Film Festival, and Videomedeja Novi Sad, Serbia.</p>
                     </div>
                 </div>
             </section>
@@ -267,12 +371,14 @@
             <section class="section">
                 <img src="gallery/image-ts1692463318f5b8.png" alt="Vice writing" class="section-image">
                 <div class="section-content">
-                    <h2 class="section-title">Writing for <em>Vice Motherboard</em></h2>
+                    <h2 class="section-title">Published Writing</h2>
                     <div class="section-text">
+                        <p>Investigative journalism and critical essays for major publications:</p>
                         <div class="writing-links">
                             <a href="https://www.vice.com/en/article/k7zeqv/i-coaxed-chatgpt-into-a-deeply-unsettling-bdsm-relationship" target="_blank">I Coaxed ChatGPT Into a Deeply Unsettling BDSM Relationship</a>
                             <a href="https://www.vice.com/en/article/v7b4m9/chatgpt-generated-child-sex-abuse-when-asked-to-write-bdsm-scenarios" target="_blank">ChatGPT Generated Child Sex Abuse When Asked to Write BDSM Scenarios</a>
                         </div>
+                        <p style="margin-top: 1rem;">Additional work described by <em>The Washington Post</em> as "disturbing" and by <em>Galleries West</em> as "the merging of repulsive with beautiful."</p>
                     </div>
                 </div>
             </section>
@@ -280,10 +386,10 @@
             <section class="section">
                 <img src="gallery/artwork_4%20-%20stor-ts1675869272f5b8.jpg" alt="Other artwork" class="section-image">
                 <div class="section-content">
-                    <h2 class="section-title">Other work</h2>
+                    <h2 class="section-title">Recent Projects</h2>
                     <div class="section-text">
-                        <p>Steph's other writing was deemed "disturbing" by <em>The Washington Post</em>, while her body of video and still image work was described by <em>Galleries West</em> as "the merging of repulsive with beautiful."</p>
-                        <p>Recently, Steph has taken interest in film programming. This year, she's curating and hosting the special program "Algorithmic Grotesque" at Uppsala Short Film Festival.</p>
+                        <p>Supercomposite Media recently completed the special program "Algorithmic Grotesque" for Uppsala Short Film Festival, exploring the intersection of technology and visual culture.</p>
+                        <p>Currently developing new multimedia projects and available for collaborative ventures, commissions, and creative partnerships worldwide.</p>
                     </div>
                 </div>
             </section>
@@ -291,19 +397,19 @@
     </div>
 
     <footer class="social-footer">
-        <h3 class="social-title">Much of Steph's work can be found across these sites:</h3>
+        <h3 class="social-title">Connect with Supercomposite Media</h3>
         <div class="social-links">
             <a href="https://twitter.com/supercomposite">Twitter</a>
             <a href="https://instagram.com/supercomposite">Instagram</a>
             <a href="https://facebook.com/supercomposite">Facebook</a>
             <a href="https://supercomposite.tumblr.com/">Tumblr</a>
             <a href="https://www.youtube.com/channel/UCobnti2aNglWoQZHiIXM0KA">YouTube</a>
-            <a href="https://supercomposite.bandcamp.com/">Bandcamp</a>
-            <a href="https://open.spotify.com/artist/1BZY2h5mjKFauhPbNfkHbR">Spotify</a>
-            <a href="https://soundcloud.com/supercomposite">SoundCloud</a>
+            <a href="https://supercomposite.bandcamp.com/">Bandcamp - Digital Music</a>
+            <a href="https://open.spotify.com/artist/1BZY2h5mjKFauhPbNfkHbR">Spotify - Digital Music</a>
+            <a href="https://soundcloud.com/supercomposite">SoundCloud - Digital Music</a>
         </div>
         <div class="contact-info">
-            Enquiries: <a href="mailto:contact@supercompo.site">contact@supercompo.site</a>
+            Business inquiries: <a href="mailto:contact@supercompo.site">contact@supercompo.site</a>
         </div>
     </footer>
 </body>
