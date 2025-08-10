@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsing Geometric Logo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .geometric-logo {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-text {
+            position: absolute;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 100;
+            font-size: 48px;
+            letter-spacing: 3px;
+            text-transform: lowercase;
+            z-index: 10;
+            opacity: 0.9;
+            pointer-events: none;
+            white-space: nowrap;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .geometric-logo svg {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Floating animation with rotation and scaling - applied only to SVG */
+        @keyframes float {
+            0%, 100% { 
+                transform: rotate(0deg) scale(1);
+                opacity: 0.6;
+            }
+            25% { 
+                transform: rotate(2deg) scale(1.05);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: rotate(0deg) scale(1.1);
+                opacity: 1;
+            }
+            75% { 
+                transform: rotate(-2deg) scale(0.95);
+                opacity: 0.8;
+            }
+        }
+
+        .geometric-logo svg {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Individual square animations */
+        .square-1 { animation-delay: 0s; }
+        .square-2 { animation-delay: 0.2s; }
+        .square-3 { animation-delay: 0.4s; }
+        .square-4 { animation-delay: 0.6s; }
+        .square-5 { animation-delay: 0.8s; }
+        .square-6 { animation-delay: 1s; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; stroke-width: 1; }
+            50% { opacity: 1; stroke-width: 3; }
+        }
+
+        .geometric-logo rect {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="geometric-logo">
+        <div class="logo-text">supercomposite media</div>
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#ffffff">
+                <!-- Nested squares creating depth with individual animations -->
+                <rect x="50" y="50" width="300" height="300" transform="rotate(0 200 200)" class="square-1"/>
+                <rect x="75" y="75" width="250" height="250" transform="rotate(5 200 200)" class="square-2"/>
+                <rect x="100" y="100" width="200" height="200" transform="rotate(10 200 200)" class="square-3"/>
+                <rect x="125" y="125" width="150" height="150" transform="rotate(15 200 200)" class="square-4"/>
+                <rect x="150" y="150" width="100" height="100" transform="rotate(20 200 200)" class="square-5"/>
+                <rect x="175" y="175" width="50" height="50" transform="rotate(25 200 200)" class="square-6"/>
+            </g>
+        </svg>
+    </div>
+</body>
+</html>
