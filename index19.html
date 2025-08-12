@@ -123,12 +123,13 @@
 
         .main-content {
             background: #000;
-            padding: 0.5rem 1rem 2rem;
+            padding: 0.5rem 0 2rem;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .section {
@@ -138,6 +139,7 @@
             align-items: flex-start;
             border-bottom: 1px solid #333;
             padding-bottom: 2rem;
+            width: 100%;
         }
 
         .section:last-child {
@@ -153,6 +155,7 @@
 
         .section-content {
             flex: 1;
+            width: 100%;
         }
 
         .section-title {
@@ -283,7 +286,41 @@
             transform: scale(1.05);
         }
 
+        /* Full width content for speaking section */
+        .speaking-content-wrapper {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .speaking-media-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .speaking-image,
+        .speaking-video {
+            width: 400px;
+            height: auto;
+            border: 1px solid #333;
+        }
+
+        .speaking-video {
+            height: 225px;
+        }
+
+        .speaking-text-container {
+            flex: 1;
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
             .section {
                 flex-direction: column;
             }
@@ -310,38 +347,18 @@
                 gap: 1rem;
             }
 
-            .section-content {
-                align-items: flex-start;
+            .speaking-content-wrapper {
+                flex-direction: column;
             }
 
-            .section-content > div {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
+            .speaking-media-container {
+                align-items: center;
+            }
+
+            .speaking-image,
+            .speaking-video {
                 width: 100%;
-            }
-
-            .section-content > div > div:first-child {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-                flex-shrink: 0;
-            }
-
-            .section-content > div > div:first-child img,
-            .section-content > div > div:first-child iframe {
-                width: 400px;
-                height: auto;
-                border: 1px solid #333;
-            }
-
-            .section-content > div > div:first-child iframe {
-                height: 225px;
-            }
-
-            .section-content > div > div:last-child {
-                flex: 1;
+                max-width: 400px;
             }
         }
 
@@ -381,7 +398,7 @@
                     </a>
                     <a href="https://facebook.com/supercomposite" title="Facebook">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                         </svg>
                     </a>
                     <a href="https://supercomposite.tumblr.com/" title="Tumblr">
@@ -433,12 +450,12 @@
 
             <section class="section">
                 <div class="section-content">
-                    <div style="display: flex; gap: 2rem; align-items: flex-start; width: 100%;">
-                        <div style="display: flex; flex-direction: column; gap: 1rem; flex-shrink: 0;">
-                            <img src="gallery/IMG_5202%2011%20Edited%20-%20storf5b8.jpg" alt="Public speaking" style="width: 400px; height: auto; border: 1px solid #333;">
-                            <iframe width="400" height="225" src="https://www.youtube.com/embed/hJxRD4YX1RU" frameborder="0" allowfullscreen style="border: 1px solid #333;"></iframe>
+                    <div class="speaking-content-wrapper">
+                        <div class="speaking-media-container">
+                            <img src="gallery/IMG_5202%2011%20Edited%20-%20storf5b8.jpg" alt="Public speaking" class="speaking-image">
+                            <iframe width="400" height="225" src="https://www.youtube.com/embed/hJxRD4YX1RU" frameborder="0" allowfullscreen class="speaking-video"></iframe>
                         </div>
-                        <div style="flex: 1;">
+                        <div class="speaking-text-container">
                             <h2 class="section-title">Speaking Engagements & Interviews</h2>
                             <div class="section-text">
 <p>Steph Maj Swanson delivers talks at major conferences and institutions, and appears on podcasts and radio shows, sharing critical perspectives on AI and creative labor.</p>
