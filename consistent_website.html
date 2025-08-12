@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supercomposite Media - Multimedia Art, Writing & Critical AI Discourse</title>
+    <meta name="description" content="Supercomposite Media is a multimedia art and writing practice led by Steph Maj Swanson, offering critical AI discourse, public speaking, and creative content.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #000;
+        }
+
+        .hero-section {
+            background: #000;
+            min-height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem 1rem;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-container img {
+            width: 800px;
+            height: auto;
+            max-width: 100%;
+        }
+
+        .company-title {
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-description {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 400;
+            max-width: none;
+            margin: 0 0 2rem 0;
+            line-height: 1.5;
+        }
+
+        .hero-contact {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .hero-contact a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .hero-social {
+            margin-bottom: 2rem;
+        }
+
+        .hero-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-social-links a {
+            color: #cccccc;
+            transition: color 0.3s ease;
+        }
+
+        .hero-social-links a:hover {
+            color: #ffffff;
+        }
+
+        .services-section {
+            background: #111;
+            padding: 0.5rem;
+        }
+
+        .services-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-title {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .services-box {
+            background: #222;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .main-content {
+            background: #000;
+            padding: 0.5rem 0 2rem;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            border-bottom: 1px solid #333;
+            padding-bottom: 2rem;
+            width: 100%;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-image {
+            width: 400px;
+            height: auto;
+            flex-shrink: 0;
+            border: 1px solid #333;
+        }
+
+        .section-content {
+            flex: 1;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .section-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #cccccc;
+        }
+
+        .section-text p {
+            margin-bottom: 1rem;
+        }
+
+        .section-text a {
+            color: #ffffff;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .writing-links {
+            margin-top: 1rem;
+        }
+
+        .writing-link {
+            display: block;
+            color: #ffffff;
+            text-decoration: underline;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .social-footer {
+            background: #111;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .social-title {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        /* Merch Styles - now integrated into section content */
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .merch-card {
+            background: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid #444;
+            cursor: pointer;
+        }
+
+        .merch-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .merch-image {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .merch-info {
+            padding: 0.75rem;
+        }
+
+        .merch-product-title {
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .view-all-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #444;
+            height: 100px;
+            width: 100%;
+            font-size: 0.85rem;
+            line-height: 1.2;
+        }
+
+        .view-all-btn:hover {
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+            transform: scale(1.05);
+        }
+
+        /* Full width content for speaking section */
+        .speaking-content-wrapper {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .speaking-media-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        .speaking-image,
+        .speaking-video {
+            width: 400px;
+            height: auto;
+            border: 1px solid #333;
+        }
+
+        .speaking-video {
+            height: 225px;
+        }
+
+        .speaking-text-container {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                flex-direction: column;
+            }
+            
+            .section-image {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .company-title {
+                font-size: 2rem;
+            }
+            
+            .logo-container img {
+                width: 600px;
+            }
+
+            .merch-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+
+            .hero-social-links {
+                gap: 1rem;
+            }
+
+            .speaking-content-wrapper {
+                flex-direction: column;
+            }
+
+            .speaking-media-container {
+                align-items: center;
+            }
+
+            .speaking-image,
+            .speaking-video {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="logo-container">
+                <img src="gallery/LOGO%20Supercomposite%20White%20on%20Transparent.png" alt="Supercomposite Logo">
+            </div>
+            <h1 class="company-title" style="display: none;"><strong>SUPERCOMPOSITE MEDIA</strong></h1>
+            <p class="hero-description">
+       Steph Maj Swanson (She/Her) is a Sweden-based multimedia artist, writer, and founder of Supercomposite Media. Working at the intersection of AI, film, digital art, and music, she creates innovative and boundary-pushing media. Steph welcomes enquiries for creative projects, partnerships, and speaking engagements that explore new directions in storytelling and art.</p>
+            <div class="hero-contact">
+                <strong>Enquiries:</strong> <a href="mailto:contact@supercompo.site">contact@supercompo.site</a>
+            </div>
+            <div class="hero-social">
+                <div class="hero-social-links">
+                    <a href="https://www.linkedin.com/in/stephmajswanson" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/supercomposite" title="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/supercomposite" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://facebook.com/supercomposite" title="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://supercomposite.tumblr.com/" title="Tumblr">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCobnti2aNglWoQZHiIXM0KA" title="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                    <a href="https://supercomposite.bandcamp.com/" title="Bandcamp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z"/>
+                        </svg>
+                    </a>
+                    <a href="https://open.spotify.com/artist/1BZY2h5mjKFauhPbNfkHbR" title="Spotify">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.56.3z"/>
+                        </svg>
+                    </a>
+                    <a href="https://soundcloud.com/supercomposite" title="SoundCloud">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M1.175 13.348c-.109 0-.21.063-.21.173v1.572c0 .109.101.173.21.173s.21-.063.21-.173v-1.572c0-.11-.101-.173-.21-.173zm-.753.376c-.095 0-.174.079-.174.173v.823c0 .095.079.173.174.173s.173-.079.173-.173v-.823c0-.095-.078-.173-.173-.173zm1.506-.376c-.126 0-.236.11-.236.236v1.181c0 .126.11.236.236.236s.236-.11.236-.236v-1.181c0-.126-.11-.236-.236-.236zm.754 0c-.142 0-.252.11-.252.252v1.102c0 .142.11.252.252.252s.252-.11.252-.252v-1.102c0-.142-.11-.252-.252-.252zm.769-.376c-.158 0-.267.126-.267.283v1.729c0 .158.109.284.267.284s.267-.126.267-.284v-1.729c0-.157-.109-.283-.267-.283zm.753 0c-.173 0-.283.142-.283.314v1.417c0 .173.11.315.283.315s.283-.142.283-.315v-1.417c0-.173-.11-.314-.283-.314zm.769-.376c-.189 0-.315.158-.315.346v2.106c0 .189.126.346.315.346s.315-.158.315-.346v-2.106c0-.189-.126-.346-.315-.346zm.754 0c-.205 0-.33.173-.33.378v1.729c0 .205.126.378.33.378s.33-.173.33-.378v-1.729c0-.205-.126-.378-.33-.378zm.769-.376c-.22 0-.346.189-.346.409v2.451c0 .22.126.409.346.409s.346-.189.346-.409v-2.451c0-.22-.126-.409-.346-.409zm.754 0c-.236 0-.378.205-.378.441v1.984c0 .236.142.441.378.441s.378-.205.378-.441v-1.984c0-.236-.142-.441-.378-.441zm.769-.377c-.252 0-.409.22-.409.472v2.766c0 .252.158.472.409.472s.409-.22.409-.472v-2.766c0-.252-.158-.472-.409-.472zm.754.377c-.267 0-.441.236-.441.503v1.889c0 .267.173.503.441.503s.441-.236.441-.503v-1.889c0-.267-.173-.503-.441-.503zm.784-.377c-.283 0-.472.252-.472.535v2.673c0 .283.189.535.472.535s.472-.252.472-.535v-2.673c0-.283-.189-.535-.472-.535zm13.73 5.657c-.5 1.6-1.9 2.7-3.6 2.7H8.9c-.8 0-1.5-.7-1.5-1.5S8.1 16.3 8.9 16.3h9.5c.8 0 1.5.6 1.6 1.4.3 1.5-1.7 3.1-2.9 2.6-1.4-.4-2.4-1.8-2.4-3.3v-.2c0-.1 0-.2.1-.3l3.1-3.1c.1-.1.1-.1.2-.1s.1 0 .2.1l.9.9c.1.1.1.1.1.2 0 .1 0 .1-.1.2l-1.4 1.4c1.2.5 2.6-.2 3.2-1.5.5-1.2 0-2.6-1.1-3.4-1.6-1.2-3.8-1.4-5.7-.7l-.9-.9c-.5-.5-1.3-.5-1.8 0s-.5 1.3 0 1.8l.9.9c-.7 1.9-.5 4.1.7 5.7.8 1.1 2.2 1.6 3.4 1.1z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <div class="container">
+            <hr style="border: 0; height: 1px; background: #333; margin: 1rem 0;">
+
+            <section class="section">
+                <img src="gallery/60a3a3d4-a962-46c4-ac40-785eb148_gans-ts1664055830f5b8.png" alt="Loab artwork" class="section-image">
+                <div class="section-content">
+                    <h2 class="section-title">Loab™</h2>
+                    <div class="section-text">
+                        <p>Steph Maj Swanson gained international recognition for  the story of Loab, an AI-generated cryptid that sparked global conversations about AI ethics and creative expression, featured across media outlets including <em>Rolling Stone</em>, <em>Der Spiegel</em>, <em>Artnet News</em>, BBC Radio, ABC, <em>Forbes</em>, <em>The Atlantic</em>, and <em>Smithsonian Magazine</em>.</p>
+                        <p>The Loab phenomenon was featured in "Negative Capabilities: Investigating Apophasis in AI Text-to-Image Models" published in the journal <em>Religions</em> (June 2023), demonstrating scholarly impact in theological and AI studies.</p>
+                        <p>To learn more about Loab, visit <a href="http://loab.ai/">loab.ai</a> or <a href="https://twitter.com/supercomposite/status/1567162288087470081">read the original viral Twitter thread</a>.</p>
+                        <p><strong>Official LOAB™ merchandise is available <a href="#loab-merchandise">below</a>.</strong></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-content">
+                    <div class="speaking-content-wrapper">
+                        <div class="speaking-media-container">
+                            <img src="gallery/IMG_5202%2011%20Edited%20-%20storf5b8.jpg" alt="Public speaking" class="speaking-image">
+                            <iframe width="400" height="225" src="https://www.youtube.com/embed/hJxRD4YX1RU" frameborder="0" allowfullscreen class="speaking-video"></iframe>
+                        </div>
+                        <div class="speaking-text-container">
+                            <h2 class="section-title">Speaking Engagements & Interviews</h2>
+                            <div class="section-text">
+<p>Steph Maj Swanson delivers talks at major conferences and institutions, and appears on podcasts and radio shows, sharing critical perspectives on AI and creative labor.</p>
+                                <p><strong>Conference Speaking:</strong>  "AI's Katabatic Turn - Data belongs to the Underworld" at "Coding the Gaze" conference at the Salon of the Museum of Contemporary Art in Belgrade (November 2024), Queers in the Machine Symposium at IDA, Copenhagen, Denmark (August 2024), "What I Learned from Loab: AI as a creative adversary" at Chaos Communication Congress, Hamburg, Germany (December 2023), "Kreativitet och artificiell intelligens" panel at Svenska Tecknare - Association of Swedish Illustrators and Graphic Designers, Stockholm, Sweden (October 2023), and a panel discussion at the AI Village, DEF CON Las Vegas, United States (August 2023).</p>
+                                <p><strong>Radio Interviews:</strong> RTÉ lyric fm (Ireland) "Culture File" segment (December 2022), ABC Radio National (Australia) "Background Briefing" program "Has the age of AI already begun?" (November 2022).</p>
+                                <p><strong>Podcast Appearances:</strong> "The Data Fix" podcast "Adversarial, with Steph Maj Swanson" episode with host Dr. Mél Hogan (March 2024), Ten Thousand Posts podcast "Loab your Enthusiasm" episode with Cory Doctorow about AI art and copyright debates (April 2023), BBC Woman's Hour "The Offbeat Sari exhibition, Iran latest, coldwater swimming and is AI pushing the boundaries of art?" episode about Loab and AI-generated content with presenter Krupa Padhy (January 2023).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <img src="gallery/Defcon%20cut.00_07_19_22.Still009-ts1692465003f5b8.png" alt="Suicide III film" class="section-image">
+                <div class="section-content">
+                    <h2 class="section-title"><em>Suicide III</em></h2>
+                    <div class="section-text">
+                        <p>Original short film written and directed by Steph Maj Swanson for ARRG!'s video art installation at DEF CON 31 Las Vegas (August 2023). The work employs deepfakes and synthetic imagery to construct a satirical counter-narrative to AI hype culture.</p>
+                        <p><strong>Festival Screenings:</strong> ALC VideoArt Festival, Alicante, Spain (September 2025), Badnäm Film Festival, Bangalore, India (April 2025), Uppsala Short Film Festival, Sweden (October 2024), Videomedeja Festival, Novi Sad, Serbia (October 2024), Philip K Dick Film Festival, The Museum of the Moving Image, New York, United States (April 2024), Almaty Underground Screening Series, Kazakhstan (March 2024), and SXSW Sydney Screen Festival, Sydney, Australia (October 2023).</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <img src="gallery/artwork_4%20-%20stor-ts1675869272f5b8.jpg" alt="Uppsala Short Film Festival" class="section-image">
+                <div class="section-content">
+                    <h2 class="section-title">Uppsala Short Film Festival</h2>
+                    <div class="section-text">
+                        <p>Steph Maj Swanson previously served as Film Programmer/Reviewer at Uppsala Short Film Festival, one of Europe's most important short film festivals and Sweden's main arena for short film. Founded in 1982, the festival is recognized by the Academy of Motion Picture Arts and Sciences—winning films may qualify for Oscar nominations—and screens more than 300 short films annually.</p>
+                        <p>In October 2024, Steph curated and hosted the special program "Algorithmic Grotesque: Unravelling A.I." described as "part educational, part descent into madness" featuring filmmakers who "put a critical eye to our algorithmic society, using A.I. to explore topics such as distorted gender norms, surveillance, and eugenics." The program included works by Eryk Salvaggio, Marion Balac, Ada Ada Ada, Ines Sieulle, Conner O'Malley & Dan Streit, and Ryan Worsley & Negativland.</p>
+                        <p>Her own film <em>Suicide III</em> was also selected for the festival's "Film from Uppland" program, showcasing regional filmmaking talent.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <img src="gallery/image-ts1692463318f5b8.png" alt="Vice writing" class="section-image">
+                <div class="section-content">
+                    <h2 class="section-title">Published Writing</h2>
+                    <div class="section-text">
+                       <p>Steph Maj Swanson's research and critical writing on AI appears in major media and academic publications.</p>
+
+    <p><strong>Solo publications:</strong> "I Coaxed ChatGPT Into a Deeply Unsettling BDSM Relationship" and "ChatGPT Generated Child Sex Abuse When Asked to Write BDSM Scenarios," both published in <em>Vice</em> in 2023.</p>
+
+    <p><strong>Co-authored work:</strong> "Cultural Red Teaming: ARRG! and Creative Misuse of AI Systems" in <em>Critical AI</em>, Vol. 2(1), 2024, Duke University Press, co-authored with Eryk Salvaggio and Caroline Sinders.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <img src="gallery/1754137429500album.jpg" alt="STEMcell digital art" class="section-image">
+                <div class="section-content">
+                    <h2 class="section-title">Digital Art</h2>
+                    <div class="section-text">
+                        <p>Steph Maj Swanson creates digital artwork for electronic music releases, collaborating with experimental artists and labels. Recent work includes art for STEMcell, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. Steph developed a unique artistic process: "an AI model was pummeled with images of optical sound-on-film waveforms—until the model could no longer produce images without traces of analog audio information."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LOAB Merchandise Section - full width, no image -->
+            <section class="section" id="loab-merchandise" style="flex-direction: column; align-items: center;">
+                <div class="section-content" style="width: 100%; max-width: none;">
+                    <h2 class="section-title" style="text-align: center;">Official LOAB™ Merchandise</h2>
+                    <div class="section-text" style="text-align: center; margin-bottom: 2rem;">
+                        <p>Official merchandise available through our online store. The collection includes leggings, scarves, shirts, sleepwear, socks, sweatshirts, footwear, and headwear.</p>
+                    </div>
+                    <div class="merch-grid" id="loabMerchGrid">
+                        <!-- Products will be loaded here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="social-footer">
+        <h3 class="social-title">For additional portfolio work and updates, visit Steph Maj Swanson's social media channels.</h3>
+        <div class="hero-social">
+            <div class="hero-social-links">
+                <a href="https://www.linkedin.com/in/stephmajswanson" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/supercomposite" title="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com/supercomposite" title="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://facebook.com/supercomposite" title="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://supercomposite.tumblr.com/" title="Tumblr">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/channel/UCobnti2aNglWoQZHiIXM0KA" title="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="https://supercomposite.bandcamp.com/" title="Bandcamp">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z"/>
+                    </svg>
+                </a>
+                <a href="https://open.spotify.com/artist/1BZY2h5mjKFauhPbNfkHbR" title="Spotify">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.56.3z"/>
+                    </svg>
+                </a>
+                <a href="https://soundcloud.com/supercomposite" title="SoundCloud">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M1.175 13.348c-.109 0-.21.063-.21.173v1.572c0 .109.101.173.21.173s.21-.063.21-.173v-1.572c0-.11-.101-.173-.21-.173zm-.753.376c-.095 0-.174.079-.174.173v.823c0 .095.079.173.174.173s.173-.079.173-.173v-.823c0-.095-.078-.173-.173-.173zm1.506-.376c-.126 0-.236.11-.236.236v1.181c0 .126.11.236.236.236s.236-.11.236-.236v-1.181c0-.126-.11-.236-.236-.236zm.754 0c-.142 0-.252.11-.252.252v1.102c0 .142.11.252.252.252s.252-.11.252-.252v-1.102c0-.142-.11-.252-.252-.252zm.769-.376c-.158 0-.267.126-.267.283v1.729c0 .158.109.284.267.284s.267-.126.267-.284v-1.729c0-.157-.109-.283-.267-.283zm.753 0c-.173 0-.283.142-.283.314v1.417c0 .173.11.315.283.315s.283-.142.283-.315v-1.417c0-.173-.11-.314-.283-.314zm.769-.376c-.189 0-.315.158-.315.346v2.106c0 .189.126.346.315.346s.315-.158.315-.346v-2.106c0-.189-.126-.346-.315-.346zm.754 0c-.205 0-.33.173-.33.378v1.729c0 .205.126.378.33.378s.33-.173.33-.378v-1.729c0-.205-.126-.378-.33-.378zm.769-.376c-.22 0-.346.189-.346.409v2.451c0 .22.126.409.346.409s.346-.189.346-.409v-2.451c0-.22-.126-.409-.346-.409zm.754 0c-.236 0-.378.205-.378.441v1.984c0 .236.142.441.378.441s.378-.205.378-.441v-1.984c0-.236-.142-.441-.378-.441zm.769-.377c-.252 0-.409.22-.409.472v2.766c0 .252.158.472.409.472s.409-.22.409-.472v-2.766c0-.252-.158-.472-.409-.472zm.754.377c-.267 0-.441.236-.441.503v1.889c0 .267.173.503.441.503s.441-.236.441-.503v-1.889c0-.267-.173-.503-.441-.503zm.784-.377c-.283 0-.472.252-.472.535v2.673c0 .283.189.535.472.535s.472-.252.472-.535v-2.673c0-.283-.189-.535-.472-.535zm13.73 5.657c-.5 1.6-1.9 2.7-3.6 2.7H8.9c-.8 0-1.5-.7-1.5-1.5S8.1 16.3 8.9 16.3h9.5c.8 0 1.5.6 1.6 1.4.3 1.5-1.7 3.1-2.9 2.6-1.4-.4-2.4-1.8-2.4-3.3v-.2c0-.1 0-.2.1-.3l3.1-3.1c.1-.1.1-.1.2-.1s.1 0 .2.1l.9.9c.1.1.1.1.1.2 0 .1 0 .1-.1.2l-1.4 1.4c1.2.5 2.6-.2 3.2-1.5.5-1.2 0-2.6-1.1-3.4-1.6-1.2-3.8-1.4-5.7-.7l-.9-.9c-.5-.5-1.3-.5-1.8 0s-.5 1.3 0 1.8l.9.9c-.7 1.9-.5 4.1.7 5.7.8 1.1 2.2 1.6 3.4 1.1z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // LOAB Merchandise Data (all products from your store)
+        const loabMerchData = [
+            {
+                "title": "LOAB™ Embroidered Knit Beanie",
+                "image": "https://images-api.printify.com/mockup/6884e82535f0c41bb9090ba1/118231/109442/loab-embroidered-knit-beanie.jpg?camera_label=front",
+                "url": "https://supercomposite-media.printify.me/product/21939932"
+            },
+            {
+                "title": "LOAB™ Flip Flops",
+                "image": "https://images-api.printify.com/mockup/6883eddcef5e3d1ac50937ff/72177/15334/loab-flip-flops.jpg?camera_label=front",
+                "url": "https://supercomposite-media.printify.me/product/21938408"
+            },
+            {
+                "title": "LOAB™ High Waisted Yoga Leggings",
+                "image": "https://images-api.printify.com/mockup/6884e147e999b8b0c30467bd/67982/7991/loab-high-waisted-yoga-leggings.jpg?camera_label=front",
+                "url": "https://supercomposite-media.printify.me/product/21939597"
+            },
+            {
+                "title": "LOAB™ Poly Scarf",
+                "image": "https://images-api.printify.com/mockup/6884ee9aaf9232822102bf0d/42318/45951/loab-poly-scarf.jpg?camera_label=flat",
+                "url": "https://supercomposite-media.printify.me/product/21940396"
+            },
+            {
+                "title": "LOAB™ Socks",
+                "image": "https://images-api.printify.com/mockup/6883e8c535f0c41bb908d0df/45134/53204/loab-socks.jpg?camera_label=pose-1",
+                "url": "https://supercomposite-media.printify.me/product/21938386"
+            },
+            {
+                "title": "LOAB™ Unisex Sweatshirt",
+                "image": "https://images-api.printify.com/mockup/6883ed2b1fd9f775a6078fca/36126/234/loab-unisex-sweatshirt.jpg?camera_label=front",
+                "url": "https://supercomposite-media.printify.me/product/21938411"
+            },
+            {
+                "title": "LOAB™ Unisex T-shirt",
+                "image": "https://images-api.printify.com/mockup/6883ebbb081f2eb32109f2fd/73204/100629/loab-unisex-t-shirt.jpg?camera_label=folded",
+                "url": "https://supercomposite-media.printify.me/product/21938407"
+            },
+            {
+                "title": "LOAB™ Women's Indoor Slippers",
+                "image": "https://images-api.printify.com/mockup/68841815e999b8b0c30438ce/81807/51857/loab-womens-indoor-slippers.jpg?camera_label=left-and-right-slipper",
+                "url": "https://supercomposite-media.printify.me/product/21938418"
+            },
+            {
+                "title": "LOAB™ Women's Pajama Pants",
+                "image": "https://images-api.printify.com/mockup/68840d4bd9d9487c710f8872/94291/78774/loab-womens-pajama-pants.jpg?camera_label=front",
+                "url": "https://supercomposite-media.printify.me/product/21938394"
+            }
+        ];
+
+        function createMerchCard(item) {
+            return `
+                <div class="merch-card" onclick="window.open('${item.url}', '_blank')">
+                    <img src="${item.image}" alt="${item.title}" class="merch-image" loading="lazy" 
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNDQ0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2NjYyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkxPQULihKI8L3RleHQ+PC9zdmc+'">
+                    <div class="merch-info">
+                        <div class="merch-product-title">${item.title}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadLoabMerch() {
+            const grid = document.getElementById('loabMerchGrid');
+            if (grid && loabMerchData && loabMerchData.length > 0) {
+                console.log('Loading LOAB merch products:', loabMerchData.length);
+                const merchCards = loabMerchData.map(createMerchCard).join('');
+                const viewAllButton = `
+                    <a href="https://supercomposite-media.printify.me/" target="_blank" class="view-all-btn">
+                        View Full Collection →
+                    </a>
+                `;
+                grid.innerHTML = merchCards + viewAllButton;
+                console.log('LOAB merch loaded successfully');
+            } else {
+                console.error('Failed to load LOAB merch - grid or data missing');
+                if (grid) {
+                    grid.innerHTML = '<p style="color: #ccc; text-align: center;">Loading products...</p>';
+                }
+            }
+        }
+
+        // Load products when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing merch...');
+            loadLoabMerch();
+        });
+
+        // Backup load after a short delay
+        setTimeout(loadLoabMerch, 1000);
+    </script>
+</body>
+</html>
