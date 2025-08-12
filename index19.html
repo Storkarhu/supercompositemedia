@@ -207,23 +207,7 @@
             font-weight: normal;
         }
 
-        /* Merch Styles */
-        .merch-section {
-            background: #222;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 20px;
-            border: 1px solid #333;
-        }
-
-        .merch-title {
-            color: #ffffff;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-align: left;
-            margin-bottom: 1.5rem;
-        }
-
+        /* Merch Styles - now integrated into section content */
         .merch-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -517,11 +501,16 @@
                 </div>
             </section>
 
-            <!-- LOAB Merchandise Section -->
-            <section class="merch-section" id="loab-merchandise">
-                <h2 class="merch-title">Official LOAB™ Merchandise</h2>
-                <div class="merch-grid" id="loabMerchGrid">
-                    <!-- Products will be loaded here -->
+            <!-- LOAB Merchandise Section - full width, no image -->
+            <section class="section" id="loab-merchandise" style="flex-direction: column; align-items: center;">
+                <div class="section-content" style="width: 100%; max-width: none;">
+                    <h2 class="section-title" style="text-align: center;">Official LOAB™ Merchandise</h2>
+                    <div class="section-text" style="text-align: center; margin-bottom: 2rem;">
+                        <p>Official merchandise available through our online store. The collection includes leggings, scarves, shirts, sleepwear, socks, sweatshirts, footwear, and headwear.</p>
+                    </div>
+                    <div class="merch-grid" id="loabMerchGrid">
+                        <!-- Products will be loaded here -->
+                    </div>
                 </div>
             </section>
         </div>
