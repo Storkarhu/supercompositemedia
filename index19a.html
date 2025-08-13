@@ -223,7 +223,6 @@
         .section {
             margin-bottom: 5rem;
             padding: 3rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             animation: fadeInUp 0.8s ease-out;
         }
 
@@ -464,12 +463,8 @@
         }
 
         .section-subsection {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 2rem;
             margin: 2rem 0;
-            backdrop-filter: blur(10px);
+            width: 90%;
         }
 
         .subsection-title {
@@ -477,30 +472,14 @@
             font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
             display: inline-block;
         }
 
         .highlight-section {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
             padding: 2.5rem;
             margin: 3rem 0;
-            backdrop-filter: blur(15px);
             position: relative;
-        }
-
-        .highlight-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-            border-radius: 15px 15px 0 0;
+            width: 90%;
         }
     </style>
 </head>
@@ -508,7 +487,7 @@
     <section class="hero-section">
         <div class="hero-container">
             <div class="logo-container">
-                <img src="https://via.placeholder.com/600x120/000/fff?text=SUPERCOMPOSITE+IMAGES" alt="Supercomposite Images Logo">
+                <img src="gallery/LOGOSupercompositeImagesWhiteonBlack.png" alt="Supercomposite Images Logo">
             </div>
             <p class="hero-description">
                 <strong>Steph Maj Swanson</strong><br>
@@ -634,7 +613,7 @@
                 <div class="content-wrapper">
                     <div class="media-container">
                         <img src="gallery/Defcon%20cut.00_07_19_22.Still009-ts1692465003f5b8.png" alt="Film work" class="media-item">
-                        <iframe width="400" height="225" src="https://www.youtube.com/embed/hJxRD4YX1RU" frameborder="0" allowfullscreen class="media-item video-item"></iframe>
+                        <img src="https://www.claudeusercontent.com/gallery/algogroUppsala.png" alt="Uppsala Film Festival" class="media-item">
                     </div>
                     <div class="text-container">
                         <div class="section-text">
@@ -652,16 +631,16 @@
                                 • <a href="https://www.sxswsydney.com/screen-industry">SXSW Sydney Screen Festival</a>, Sydney, Australia (Oct 2023)</p>
                             </div>
 
-                            <div class="highlight-section">
-                                <div class="subsection-title">Current Project</div>
-                                <p>Steph recently received a grant from <a href="https://sfilm.se/">Sveriges Filmförbund</a> (Swedish Film Association) to direct a short film about two people with an erotic fixation on the invisible algorithms inside cameras, exploring how computational photography silently shapes our perception of ourselves and the world.</p>
-                            </div>
-
                             <div class="section-subsection">
                                 <div class="subsection-title">Curator & Programmer</div>
                                 <p><strong><a href="https://shortfilmfestival.com/en/">Uppsala Short Film Festival</a></strong> - Steph served as Film Programmer/Reviewer at Uppsala Short Film Festival, one of Europe's most important short film festivals. Founded in 1982, the festival is recognized by the Academy of Motion Picture Arts and Sciences and screens more than 300 short films annually.</p>
                                 
                                 <p>In October 2024, Steph curated and hosted the special program <a href="https://shortfilmfestival.com/en/program-2024/specialprogram-2024/algorithmic-grotesque-unravelling-a-i/">"Algorithmic Grotesque: Unravelling A.I."</a> featuring filmmakers who explore algorithmic society through AI, covering topics such as distorted gender norms, surveillance, and eugenics. The program included works by Eryk Salvaggio, Marion Balac, Ada Ada Ada, Ines Sieulle, Conner O'Malley & Dan Streit, and Ryan Worsley & Negativland.</p>
+                            </div>
+
+                            <div class="highlight-section">
+                                <div class="subsection-title">Current Project</div>
+                                <p>Steph recently received a grant from <a href="https://sfilm.se/">Sveriges Filmförbund</a> (Swedish Film Association) to direct a short film about two people with an erotic fixation on the invisible algorithms inside cameras, exploring how computational photography silently shapes our perception of ourselves and the world.</p>
                             </div>
                         </div>
                     </div>
@@ -673,7 +652,7 @@
                 <div class="content-wrapper">
                     <div class="media-container">
                         <img src="gallery/IMG_5202%2011%20Edited%20-%20storf5b8.jpg" alt="Public speaking" class="media-item">
-                        <img src="gallery/algogroUppsala.png" alt="Conference presentation" class="media-item">
+                        <iframe width="400" height="225" src="https://www.youtube.com/embed/hJxRD4YX1RU" frameborder="0" allowfullscreen class="media-item video-item"></iframe>
                     </div>
                     <div class="text-container">
                         <div class="section-text">
@@ -703,7 +682,7 @@
                 <h2 class="section-title">Writing</h2>
                 <div class="content-wrapper">
                     <div class="media-container">
-                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop&crop=center" alt="Published writing" class="media-item">
+                        <img src="gallery/image-ts1692463318f5b8.png" alt="Published writing" class="media-item">
                     </div>
                     <div class="text-container">
                         <div class="section-text">
@@ -790,42 +769,42 @@
         const loabMerchData = [
             {
                 "title": "LOAB™ Embroidered Knit Beanie",
-                "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=150&h=120&fit=crop&crop=center",
+                "image": "https://images-api.printify.com/mockup/6884e82535f0c41bb9090ba1/118231/109442/loab-embroidered-knit-beanie.jpg?camera_label=front",
                 "url": "https://supercomposite-media.printify.me/product/21939932"
             },
             {
                 "title": "LOAB™ Flip Flops",
-                "image": "https://images.unsplash.com/photo-1506629905496-bb6da3354022?w=150&h=120&fit=crop&crop=center",
+                "image": "https://images-api.printify.com/mockup/6883eddcef5e3d1ac50937ff/72177/15334/loab-flip-flops.jpg?camera_label=front",
                 "url": "https://supercomposite-media.printify.me/product/21938408"
             },
             {
                 "title": "LOAB™ High Waisted Yoga Leggings",
-                "image": "https://images.unsplash.com/photo-1506629905542-8731321db19e?w=150&h=120&fit=crop&crop=center",
+                "image": "https://images-api.printify.com/mockup/6884e147e999b8b0c30467bd/67982/7991/loab-high-waisted-yoga-leggings.jpg?camera_label=front",
                 "url": "https://supercomposite-media.printify.me/product/21939597"
             },
             {
                 "title": "LOAB™ Poly Scarf",
-                "image": "https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=150&h=120&fit=crop&crop=center",
+                "image": "https://images-api.printify.com/mockup/6884ee9aaf9232822102bf0d/42318/45951/loab-poly-scarf.jpg?camera_label=flat",
                 "url": "https://supercomposite-media.printify.me/product/21940396"
             },
             {
                 "title": "LOAB™ Socks",
-                "image": "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=150&h=120&fit=crop&crop=center",
+                "image": "https://images-api.printify.com/mockup/6883e8c535f0c41bb908d0df/45134/53204/loab-socks.jpg?camera_label=pose-1",
                 "url": "https://supercomposite-media.printify.me/product/21938386"
             },
             {
                 "title": "LOAB™ Unisex Sweatshirt",
-                "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=150&h=120&fit=crop&crop=center",
+                "image": "https://images-api.printify.com/mockup/6883ed2b1fd9f775a6078fca/36126/234/loab-unisex-sweatshirt.jpg?camera_label=front",
                 "url": "https://supercomposite-media.printify.me/product/21938411"
             },
             {
                 "title": "LOAB™ Unisex T-shirt",
-                "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=150&h=120&fit=crop&crop=center",
+                "image": "https://images-api.printify.com/mockup/6883ebbb081f2eb32109f2fd/73204/100629/loab-unisex-t-shirt.jpg?camera_label=folded",
                 "url": "https://supercomposite-media.printify.me/product/21938407"
             },
             {
                 "title": "LOAB™ Women's Pajama Pants",
-                "image": "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=150&h=120&fit=crop&crop=center",
+                "image": "https://images-api.printify.com/mockup/68840d4bd9d9487c710f8872/94291/78774/loab-womens-pajama-pants.jpg?camera_label=front",
                 "url": "https://supercomposite-media.printify.me/product/21938394"
             }
         ];
