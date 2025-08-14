@@ -300,56 +300,46 @@
 
         .section-text a {
             color: #ffffff;
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s ease;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.3);
+            text-underline-offset: 2px;
+            transition: text-decoration-color 0.3s ease;
         }
 
         .section-text a:hover {
-            border-color: #ffffff;
+            text-decoration-color: #ffffff;
         }
 
         .quote-block {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 12px;
-            backdrop-filter: blur(15px);
+            margin: 0.75rem 0;
+            padding-left: 2rem;
             position: relative;
-            overflow: hidden;
         }
 
         .quote-block::before {
             content: '"';
             position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.2);
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.6);
             font-family: serif;
             font-weight: bold;
         }
 
         .quote-text {
             color: #ffffff;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-bottom: 0.25rem;
             font-style: italic;
             font-weight: 400;
-            position: relative;
-            z-index: 2;
         }
 
         .quote-source {
             color: #cccccc;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 2;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
         .quote-source::before {
@@ -556,7 +546,7 @@
             <div class="nav-links">
                 <a href="#images">Images</a>
                 <a href="#film">Film</a>
-                <a href="#speaking">Speaking</a>
+                <a href="#talks">Talks</a>
                 <a href="#writing">Writing</a>
                 <a href="#merchandise">Merchandise</a>
             </div>
@@ -645,8 +635,8 @@
                 </div>
             </section>
 
-            <section class="section" id="speaking">
-                <h2 class="section-title">Speaking</h2>
+            <section class="section" id="talks">
+                                            <h2 class="section-title">Talks</h2>
                 <div class="content-wrapper">
                     <div class="media-container">
                         <img src="gallery/IMG_5202%2011%20Edited%20-%20storf5b8.jpg" alt="Public speaking" class="media-item">
