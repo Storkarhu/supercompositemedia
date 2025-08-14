@@ -26,7 +26,7 @@
         }
 
         .hero-section {
-            background: radial-gradient(ellipse at center, #0a0a0a 0%, #1a1a1a 40%, #0a0a0a 100%);
+            background: radial-gradient(circle at center, #0a0a0a 0%, #1a1008 30%, #0f0802 60%, #0a0a0a 100%);
             min-height: 45vh;
             display: flex;
             flex-direction: column;
@@ -38,7 +38,7 @@
             overflow: hidden;
         }
 
-        /* Medium Grey Matrix Background Effects */
+        /* Brain-Computer Interface Background Effects */
         .hero-section::before {
             content: '';
             position: absolute;
@@ -48,20 +48,20 @@
             bottom: 0;
             background: 
                 repeating-linear-gradient(
-                    0deg,
-                    rgba(180, 180, 180, 0.15) 0px,
-                    transparent 4px,
-                    rgba(200, 200, 200, 0.1) 8px,
-                    transparent 12px
+                    90deg,
+                    rgba(255, 180, 100, 0.12) 0px 1px,
+                    transparent 1px 8px,
+                    rgba(255, 160, 80, 0.15) 8px 9px,
+                    transparent 9px 16px,
+                    rgba(255, 200, 120, 0.1) 16px 17px,
+                    transparent 17px 24px
                 ),
                 repeating-linear-gradient(
-                    90deg,
-                    rgba(160, 160, 160, 0.08) 0px,
-                    transparent 6px,
-                    rgba(220, 220, 220, 0.12) 12px,
-                    transparent 18px
+                    0deg,
+                    rgba(255, 190, 110, 0.08) 0px 1px,
+                    transparent 1px 20px
                 );
-            animation: mediumRain 2s linear infinite;
+            animation: bciSignal 2s linear infinite;
             z-index: 1;
         }
 
@@ -73,20 +73,31 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 30% 70%, rgba(190, 190, 190, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 70% 30%, rgba(210, 210, 210, 0.08) 0%, transparent 50%);
-            animation: mediumPulse 5s ease-in-out infinite alternate;
+                linear-gradient(90deg, 
+                    transparent 0%, 
+                    rgba(255, 180, 100, 0.25) 10%, 
+                    rgba(255, 200, 120, 0.3) 20%,
+                    transparent 30%,
+                    rgba(255, 160, 80, 0.2) 40%,
+                    rgba(255, 190, 110, 0.25) 50%,
+                    transparent 60%,
+                    rgba(255, 170, 90, 0.22) 70%,
+                    rgba(255, 210, 130, 0.18) 80%,
+                    transparent 90%
+                );
+            animation: interfaceSweep 5s linear infinite;
             z-index: 1;
         }
 
-        @keyframes mediumRain {
-            0% { transform: translateY(-15px) translateX(0); }
-            100% { transform: translateY(15px) translateX(8px); }
+        @keyframes bciSignal {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(24px); }
         }
 
-        @keyframes mediumPulse {
-            0% { opacity: 0.6; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.05); }
+        @keyframes interfaceSweep {
+            0% { transform: translateX(-100%) scaleX(0.5); }
+            50% { transform: translateX(0) scaleX(1); }
+            100% { transform: translateX(100%) scaleX(0.5); }
         }
 
         .hero-container {
@@ -530,7 +541,7 @@
             }
         }
 
-        /* Interactive medium matrix effects */
+        /* Interactive BCI effects */
         .hero-section:hover::before {
             animation-duration: 1s;
         }
