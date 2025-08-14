@@ -49,19 +49,19 @@
             background: 
                 repeating-linear-gradient(
                     90deg,
-                    rgba(255, 180, 100, 0.12) 0px 1px,
+                    rgba(255, 180, 100, 0.06) 0px 1px,
                     transparent 1px 8px,
-                    rgba(255, 160, 80, 0.15) 8px 9px,
+                    rgba(255, 160, 80, 0.08) 8px 9px,
                     transparent 9px 16px,
-                    rgba(255, 200, 120, 0.1) 16px 17px,
+                    rgba(255, 200, 120, 0.05) 16px 17px,
                     transparent 17px 24px
                 ),
                 repeating-linear-gradient(
                     0deg,
-                    rgba(255, 190, 110, 0.08) 0px 1px,
+                    rgba(255, 190, 110, 0.04) 0px 1px,
                     transparent 1px 20px
                 );
-            animation: bciSignal 2s linear infinite;
+            animation: bciSignal 6s linear infinite;
             z-index: 1;
         }
 
@@ -75,18 +75,29 @@
             background: 
                 linear-gradient(90deg, 
                     transparent 0%, 
-                    rgba(255, 180, 100, 0.25) 10%, 
-                    rgba(255, 200, 120, 0.3) 20%,
+                    rgba(255, 180, 100, 0.12) 10%, 
+                    rgba(255, 200, 120, 0.15) 20%,
                     transparent 30%,
-                    rgba(255, 160, 80, 0.2) 40%,
-                    rgba(255, 190, 110, 0.25) 50%,
+                    rgba(255, 160, 80, 0.1) 40%,
+                    rgba(255, 190, 110, 0.12) 50%,
                     transparent 60%,
-                    rgba(255, 170, 90, 0.22) 70%,
-                    rgba(255, 210, 130, 0.18) 80%,
+                    rgba(255, 170, 90, 0.11) 70%,
+                    rgba(255, 210, 130, 0.09) 80%,
                     transparent 90%
                 );
-            animation: interfaceSweep 5s linear infinite;
+            animation: interfaceSweep 12s linear infinite;
             z-index: 1;
+        }
+
+        @keyframes bciSignal {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(24px); }
+        }
+
+        @keyframes interfaceSweep {
+            0% { transform: translateX(-100%) scaleX(0.5); }
+            50% { transform: translateX(0) scaleX(1); }
+            100% { transform: translateX(100%) scaleX(0.5); }
         }
 
         @keyframes bciSignal {
