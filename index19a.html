@@ -26,7 +26,7 @@
         }
 
         .hero-section {
-            background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 70%, #0a0a0a 100%);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
             min-height: 45vh;
             display: flex;
             flex-direction: column;
@@ -38,7 +38,6 @@
             overflow: hidden;
         }
 
-        /* Latent Space Background Effects */
         .hero-section::before {
             content: '';
             position: absolute;
@@ -46,54 +45,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(120, 119, 198, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 75% 75%, rgba(255, 119, 198, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
-            animation: latentDistort 7s ease-in-out infinite;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.05) 0%, transparent 50%);
             z-index: 1;
-        }
-
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                conic-gradient(from 0deg at 30% 70%, transparent 0deg, rgba(255, 255, 255, 0.02) 90deg, transparent 180deg),
-                conic-gradient(from 180deg at 70% 30%, transparent 0deg, rgba(255, 100, 150, 0.02) 90deg, transparent 180deg);
-            animation: latentRotate 12s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes latentDistort {
-            0%, 100% { 
-                transform: scale(1) skew(0deg); 
-                filter: blur(0px);
-                opacity: 0.8;
-            }
-            25% { 
-                transform: scale(1.02) skew(0.5deg); 
-                filter: blur(0.5px);
-                opacity: 0.9;
-            }
-            50% { 
-                transform: scale(0.98) skew(-0.5deg); 
-                filter: blur(0px);
-                opacity: 0.7;
-            }
-            75% { 
-                transform: scale(1.01) skew(0.3deg); 
-                filter: blur(0.3px);
-                opacity: 0.85;
-            }
-        }
-
-        @keyframes latentRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         .hero-container {
@@ -260,7 +214,6 @@
         .main-content {
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             padding: 2rem 0 4rem;
-            min-height: 60vh;
         }
 
         .container {
@@ -269,23 +222,254 @@
             padding: 0 2rem;
         }
 
-        .demo-section {
-            padding: 3rem 2rem;
+        .section {
+            margin-bottom: 5rem;
+            padding: 3rem 0;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2rem;
             text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #ffffff, #cccccc);
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .media-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .media-item {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .media-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .video-item {
+            border-radius: 8px;
+            overflow: hidden;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+        }
+
+        .text-container {
             color: #e0e0e0;
         }
 
-        .demo-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
+        .section-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
-        .demo-section p {
+        .section-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-text a {
+            color: #ffffff;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.3);
+            text-underline-offset: 2px;
+            transition: text-decoration-color 0.3s ease;
+        }
+
+        .section-text a:hover {
+            text-decoration-color: #ffffff;
+        }
+
+        .quote-block {
+            margin: 1rem 0 1rem 1.5rem;
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .quote-text {
+            color: #e8e8e8;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .quote-source {
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .quote-source::before {
+            content: '— ';
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .quote-source::before {
+            content: '— ';
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .merch-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .merch-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .merch-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .merch-info {
+            padding: 0.75rem;
+        }
+
+        .merch-product-title {
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .view-all-btn {
+            background: linear-gradient(45deg, #333333, #555555);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 120px;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+
+        .view-all-btn:hover {
+            background: linear-gradient(45deg, #555555, #777777);
+            transform: scale(1.02);
+        }
+
+        .social-footer {
+            background: linear-gradient(135deg, #111111 0%, #222222 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-title {
+            color: white;
             font-size: 1.1rem;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .logo-container img {
+                width: 450px;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .merch-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .social-links {
+                gap: 1.5rem;
+            }
+        }
+
+        .section-subsection {
+            margin: 2rem 0;
+            width: 90%;
+        }
+
+        .subsection-title {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .highlight-section {
+            padding: 2.5rem;
+            margin: 3rem 0;
+            position: relative;
+            width: 90%;
         }
 
         @media (max-width: 768px) {
@@ -307,13 +491,9 @@
             }
         }
 
-        /* Interactive latent space effects */
+        /* Interactive effects */
         .hero-section:hover::before {
             animation-duration: 4s;
-        }
-
-        .hero-section:hover::after {
-            animation-duration: 8s;
         }
     </style>
 </head>
@@ -396,44 +576,259 @@
 
     <div class="main-content">
         <div class="container">
-            <div class="demo-section">
-                <h2>Latent Space Background Applied</h2>
-                <p>The header now features a subtle latent space distortion effect that morphs and rotates behind the logo and bio content. This creates the mysterious AI-generated aesthetic perfect for Loab while maintaining the professional portfolio appearance. The effect includes slowly shifting gradients and rotating conic patterns that suggest the dimensional warping of AI latent space where Loab was discovered.</p>
-            </div>
+            
+            <section class="section" id="images">
+                <h2 class="section-title">Images</h2>
+                <div class="content-wrapper">
+                    <div class="media-container">
+                        <img src="gallery/60a3a3d4-a962-46c4-ac40-785eb148_gans-ts1664055830f5b8.png" alt="Loab artwork" class="media-item">
+                        <img src="gallery/artwork_4 - stor-ts1675869272f5b8.jpg" alt="AI generated artwork" class="media-item">
+                    </div>
+                    <div class="text-container">
+                        <div class="section-text">
+                            <div class="subsection-title">Loab™</div>
+                            <p>Steph Maj Swanson gained international recognition for <a href="https://twitter.com/supercomposite/status/1567162288087470081">her story</a> about the AI-generated cryptid Loab, which sparked global conversations about AI ethics and creative expression. Featured across major media outlets including <em>Rolling Stone</em>, <em>Der Spiegel</em>, <em>Artnet News</em>, BBC Radio, ABC, <em>Forbes</em>, <em>The Atlantic</em>, and <em>Smithsonian Magazine</em>.</p>
+                            
+                            <div class="quote-block">
+                                <div class="quote-text">Loab sparked some lengthy ethical conversations around visual aesthetics, art and technology.</div>
+                                <div class="quote-source">Smithsonian Magazine</div>
+                            </div>
+                            
+                            <div class="quote-block">
+                                <div class="quote-text">The thread, with its genuinely interesting and unsettling elements combined with the mythos of an actual demon lurking within AI algorithms, is something that will probably have the movie rights auctioned off to Netflix by the end of the day.</div>
+                                <div class="quote-source">Forbes</div>
+                            </div>
+                            
+                            <div class="quote-block">
+                                <div class="quote-text">Loab might seem like standard creepypasta, but her origins are a whole lot more mysterious.</div>
+                                <div class="quote-source">Rolling Stone</div>
+                            </div>
+                            
+                            <p>The Loab phenomenon was featured in <a href="https://www.mdpi.com/2077-1444/14/6/812">"Negative Capabilities: Investigating Apophasis in AI Text-to-Image Models"</a> published in the journal <em>Religions</em> (June 2023), demonstrating scholarly impact in theological and AI studies.</p>
+                            
+                            <p>To learn more about Loab, visit <a href="http://loab.ai/">loab.ai</a> or <a href="https://twitter.com/supercomposite/status/1567162288087470081">read the original viral Twitter thread</a>.</p>
+                            
+                            <div class="section-subsection">
+                                <div class="subsection-title">Other Digital Artwork</div>
+                                <p>Recent work includes art for STEMcell, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. Steph developed a unique artistic process: "an AI model was pummeled with images of optical sound-on-film waveforms—until the model could no longer produce images without traces of analog audio information."</p>
+                                <p>Her body of video and still image work was described by <em>Galleries West</em> as <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/">"the merging of repulsive with beautiful."</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="film">
+                <h2 class="section-title">Film</h2>
+                <div class="content-wrapper">
+                    <div class="media-container">
+                        <img src="gallery/Defcon%20cut.00_07_19_22.Still009-ts1692465003f5b8.png" alt="Film work" class="media-item">
+                        <img src="gallery/algogroUppsala.png" alt="Uppsala Film Festival" class="media-item">
+                    </div>
+                    <div class="text-container">
+                        <div class="section-text">
+                            <div class="section-subsection">
+                                <div class="subsection-title">Director & Writer</div>
+                                <p><strong><em>Suicide III</em></strong> - Original short film written and directed by Steph Maj Swanson for ARRG!'s video art installation at DEF CON 31 Las Vegas (August 2023). The work employs deepfakes and synthetic imagery to construct a satirical counter-narrative to AI hype culture.</p>
+                                
+                                <p><strong><em>Suicide III</em> Festival Screenings:</strong><br>
+                                • <a href="https://sites.google.com/view/alcvideoartfestival/inicio">ALC VideoArt Festival</a>, Alicante, Spain (Sep 2025)<br>
+                                • <a href="https://www.instagram.com/badnamfilmfestival">Badnäm Film Festival</a>, Bangalore, India (Apr 2025)<br>
+                                • <a href="https://shortfilmfestival.com/en/">Uppsala Short Film Festival</a>, Sweden (Oct 2024)<br>
+                                • <a href="https://videomedeja.org/">Videomedeja Festival</a>, Novi Sad, Serbia (Oct 2024)<br>
+                                • <a href="https://www.thephilipkdickfilmfestival.com/">Philip K Dick Film Festival</a>, The Museum of the Moving Image, New York (Apr 2024)<br>
+                                • <a href="https://filmfreeway.com/AlmatyUndergroundScreeningSeries">Almaty Underground Screening Series</a>, Kazakhstan (Mar 2024)<br>
+                                • <a href="https://www.sxswsydney.com/screen-industry">SXSW Sydney Screen Festival</a>, Sydney, Australia (Oct 2023)</p>
+                            </div>
+
+                            <div class="section-subsection">
+                                <div class="subsection-title">Curator & Programmer</div>
+                                <p><strong><a href="https://shortfilmfestival.com/en/">Uppsala Short Film Festival</a></strong> - Steph served as Film Programmer/Reviewer at Uppsala Short Film Festival, one of Europe's most important short film festivals. Founded in 1982, the festival is recognized by the Academy of Motion Picture Arts and Sciences and screens more than 300 short films annually.</p>
+                                
+                                <p>In October 2024, Steph curated and hosted the special program <a href="https://shortfilmfestival.com/en/program-2024/specialprogram-2024/algorithmic-grotesque-unravelling-a-i/">"Algorithmic Grotesque: Unravelling A.I."</a> featuring filmmakers who explore algorithmic society through AI, covering topics such as distorted gender norms, surveillance, and eugenics. The program included works by Eryk Salvaggio, Marion Balac, Ada Ada Ada, Ines Sieulle, Conner O'Malley & Dan Streit, and Ryan Worsley & Negativland.</p>
+                            </div>
+
+                            <div class="subsection-title">Current Project</div>
+                            <p>Steph recently received a grant from <a href="https://sfilm.se/">Sveriges Filmförbund</a> (Swedish Film Association) to direct a short film about two people with an erotic fixation on the invisible algorithms inside cameras, exploring how computational photography silently shapes our perception of ourselves and the world.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="talks">
+                                            <h2 class="section-title">Talks</h2>
+                <div class="content-wrapper">
+                    <div class="media-container">
+                        <img src="gallery/IMG_5202%2011%20Edited%20-%20storf5b8.jpg" alt="Public speaking" class="media-item">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/hJxRD4YX1RU" frameborder="0" allowfullscreen class="media-item video-item"></iframe>
+                    </div>
+                    <div class="text-container">
+                        <div class="section-text">
+                            <p>Steph Maj Swanson delivers talks at major conferences and institutions, and appears on podcasts and radio shows, sharing critical perspectives on AI and creative labor.</p>
+                            
+                                                            <p><strong>Conference Talks:</strong><br>
+                            • <a href="https://msub.org.rs/accompanying-program/conference-coding-the-gaze-technology-art-and-society-feminist-perspectives/?lang=en">"AI's Katabatic Turn - Data belongs to the Underworld"</a> - Museum of Contemporary Art, Belgrade (Nov 2024)<br>
+                            • Queers in the Machine Symposium - IDA (Danish Society of Engineers), Copenhagen (Aug 2024)<br>
+                            • <a href="https://media.ccc.de/v/37c3-12052-what_i_learned_from_loab_ai_as_a_creative_adversary">"What I Learned from Loab: AI as a creative adversary"</a> - Chaos Communication Congress, Hamburg (Dec 2023)<br>
+                            • "Kreativitet och artificiell intelligens" panel - Svenska Tecknare, Stockholm (Oct 2023)<br>
+                            • AI Village panel discussion - DEF CON 31, Las Vegas (Aug 2023)</p>
+                            
+                            <p><strong>Radio Interviews:</strong><br>
+                            • <a href="https://www.rte.ie/radio/lyricfm/clips/22183238/">RTÉ lyric fm "Culture File" segment</a> (Dec 2022)<br>
+                            • <a href="https://www.abc.net.au/listen/programs/backgroundbriefing/has-the-age-of-ai-already-begun-loab-generative-art/101694260">ABC Radio National "Background Briefing" - "Has the age of AI already begun?"</a> (Nov 2022)</p>
+                            
+                            <p><strong>Podcast Appearances:</strong><br>
+                            • <a href="https://shows.acast.com/the-data-fix/episodes/adversarial-with-steph-maj-swanson">"The Data Fix" - "Adversarial, with Steph Maj Swanson"</a> with Dr. Mél Hogan (Mar 2024)<br>
+                            • <a href="https://tenthousandposts.podbean.com/e/loab-your-enthusiasm-ft-cory-doctorow/">Ten Thousand Posts - "Loab your Enthusiasm"</a> with Cory Doctorow (Apr 2023)<br>
+                            • <a href="https://www.bbc.com/audio/play/m001gx5g">BBC Woman's Hour - AI art discussion</a> with Krupa Padhy (Jan 2023)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="writing">
+                <h2 class="section-title">Writing</h2>
+                <div class="content-wrapper">
+                    <div class="media-container">
+                        <img src="gallery/image-ts1692463318f5b8.png" alt="Published writing" class="media-item">
+                    </div>
+                    <div class="text-container">
+                        <div class="section-text">
+                            <p>Steph Maj Swanson's research and critical writing on AI appears in major media and academic publications.</p>
+
+                            <p><strong>Solo Publications:</strong><br>
+                            • <a href="https://www.vice.com/en/article/i-coaxed-chatgpt-into-a-deeply-unsettling-bdsm-relationship/">"I Coaxed ChatGPT Into a Deeply Unsettling BDSM Relationship"</a> - <em>Vice</em> (2023)<br>
+                            • <a href="https://www.vice.com/en/article/chatgpt-generated-child-sex-abuse-when-asked-to-write-bdsm-scenarios/">"ChatGPT Generated Child Sex Abuse When Asked to Write BDSM Scenarios"</a> - <em>Vice</em> (2023)</p>
+
+                            <p><strong>Co-authored Work:</strong><br>
+                            • <a href="https://read.dukeupress.edu/critical-ai/issue/2/1">"Cultural Red Teaming: ARRG! and Creative Misuse of AI Systems"</a> - <em>Critical AI</em>, Vol. 2(1), 2024, Duke University Press (co-authored with Eryk Salvaggio and Caroline Sinders)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="merchandise">
+                <h2 class="section-title">Official LOAB™ Merchandise</h2>
+                <div class="section-text" style="text-align: center; margin-bottom: 2rem;">
+                    <p>Official merchandise available through our online store. The collection includes leggings, scarves, shirts, sleepwear, socks, sweatshirts, footwear, and headwear.</p>
+                </div>
+                <div class="merch-grid" id="loabMerchGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </section>
         </div>
     </div>
 
     <script>
-        // Add interactive hover effects for enhanced latent space feel
-        document.addEventListener('mousemove', (e) => {
-            const heroSection = document.querySelector('.hero-section');
-            const rect = heroSection.getBoundingClientRect();
-            
-            if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
-                const x = (e.clientX / window.innerWidth) * 100;
-                const y = (e.clientY / window.innerHeight) * 100;
-                
-                // Subtle parallax effect on the latent space backgrounds
-                heroSection.style.setProperty('--mouse-x', x + '%');
-                heroSection.style.setProperty('--mouse-y', y + '%');
-                
-                // Slightly adjust the animation speed based on mouse position
-                const speed = 1 + (x / 100) * 0.5;
-                heroSection.style.setProperty('--speed-multiplier', speed);
+        // LOAB Merchandise Data
+        const loabMerchData = [
+            {
+                "title": "LOAB™ Embroidered Knit Beanie",
+                "image": "https://images-api.printify.com/mockup/6884e82535f0c41bb9090ba1/118231/109442/loab-embroidered-knit-beanie.jpg?camera_label=front",
+                "url": "https://supercomposite-media.printify.me/product/21939932"
+            },
+            {
+                "title": "LOAB™ Flip Flops",
+                "image": "https://images-api.printify.com/mockup/6883eddcef5e3d1ac50937ff/72177/15334/loab-flip-flops.jpg?camera_label=front",
+                "url": "https://supercomposite-media.printify.me/product/21938408"
+            },
+            {
+                "title": "LOAB™ High Waisted Yoga Leggings",
+                "image": "https://images-api.printify.com/mockup/6884e147e999b8b0c30467bd/67982/7991/loab-high-waisted-yoga-leggings.jpg?camera_label=front",
+                "url": "https://supercomposite-media.printify.me/product/21939597"
+            },
+            {
+                "title": "LOAB™ Poly Scarf",
+                "image": "https://images-api.printify.com/mockup/6884ee9aaf9232822102bf0d/42318/45951/loab-poly-scarf.jpg?camera_label=flat",
+                "url": "https://supercomposite-media.printify.me/product/21940396"
+            },
+            {
+                "title": "LOAB™ Socks",
+                "image": "https://images-api.printify.com/mockup/6883e8c535f0c41bb908d0df/45134/53204/loab-socks.jpg?camera_label=pose-1",
+                "url": "https://supercomposite-media.printify.me/product/21938386"
+            },
+            {
+                "title": "LOAB™ Unisex Sweatshirt",
+                "image": "https://images-api.printify.com/mockup/6883ed2b1fd9f775a6078fca/36126/234/loab-unisex-sweatshirt.jpg?camera_label=front",
+                "url": "https://supercomposite-media.printify.me/product/21938411"
+            },
+            {
+                "title": "LOAB™ Unisex T-shirt",
+                "image": "https://images-api.printify.com/mockup/6883ebbb081f2eb32109f2fd/73204/100629/loab-unisex-t-shirt.jpg?camera_label=folded",
+                "url": "https://supercomposite-media.printify.me/product/21938407"
+            },
+            {
+                "title": "LOAB™ Women's Pajama Pants",
+                "image": "https://images-api.printify.com/mockup/68840d4bd9d9487c710f8872/94291/78774/loab-womens-pajama-pants.jpg?camera_label=front",
+                "url": "https://supercomposite-media.printify.me/product/21938394"
             }
+        ];
+
+        function createMerchCard(item) {
+            return `
+                <div class="merch-card" onclick="window.open('${item.url}', '_blank')">
+                    <img src="${item.image}" alt="${item.title}" class="merch-image" loading="lazy">
+                    <div class="merch-info">
+                        <div class="merch-product-title">${item.title}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadLoabMerch() {
+            const grid = document.getElementById('loabMerchGrid');
+            if (grid && loabMerchData && loabMerchData.length > 0) {
+                const merchCards = loabMerchData.map(createMerchCard).join('');
+                const viewAllButton = `
+                    <a href="https://supercomposite-media.printify.me/" target="_blank" class="view-all-btn">
+                        View Full Collection →
+                    </a>
+                `;
+                grid.innerHTML = merchCards + viewAllButton;
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLoabMerch();
+            
+            // Add smooth scrolling to navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
         });
 
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
             });
         });
     </script>
