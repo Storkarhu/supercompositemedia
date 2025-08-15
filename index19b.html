@@ -328,30 +328,36 @@
         }
 
         .quote-block {
-            margin: 1rem 0 1rem 1.5rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
             border-left: 3px solid rgba(255, 255, 255, 0.3);
-            padding-left: 1rem;
+            border-radius: 0 8px 8px 0;
             position: relative;
+            backdrop-filter: blur(5px);
         }
 
         .quote-text {
-            color: #e8e8e8;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 0.5rem;
+            color: #f0f0f0;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
             font-style: italic;
             font-weight: 400;
         }
 
         .quote-source {
-            color: #aaaaaa;
+            color: #ffffff;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .quote-source::before {
             content: '— ';
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
         }
 
         .merch-grid {
@@ -430,6 +436,19 @@
             font-weight: 400;
         }
 
+        .section-subsection {
+            margin: 2rem 0;
+            width: 90%;
+        }
+
+        .subsection-title {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
         @media (max-width: 768px) {
             .logo-container img {
                 width: 400px;
@@ -458,17 +477,24 @@
             }
         }
 
-        .section-subsection {
-            margin: 2rem 0;
-            width: 90%;
+        .booking-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #333333, #555555);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .subsection-title {
-            color: #ffffff;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            display: inline-block;
+        .booking-btn:hover {
+            background: linear-gradient(135deg, #555555, #777777);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
         }
 
         .photo-credit {
@@ -477,15 +503,6 @@
             font-style: italic;
             margin-top: 0.5rem;
             text-align: center;
-        }
-
-        /* Interactive BCI effects */
-        .hero-section:hover::before {
-            animation-duration: 1s;
-        }
-
-        .hero-section:hover::after {
-            animation-duration: 3s;
         }
     </style>
 </head>
@@ -613,7 +630,7 @@
                             <p>To learn more about Loab, visit <a href="http://loab.ai/">loab.ai</a> or <a href="https://twitter.com/supercomposite/status/1567162288087470081">read the original viral Twitter thread</a>.</p>
                             
                             <div class="section-subsection">
-                                <div class="subsection-title">Other Digital Artwork</div>
+                                <div class="subsection-title">Additional Works</div>
                                 <p>Recent work includes art for <a href="https://stemcell-music.bandcamp.com/">STEMcell</a>, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. Her artwork appears on two STEMcell releases: "STEMcell feat. Sceptrum" and "STEMcell feat. Propus." For the Sceptrum release, Steph developed a unique artistic process: "To create the artwork, an AI model was pummelled by analog waveforms from optical sound-on-film, causing sound information to heavily distort the fabric of the image."</p>
                                 <p>Her body of video and still image work was described by <em>Galleries West</em> as <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/">"the merging of repulsive with beautiful."</a></p>
                             </div>
@@ -687,6 +704,8 @@
                             • <a href="https://www.bbc.com/audio/play/m001gx5g">BBC Woman's Hour - AI art discussion</a> with Krupa Padhy (Jan 2023)</p>
 
                             <p><em>Steph håller föredrag med ett unikt kritiskt blick mot AI - även på svenska!</em></p>
+
+                            <a href="mailto:contact@supercompo.site" class="booking-btn">Speaking Inquiries</a>
                         </div>
                     </div>
                 </div>
