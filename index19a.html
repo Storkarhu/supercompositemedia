@@ -138,12 +138,47 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            overflow: hidden;
+        }
+
+        /* TV STATIC EFFECT CSS */
+        .nav-menu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent 0px, rgba(255,255,255,0.03) 1px, rgba(255,255,255,0.03) 1px, transparent 2px),
+                repeating-linear-gradient(90deg, transparent 0px, rgba(0,0,0,0.03) 1px, rgba(0,0,0,0.03) 1px, transparent 2px);
+            background-size: 1px 1px;
+            opacity: 1;
+            animation: staticNoise 0.2s infinite linear alternate-reverse;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes staticNoise {
+            0% { transform: translate(0px, 0px) }
+            10% { transform: translate(-1px, -1px) }
+            20% { transform: translate(-1px, 0px) }
+            30% { transform: translate(1px, -1px) }
+            40% { transform: translate(-1px, 1px) }
+            50% { transform: translate(-1px, 0px) }
+            60% { transform: translate(1px, 1px) }
+            70% { transform: translate(0px, -1px) }
+            80% { transform: translate(-1px, -1px) }
+            90% { transform: translate(1px, 0px) }
+            100% { transform: translate(1px, 1px) }
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
+            z-index: 3;
         }
 
         .nav-links {
@@ -419,6 +454,10 @@
             width: 100%;
         }
 
+        .section-subsection p {
+            margin-bottom: 1rem;
+        }
+
         .subsection-title {
             color: #ffffff;
             font-size: 1.4rem;
@@ -427,7 +466,25 @@
             display: inline-block;
         }
 
-        /* New styles for subsections with media */
+        .subsection-content p {
+            margin-bottom: 1rem;
+        }
+
+        .film-section-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            margin: 2rem 0;
+        }
+
+        .film-media-aligned {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2.6rem;
+        }
+
         .subsection-with-media {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -444,6 +501,8 @@
 
         .subsection-content {
             color: #e0e0e0;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
         @media (max-width: 768px) {
@@ -459,6 +518,15 @@
             .subsection-with-media {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .film-section-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .film-media-aligned {
+                margin-top: 0;
             }
 
             .nav-links {
@@ -621,16 +689,16 @@
                     </div>
                     <div class="subsection-content">
                         <div class="subsection-title">Additional Works</div>
-                        <p>Recent work includes art for <a href="https://stemcell-music.bandcamp.com/">STEMcell</a>, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. Her artwork appears on two STEMcell releases: "STEMcell feat. Sceptrum" and "STEMcell feat. Propus." For the Sceptrum release, Steph developed a unique artistic process: "To create the artwork, an AI model was pummelled by analog waveforms from optical sound-on-film, causing sound information to heavily distort the fabric of the image."</p>
                         <p>Her body of video and still image work was described by <em>Galleries West</em> as <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/">"the merging of repulsive with beautiful."</a></p>
+                        <p>Recent work includes art for <a href="https://stemcell-music.bandcamp.com/">STEMcell</a>, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. Her artwork appears on two STEMcell releases: "STEMcell feat. Sceptrum" and "STEMcell feat. Propus." For the Sceptrum release, Steph developed a unique artistic process: "To create the artwork, an AI model was pummelled by analog waveforms from optical sound-on-film, causing sound information to heavily distort the fabric of the image."</p>
                     </div>
                 </div>
             </section>
 
             <section class="section" id="film">
                 <h2 class="section-title">Film</h2>
-                <div class="content-wrapper">
-                    <div class="media-container">
+                <div class="film-section-layout">
+                    <div class="film-media-aligned">
                         <img src="gallery/Defcon%20cut.00_07_19_22.Still009-ts1692465003f5b8.png" alt="Film work" class="media-item">
                     </div>
                     <div class="text-container">
@@ -664,15 +732,7 @@
                     </div>
                 </div>
 
-                <div class="content-wrapper">
-                    <div class="media-container"></div>
-                    <div class="text-container">
-                        <div class="section-text">
-                            <div class="subsection-title">Current Project</div>
-                            <p>Steph recently received a grant from <a href="https://sfilm.se/">Sveriges Filmförbund</a> (Swedish Film Association) to direct a short film about two people with an erotic fixation on the invisible algorithms inside cameras, exploring how computational photography silently shapes our perception of ourselves and the world.</p>
-                        </div>
-                    </div>
-                </div>
+
             </section>
 
             <section class="section" id="speaking">
