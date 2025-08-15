@@ -416,7 +416,7 @@
 
         .section-subsection {
             margin: 2rem 0;
-            width: 90%;
+            width: 100%;
         }
 
         .subsection-title {
@@ -427,12 +427,36 @@
             display: inline-block;
         }
 
+        /* New styles for subsections with media */
+        .subsection-with-media {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            margin: 2rem 0;
+        }
+
+        .subsection-media {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .subsection-content {
+            color: #e0e0e0;
+        }
+
         @media (max-width: 768px) {
             .logo-container img {
                 width: 400px;
             }
 
             .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .subsection-with-media {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
@@ -454,8 +478,6 @@
                 gap: 1.5rem;
             }
         }
-
- 
 
         .photo-credit {
             color: #aaaaaa;
@@ -501,8 +523,6 @@
                     <div class="text-container">
                         <div class="section-text">
                             <p>Steph Maj Swanson is a multimedia artist, writer, filmmaker, and public speaker based in Uppsala, Sweden. Widely known online as Supercomposite, she founded Supercomposite Images as the home for her creative work.</p>
-                            
-                            <p>For project collaborations, speaking engagements, and general inquiries, email <a href="mailto:contact@supercompo.site">contact@supercompo.site</a></p>
                             
                             <p>Follow Steph's social media channels for updates on current works and ongoing activities:</p>
                             
@@ -591,20 +611,18 @@
                             <p>The Loab phenomenon was featured in <a href="https://www.mdpi.com/2077-1444/14/6/812">"Negative Capabilities: Investigating Apophasis in AI Text-to-Image Models"</a> published in the journal <em>Religions</em> (June 2023), demonstrating scholarly impact in theological and AI studies.</p>
                             
                             <p>To learn more about Loab, visit <a href="http://loab.ai/">loab.ai</a> or <a href="https://twitter.com/supercomposite/status/1567162288087470081">read the original viral Twitter thread</a>.</p>
-                            
-                            <div class="section-subsection">
-                                <div class="subsection-title">Additional Works</div>
-                                <div class="content-wrapper">
-                                    <div class="media-container">
-                                        <img src="https://storkarhu.github.io/supercompositemedia/gallery/artwork_4%20-%20stor-ts1675869272f5b8.jpg" alt="AI generated artwork" class="media-item">
-                                    </div>
-                                    <div class="text-container">
-                                        <p>Recent work includes art for <a href="https://stemcell-music.bandcamp.com/">STEMcell</a>, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. Her artwork appears on two STEMcell releases: "STEMcell feat. Sceptrum" and "STEMcell feat. Propus." For the Sceptrum release, Steph developed a unique artistic process: "To create the artwork, an AI model was pummelled by analog waveforms from optical sound-on-film, causing sound information to heavily distort the fabric of the image."</p>
-                                        <p>Her body of video and still image work was described by <em>Galleries West</em> as <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/">"the merging of repulsive with beautiful."</a></p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="subsection-with-media">
+                    <div class="subsection-media">
+                        <img src="https://storkarhu.github.io/supercompositemedia/gallery/artwork_4%20-%20stor-ts1675869272f5b8.jpg" alt="AI generated artwork" class="media-item">
+                    </div>
+                    <div class="subsection-content">
+                        <div class="subsection-title">Additional Works</div>
+                        <p>Recent work includes art for <a href="https://stemcell-music.bandcamp.com/">STEMcell</a>, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. Her artwork appears on two STEMcell releases: "STEMcell feat. Sceptrum" and "STEMcell feat. Propus." For the Sceptrum release, Steph developed a unique artistic process: "To create the artwork, an AI model was pummelled by analog waveforms from optical sound-on-film, causing sound information to heavily distort the fabric of the image."</p>
+                        <p>Her body of video and still image work was described by <em>Galleries West</em> as <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/">"the merging of repulsive with beautiful."</a></p>
                     </div>
                 </div>
             </section>
@@ -630,21 +648,26 @@
                                 • <a href="https://filmfreeway.com/AlmatyUndergroundScreeningSeries">Almaty Underground Screening Series</a>, Kazakhstan (Mar 2024)<br>
                                 • <a href="https://www.sxswsydney.com/screen-industry">SXSW Sydney Screen Festival</a>, Sydney, Australia (Oct 2023)</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
 
-                            <div class="section-subsection">
-                                <div class="subsection-title">Curator & Programmer</div>
-                                <div class="content-wrapper">
-                                    <div class="media-container">
-                                        <img src="https://storkarhu.github.io/supercompositemedia/gallery/algogroUppsala.png" alt="Uppsala Film Festival" class="media-item">
-                                    </div>
-                                    <div class="text-container">
-                                        <p><strong><a href="https://shortfilmfestival.com/en/">Uppsala Short Film Festival</a></strong> - Steph served as Film Programmer/Reviewer at Uppsala Short Film Festival, one of Europe's most important short film festivals. Founded in 1982, the festival is recognized by the Academy of Motion Picture Arts and Sciences and screens more than 300 short films annually.</p>
-                                        
-                                        <p>In October 2024, Steph curated and hosted the special program <a href="https://shortfilmfestival.com/en/program-2024/specialprogram-2024/algorithmic-grotesque-unravelling-a-i/">"Algorithmic Grotesque: Unravelling A.I."</a> featuring filmmakers who explore algorithmic society through AI, covering topics such as distorted gender norms, surveillance, and eugenics. The program included works by Eryk Salvaggio, Marion Balac, Ada Ada Ada, Ines Sieulle, Conner O'Malley & Dan Streit, and Ryan Worsley & Negativland.</p>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="subsection-with-media">
+                    <div class="subsection-media">
+                        <img src="https://storkarhu.github.io/supercompositemedia/gallery/algogroUppsala.png" alt="Uppsala Film Festival" class="media-item">
+                    </div>
+                    <div class="subsection-content">
+                        <div class="subsection-title">Curator & Programmer</div>
+                        <p><strong><a href="https://shortfilmfestival.com/en/">Uppsala Short Film Festival</a></strong> - Steph served as Film Programmer/Reviewer at Uppsala Short Film Festival, one of Europe's most important short film festivals. Founded in 1982, the festival is recognized by the Academy of Motion Picture Arts and Sciences and screens more than 300 short films annually.</p>
+                        
+                        <p>In October 2024, Steph curated and hosted the special program <a href="https://shortfilmfestival.com/en/program-2024/specialprogram-2024/algorithmic-grotesque-unravelling-a-i/">"Algorithmic Grotesque: Unravelling A.I."</a> featuring filmmakers who explore algorithmic society through AI, covering topics such as distorted gender norms, surveillance, and eugenics. The program included works by Eryk Salvaggio, Marion Balac, Ada Ada Ada, Ines Sieulle, Conner O'Malley & Dan Streit, and Ryan Worsley & Negativland.</p>
+                    </div>
+                </div>
 
+                <div class="content-wrapper">
+                    <div class="media-container"></div>
+                    <div class="text-container">
+                        <div class="section-text">
                             <div class="subsection-title">Current Project</div>
                             <p>Steph recently received a grant from <a href="https://sfilm.se/">Sveriges Filmförbund</a> (Swedish Film Association) to direct a short film about two people with an erotic fixation on the invisible algorithms inside cameras, exploring how computational photography silently shapes our perception of ourselves and the world.</p>
                         </div>
