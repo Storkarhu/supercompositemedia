@@ -26,7 +26,7 @@
         }
 
         .hero-section {
-            background: radial-gradient(circle at center, #0a0a0a 0%, #1a1008 30%, #0f0802 60%, #0a0a0a 100%);
+            background: radial-gradient(circle at center, #1a1a1a 0%, #2a1a10 30%, #1f1005 60%, #1a1a1a 100%);
             min-height: 40vh;
             display: flex;
             flex-direction: column;
@@ -49,22 +49,23 @@
             background: 
                 repeating-linear-gradient(
                     90deg,
-                    rgba(255, 180, 100, 0.06) 0px 1px,
+                    rgba(255, 180, 100, 0.12) 0px 1px,
                     transparent 1px 8px,
-                    rgba(255, 160, 80, 0.08) 8px 9px,
+                    rgba(255, 160, 80, 0.15) 8px 9px,
                     transparent 9px 16px,
-                    rgba(255, 200, 120, 0.05) 16px 17px,
+                    rgba(255, 200, 120, 0.10) 16px 17px,
                     transparent 17px 24px
                 ),
                 repeating-linear-gradient(
                     0deg,
-                    rgba(255, 190, 110, 0.04) 0px 1px,
+                    rgba(255, 190, 110, 0.08) 0px 1px,
                     transparent 1px 20px
                 );
             animation: bciSignal 6s linear infinite;
             z-index: 1;
         }
 
+        /* TV STATIC EFFECT ON HERO HEADER */
         .hero-section::after {
             content: '';
             position: absolute;
@@ -72,32 +73,49 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                linear-gradient(90deg, 
-                    transparent 0%, 
-                    rgba(255, 180, 100, 0.12) 10%, 
-                    rgba(255, 200, 120, 0.15) 20%,
-                    transparent 30%,
-                    rgba(255, 160, 80, 0.1) 40%,
-                    rgba(255, 190, 110, 0.12) 50%,
-                    transparent 60%,
-                    rgba(255, 170, 90, 0.11) 70%,
-                    rgba(255, 210, 130, 0.09) 80%,
-                    transparent 90%
-                );
-            animation: interfaceSweep 12s linear infinite;
-            z-index: 1;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.3) 1px, transparent 1px),
+                radial-gradient(circle at 40% 60%, rgba(255,255,255,0.5) 1px, transparent 1px),
+                radial-gradient(circle at 60% 20%, rgba(255,255,255,0.2) 1px, transparent 1px),
+                radial-gradient(circle at 10% 80%, rgba(255,255,255,0.4) 1px, transparent 1px),
+                radial-gradient(circle at 90% 40%, rgba(255,255,255,0.3) 1px, transparent 1px);
+            background-size: 8px 8px, 12px 12px, 6px 6px, 10px 10px, 14px 14px, 9px 9px;
+            animation: tvStatic 0.1s infinite linear;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        @keyframes tvStatic {
+            0% { 
+                background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+                opacity: 0.6;
+            }
+            20% { 
+                background-position: 2px 1px, -1px 2px, 1px -1px, -2px -1px, 1px 2px, -1px -2px;
+                opacity: 0.8;
+            }
+            40% { 
+                background-position: -1px -2px, 2px -1px, -2px 2px, 1px 1px, -2px -2px, 2px 2px;
+                opacity: 0.4;
+            }
+            60% { 
+                background-position: 1px -1px, -2px 1px, 2px -2px, -1px 2px, 2px 1px, -1px -1px;
+                opacity: 0.7;
+            }
+            80% { 
+                background-position: -2px 2px, 1px -2px, -1px 1px, 2px -1px, -1px -2px, 1px 2px;
+                opacity: 0.9;
+            }
+            100% { 
+                background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+                opacity: 0.6;
+            }
         }
 
         @keyframes bciSignal {
             0% { transform: translateX(0); }
             100% { transform: translateX(24px); }
-        }
-
-        @keyframes interfaceSweep {
-            0% { transform: translateX(-100%) scaleX(0.5); }
-            50% { transform: translateX(0) scaleX(1); }
-            100% { transform: translateX(100%) scaleX(0.5); }
         }
 
         .hero-container {
@@ -144,6 +162,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
+            z-index: 3;
         }
 
         .nav-links {
@@ -416,7 +436,11 @@
 
         .section-subsection {
             margin: 2rem 0;
-            width: 90%;
+            width: 100%;
+        }
+
+        .section-subsection p {
+            margin-bottom: 1rem;
         }
 
         .subsection-title {
@@ -427,6 +451,45 @@
             display: inline-block;
         }
 
+        .subsection-content p {
+            margin-bottom: 1rem;
+        }
+
+        .film-section-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            margin: 2rem 0;
+        }
+
+        .film-media-aligned {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2.6rem;
+        }
+
+        .subsection-with-media {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            margin: 2rem 0;
+        }
+
+        .subsection-media {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .subsection-content {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
         @media (max-width: 768px) {
             .logo-container img {
                 width: 400px;
@@ -435,6 +498,20 @@
             .content-wrapper {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .subsection-with-media {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .film-section-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .film-media-aligned {
+                margin-top: 0;
             }
 
             .nav-links {
@@ -453,26 +530,6 @@
             .social-links {
                 gap: 1.5rem;
             }
-        }
-
-        .booking-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #333333, #555555);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-top: 2rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .booking-btn:hover {
-            background: linear-gradient(135deg, #555555, #777777);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
         }
 
         .photo-credit {
@@ -499,7 +556,7 @@
                 <a href="#about">About</a>
                 <a href="#visual-art">Visual Art</a>
                 <a href="#film">Film</a>
-                <a href="#speaking">Speaking & Media</a>
+                <a href="#speaking">Public Speaking</a>
                 <a href="#publications">Publications</a>
                 <a href="#shop">Shop</a>
             </div>
@@ -518,14 +575,12 @@
                     </div>
                     <div class="text-container">
                         <div class="section-text">
-                            <p>Steph Maj Swanson (artistic alias: Supercomposite) is a multimedia artist, writer, and filmmaker based in Uppsala, Sweden. She creates boundary-pushing work across film, digital art, and storytelling, and is also an active public speaker, sharing her insights on AI, creativity, and digital culture at international conferences and events. Supercomposite Images operates as a registered business entity in Sweden.</p>
+                            <p>Steph Maj Swanson is a multimedia artist, writer, filmmaker, and public speaker based in Uppsala, Sweden. Widely known online as Supercomposite, she founded Supercomposite Images as the home for her creative work.</p>
                             
-                            <p><strong>Contact:</strong> <a href="mailto:contact@supercompo.site">contact@supercompo.site</a> for speaking engagements, project collaborations, and general inquiries.</p>
-                            
-                            <p>Follow Steph's social media channels for updates on current works, exhibition announcements, and ongoing activities:</p>
+                            <p>Follow Steph's social media channels for updates on current works and ongoing activities:</p>
                             
                             <div class="hero-social" style="margin-top: 1.5rem;">
-                                <div class="social-links">
+                                <div class="social-links" style="justify-content: flex-start; gap: 1.5rem;">
                                     <a href="https://twitter.com/supercomposite" title="Twitter">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
@@ -573,6 +628,8 @@
                                     </a>
                                 </div>
                             </div>
+                            
+                            <p>For general enquiries, speaking engagements, or commission requests, please email <a href="mailto:contact@supercompo.site">contact@supercompo.site</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -583,7 +640,6 @@
                 <div class="content-wrapper">
                     <div class="media-container">
                         <img src="gallery/60a3a3d4-a962-46c4-ac40-785eb148_gans-ts1664055830f5b8.png" alt="Loab artwork" class="media-item">
-                        <img src="gallery/artwork_4 - stor-ts1675869272f5b8.jpg" alt="AI generated artwork" class="media-item">
                     </div>
                     <div class="text-container">
                         <div class="section-text">
@@ -608,23 +664,27 @@
                             <p>The Loab phenomenon was featured in <a href="https://www.mdpi.com/2077-1444/14/6/812">"Negative Capabilities: Investigating Apophasis in AI Text-to-Image Models"</a> published in the journal <em>Religions</em> (June 2023), demonstrating scholarly impact in theological and AI studies.</p>
                             
                             <p>To learn more about Loab, visit <a href="http://loab.ai/">loab.ai</a> or <a href="https://twitter.com/supercomposite/status/1567162288087470081">read the original viral Twitter thread</a>.</p>
-                            
-                            <div class="section-subsection">
-                                <div class="subsection-title">Additional Works</div>
-                                <p>Recent work includes art for <a href="https://stemcell-music.bandcamp.com/">STEMcell</a>, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. Her artwork appears on two STEMcell releases: "STEMcell feat. Sceptrum" and "STEMcell feat. Propus." For the Sceptrum release, Steph developed a unique artistic process: "To create the artwork, an AI model was pummelled by analog waveforms from optical sound-on-film, causing sound information to heavily distort the fabric of the image."</p>
-                                <p>Her body of video and still image work was described by <em>Galleries West</em> as <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/">"the merging of repulsive with beautiful."</a></p>
-                            </div>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="subsection-with-media">
+                    <div class="subsection-media">
+                        <img src="https://storkarhu.github.io/supercompositemedia/gallery/artwork_4%20-%20stor-ts1675869272f5b8.jpg" alt="AI generated artwork" class="media-item">
+                    </div>
+                    <div class="subsection-content">
+                        <div class="subsection-title">Additional Works</div>
+                        <p>Her body of video and still image work was described by <em>Galleries West</em> as <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/">"the merging of repulsive with beautiful."</a></p>
+                        <p>Recent work includes art for <a href="https://stemcell-music.bandcamp.com/">STEMcell</a>, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. Her artwork appears on two STEMcell releases: "STEMcell feat. Sceptrum" and "STEMcell feat. Propus." For the Sceptrum release, Steph developed a unique artistic process: "To create the artwork, an AI model was pummelled by analog waveforms from optical sound-on-film, causing sound information to heavily distort the fabric of the image."</p>
                     </div>
                 </div>
             </section>
 
             <section class="section" id="film">
                 <h2 class="section-title">Film</h2>
-                <div class="content-wrapper">
-                    <div class="media-container">
+                <div class="film-section-layout">
+                    <div class="film-media-aligned">
                         <img src="gallery/Defcon%20cut.00_07_19_22.Still009-ts1692465003f5b8.png" alt="Film work" class="media-item">
-                        <img src="gallery/algogroUppsala.png" alt="Uppsala Film Festival" class="media-item">
                     </div>
                     <div class="text-container">
                         <div class="section-text">
@@ -641,23 +701,27 @@
                                 • <a href="https://filmfreeway.com/AlmatyUndergroundScreeningSeries">Almaty Underground Screening Series</a>, Kazakhstan (Mar 2024)<br>
                                 • <a href="https://www.sxswsydney.com/screen-industry">SXSW Sydney Screen Festival</a>, Sydney, Australia (Oct 2023)</p>
                             </div>
-
-                            <div class="section-subsection">
-                                <div class="subsection-title">Curator & Programmer</div>
-                                <p><strong><a href="https://shortfilmfestival.com/en/">Uppsala Short Film Festival</a></strong> - Steph served as Film Programmer/Reviewer at Uppsala Short Film Festival, one of Europe's most important short film festivals. Founded in 1982, the festival is recognized by the Academy of Motion Picture Arts and Sciences and screens more than 300 short films annually.</p>
-                                
-                                <p>In October 2024, Steph curated and hosted the special program <a href="https://shortfilmfestival.com/en/program-2024/specialprogram-2024/algorithmic-grotesque-unravelling-a-i/">"Algorithmic Grotesque: Unravelling A.I."</a> featuring filmmakers who explore algorithmic society through AI, covering topics such as distorted gender norms, surveillance, and eugenics. The program included works by Eryk Salvaggio, Marion Balac, Ada Ada Ada, Ines Sieulle, Conner O'Malley & Dan Streit, and Ryan Worsley & Negativland.</p>
-                            </div>
-
-                            <div class="subsection-title">Current Project</div>
-                            <p>Steph recently received a grant from <a href="https://sfilm.se/">Sveriges Filmförbund</a> (Swedish Film Association) to direct a short film about two people with an erotic fixation on the invisible algorithms inside cameras, exploring how computational photography silently shapes our perception of ourselves and the world.</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="subsection-with-media">
+                    <div class="subsection-media">
+                        <img src="https://storkarhu.github.io/supercompositemedia/gallery/algogroUppsala.png" alt="Uppsala Film Festival" class="media-item">
+                    </div>
+                    <div class="subsection-content">
+                        <div class="subsection-title">Curator & Programmer</div>
+                        <p><strong><a href="https://shortfilmfestival.com/en/">Uppsala Short Film Festival</a></strong> - Steph served as Film Programmer/Reviewer at Uppsala Short Film Festival, one of Europe's most important short film festivals. Founded in 1982, the festival is recognized by the Academy of Motion Picture Arts and Sciences and screens more than 300 short films annually.</p>
+                        
+                        <p>In October 2024, Steph curated and hosted the special program <a href="https://shortfilmfestival.com/en/program-2024/specialprogram-2024/algorithmic-grotesque-unravelling-a-i/">"Algorithmic Grotesque: Unravelling A.I."</a> featuring filmmakers who explore algorithmic society through AI, covering topics such as distorted gender norms, surveillance, and eugenics. The program included works by Eryk Salvaggio, Marion Balac, Ada Ada Ada, Ines Sieulle, Conner O'Malley & Dan Streit, and Ryan Worsley & Negativland.</p>
+                    </div>
+                </div>
+
+
             </section>
 
             <section class="section" id="speaking">
-                <h2 class="section-title">Speaking & Media</h2>
+                <h2 class="section-title">Public Speaking</h2>
                 <div class="content-wrapper">
                     <div class="media-container">
                         <img src="gallery/Chaos%20Communication%20Congress%20Hamburg.png" alt="Public speaking" class="media-item">
@@ -685,7 +749,6 @@
 
                             <p><em>Steph håller föredrag med ett unikt kritiskt blick mot AI - även på svenska!</em></p>
 
-                            <a href="mailto:contact@supercompo.site" class="booking-btn">Speaking Inquiries</a>
                         </div>
                     </div>
                 </div>
