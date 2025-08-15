@@ -27,7 +27,7 @@
 
         .hero-section {
             background: radial-gradient(circle at center, #0a0a0a 0%, #1a1008 30%, #0f0802 60%, #0a0a0a 100%);
-            min-height: 45vh;
+            min-height: 40vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -100,17 +100,6 @@
             100% { transform: translateX(100%) scaleX(0.5); }
         }
 
-        @keyframes bciSignal {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(24px); }
-        }
-
-        @keyframes interfaceSweep {
-            0% { transform: translateX(-100%) scaleX(0.5); }
-            50% { transform: translateX(0) scaleX(1); }
-            100% { transform: translateX(100%) scaleX(0.5); }
-        }
-
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -120,40 +109,14 @@
         }
 
         .logo-container {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             animation: fadeInUp 1s ease-out;
         }
 
         .logo-container img {
-            width: 600px;
+            width: 500px;
             height: auto;
             max-width: 100%;
-        }
-
-        .logo-text {
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #ffffff, #cccccc, #ffffff);
-            background-size: 200% 200%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s ease-in-out infinite;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: #cccccc;
-            margin-top: 0.5rem;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
         }
 
         @keyframes fadeInUp {
@@ -167,23 +130,12 @@
             }
         }
 
-        .hero-description {
-            color: #e0e0e0;
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin: 1.5rem auto 2rem;
-            line-height: 1.7;
-            max-width: 800px;
-            animation: fadeInUp 1s ease-out 0.3s both;
-            text-align: center;
-        }
-
         .hero-contact {
             color: #ffffff;
             font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.6s both;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
         .hero-contact a {
@@ -198,8 +150,8 @@
         }
 
         .hero-social {
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.9s both;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .social-links {
@@ -284,8 +236,8 @@
         }
 
         .section {
-            margin-bottom: 5rem;
-            padding: 3rem 0;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
             animation: fadeInUp 0.8s ease-out;
         }
 
@@ -320,6 +272,8 @@
             align-items: start;
             margin-top: 2rem;
         }
+
+
 
         .media-container {
             display: flex;
@@ -374,14 +328,16 @@
         }
 
         .quote-block {
-            margin: 1rem 0 1rem 1.5rem;
+            margin: 1.5rem 0 1.5rem 1.5rem;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
             border-left: 3px solid rgba(255, 255, 255, 0.3);
-            padding-left: 1rem;
+            border-radius: 0 6px 6px 0;
             position: relative;
         }
 
         .quote-text {
-            color: #e8e8e8;
+            color: #f0f0f0;
             font-size: 1rem;
             line-height: 1.5;
             margin-bottom: 0.5rem;
@@ -390,19 +346,17 @@
         }
 
         .quote-source {
-            color: #aaaaaa;
-            font-size: 0.9rem;
-            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .quote-source::before {
             content: '— ';
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .quote-source::before {
-            content: '— ';
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
         }
 
         .merch-grid {
@@ -481,13 +435,22 @@
             font-weight: 400;
         }
 
+        .section-subsection {
+            margin: 2rem 0;
+            width: 90%;
+        }
+
+        .subsection-title {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
         @media (max-width: 768px) {
             .logo-container img {
-                width: 450px;
-            }
-
-            .hero-description {
-                font-size: 1.1rem;
+                width: 400px;
             }
 
             .content-wrapper {
@@ -513,52 +476,32 @@
             }
         }
 
-        .section-subsection {
-            margin: 2rem 0;
-            width: 90%;
-        }
-
-        .subsection-title {
-            color: #ffffff;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        .booking-btn {
             display: inline-block;
+            background: linear-gradient(135deg, #333333, #555555);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .highlight-section {
-            padding: 2.5rem;
-            margin: 3rem 0;
-            position: relative;
-            width: 90%;
+        .booking-btn:hover {
+            background: linear-gradient(135deg, #555555, #777777);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
         }
 
-        @media (max-width: 768px) {
-            .logo-container img {
-                width: 450px;
-            }
-
-            .hero-description {
-                font-size: 1.1rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .social-links {
-                gap: 1.5rem;
-            }
-        }
-
-        /* Interactive BCI effects */
-        .hero-section:hover::before {
-            animation-duration: 1s;
-        }
-
-        .hero-section:hover::after {
-            animation-duration: 3s;
+        .photo-credit {
+            color: #aaaaaa;
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 0.5rem;
+            text-align: center;
         }
     </style>
 </head>
@@ -568,9 +511,6 @@
             <div class="logo-container">
                 <img src="gallery/LOGOSupercompositeImagesWhiteTransparent.png" alt="Supercomposite Images Logo">
             </div>
-            <p class="hero-description"> 
-                Steph Maj Swanson (artistic alias: Supercomposite) is a multimedia artist, writer, and filmmaker based in Uppsala, Sweden. She creates boundary-pushing work across film, digital art, and storytelling, and is also an active public speaker, sharing her insights on AI, creativity, and digital culture at international conferences and events.
-            </p>
             <div class="hero-contact">
                 <strong>Enquiries:</strong> <a href="mailto:contact@supercompo.site">contact@supercompo.site</a>
             </div>
@@ -629,11 +569,12 @@
     <nav class="nav-menu">
         <div class="nav-container">
             <div class="nav-links">
-                <a href="#images">Images</a>
+                <a href="#about">About</a>
+                <a href="#visual-art">Visual Art</a>
                 <a href="#film">Film</a>
-                <a href="#talks">Talks</a>
-                <a href="#writing">Writing</a>
-                <a href="#merchandise">Merchandise</a>
+                <a href="#speaking">Speaking & Media</a>
+                <a href="#publications">Publications</a>
+                <a href="#shop">Shop</a>
             </div>
         </div>
     </nav>
@@ -641,8 +582,23 @@
     <div class="main-content">
         <div class="container">
             
-            <section class="section" id="images">
-                <h2 class="section-title">Images</h2>
+            <section class="section" id="about">
+                <h2 class="section-title">About</h2>
+                <div class="content-wrapper">
+                    <div class="media-container">
+                        <img src="gallery/Steph Swanson by Kristina Chap.webp" alt="Steph Maj Swanson portrait" class="media-item">
+                        <div class="photo-credit">Photo by Kristina Chap</div>
+                    </div>
+                    <div class="text-container">
+                        <div class="section-text">
+                            <p>Steph Maj Swanson (artistic alias: Supercomposite) is a multimedia artist, writer, and filmmaker based in Uppsala, Sweden. She creates boundary-pushing work across film, digital art, and storytelling, and is also an active public speaker, sharing her insights on AI, creativity, and digital culture at international conferences and events.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="visual-art">
+                <h2 class="section-title">Visual Art</h2>
                 <div class="content-wrapper">
                     <div class="media-container">
                         <img src="gallery/60a3a3d4-a962-46c4-ac40-785eb148_gans-ts1664055830f5b8.png" alt="Loab artwork" class="media-item">
@@ -672,8 +628,8 @@
                             
                             <p>To learn more about Loab, visit <a href="http://loab.ai/">loab.ai</a> or <a href="https://twitter.com/supercomposite/status/1567162288087470081">read the original viral Twitter thread</a>.</p>
                             
- <div class="section-subsection">
-                                <div class="subsection-title">Other Digital Artwork</div>
+                            <div class="section-subsection">
+                                <div class="subsection-title">Additional Works</div>
                                 <p>Recent work includes art for <a href="https://stemcell-music.bandcamp.com/">STEMcell</a>, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. Her artwork appears on two STEMcell releases: "STEMcell feat. Sceptrum" and "STEMcell feat. Propus." For the Sceptrum release, Steph developed a unique artistic process: "To create the artwork, an AI model was pummelled by analog waveforms from optical sound-on-film, causing sound information to heavily distort the fabric of the image."</p>
                                 <p>Her body of video and still image work was described by <em>Galleries West</em> as <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/">"the merging of repulsive with beautiful."</a></p>
                             </div>
@@ -719,8 +675,8 @@
                 </div>
             </section>
 
-            <section class="section" id="talks">
-                                            <h2 class="section-title">Talks</h2>
+            <section class="section" id="speaking">
+                <h2 class="section-title">Speaking & Media</h2>
                 <div class="content-wrapper">
                     <div class="media-container">
                         <img src="gallery/Chaos%20Communication%20Congress%20Hamburg.png" alt="Public speaking" class="media-item">
@@ -730,12 +686,12 @@
                         <div class="section-text">
                             <p>Steph Maj Swanson speaks at major conferences and institutions, and appears on podcasts and radio shows, offering critical insights on AI and creative labor—especially the ethical implications of how AI tools are designed, built, and deployed.</p>
                             
-                     <p><strong>Conferences Presentations:</strong><br>
+                            <p><strong>Conference Presentations:</strong><br>
                             • <a href="https://msub.org.rs/accompanying-program/conference-coding-the-gaze-technology-art-and-society-feminist-perspectives/?lang=en">"AI's Katabatic Turn - Data belongs to the Underworld"</a> - Museum of Contemporary Art, Belgrade (Nov 2024)<br>
                             • Queers in the Machine Symposium - IDA (Danish Society of Engineers), Copenhagen (Aug 2024)<br>
                             • <a href="https://media.ccc.de/v/37c3-12052-what_i_learned_from_loab_ai_as_a_creative_adversary">"What I Learned from Loab: AI as a creative adversary"</a> - Chaos Communication Congress, Hamburg (Dec 2023)<br>
                             • "Kreativitet och artificiell intelligens" panel - Svenska Tecknare, Stockholm (Oct 2023)<br>
-                            •<a href="https://www.cyberneticforests.com/defcon31">"AI Village panel discussion"</a> - DEFCON 31, Las Vegas (Aug 2023)</p>
+                            • <a href="https://www.cyberneticforests.com/defcon31">"AI Village panel discussion"</a> - DEFCON 31, Las Vegas (Aug 2023)</p>
                             
                             <p><strong>Radio Interviews:</strong><br>
                             • <a href="https://www.rte.ie/radio/lyricfm/clips/22183238/">RTÉ lyric fm "Culture File" segment</a> (Dec 2022)<br>
@@ -746,15 +702,16 @@
                             • <a href="https://tenthousandposts.podbean.com/e/loab-your-enthusiasm-ft-cory-doctorow/">Ten Thousand Posts - "Loab your Enthusiasm"</a> with Cory Doctorow (Apr 2023)<br>
                             • <a href="https://www.bbc.com/audio/play/m001gx5g">BBC Woman's Hour - AI art discussion</a> with Krupa Padhy (Jan 2023)</p>
 
-<p><em>Steph håller föredrag med ett unikt kritiskt blick mot AI - även på svenska!</em></p>
+                            <p><em>Steph håller föredrag med ett unikt kritiskt blick mot AI - även på svenska!</em></p>
 
+                            <a href="mailto:contact@supercompo.site" class="booking-btn">Speaking Inquiries</a>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="section" id="writing">
-                <h2 class="section-title">Writing</h2>
+            <section class="section" id="publications">
+                <h2 class="section-title">Publications</h2>
                 <div class="content-wrapper">
                     <div class="media-container">
                         <img src="gallery/image-ts1692463318f5b8.png" alt="Published writing" class="media-item">
@@ -774,8 +731,8 @@
                 </div>
             </section>
 
-            <section class="section" id="merchandise">
-                <h2 class="section-title">Merchandise</h2>
+            <section class="section" id="shop">
+                <h2 class="section-title">Shop</h2>
                 <div class="section-text" style="text-align: center; margin-bottom: 2rem;">
                     <p>LOAB™ merchandise available through our online store. The collection includes leggings, scarves, shirts, sleepwear, socks, sweatshirts, footwear, and headwear.</p>
                 </div>
