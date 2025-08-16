@@ -38,6 +38,70 @@
             overflow: hidden;
         }
 
+        /* Digital interference and AI glitch effects */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 180, 100, 0.03) 0px 1px,
+                    transparent 1px 12px,
+                    rgba(255, 160, 80, 0.05) 12px 13px,
+                    transparent 13px 24px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 190, 110, 0.02) 0px 1px,
+                    transparent 1px 30px
+                );
+            animation: neuralSignal 8s linear infinite;
+            z-index: 1;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, 
+                    transparent 0%, 
+                    rgba(255, 180, 100, 0.08) 15%, 
+                    rgba(255, 200, 120, 0.12) 25%,
+                    transparent 35%,
+                    rgba(255, 160, 80, 0.06) 45%,
+                    rgba(255, 190, 110, 0.10) 55%,
+                    transparent 65%,
+                    rgba(255, 170, 90, 0.07) 75%,
+                    rgba(255, 210, 130, 0.05) 85%,
+                    transparent 95%
+                );
+            animation: dataSweep 15s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes neuralSignal {
+            0% { transform: translateX(0) scaleY(1); }
+            33% { transform: translateX(24px) scaleY(0.8); }
+            66% { transform: translateX(-12px) scaleY(1.2); }
+            100% { transform: translateX(24px) scaleY(1); }
+        }
+
+        @keyframes dataSweep {
+            0% { transform: translateX(-150%) rotate(0deg) scaleX(0.3); opacity: 0; }
+            20% { transform: translateX(-50%) rotate(1deg) scaleX(0.8); opacity: 0.6; }
+            50% { transform: translateX(0) rotate(-0.5deg) scaleX(1); opacity: 0.8; }
+            80% { transform: translateX(50%) rotate(0.5deg) scaleX(0.7); opacity: 0.4; }
+            100% { transform: translateX(150%) rotate(0deg) scaleX(0.2); opacity: 0; }
+        }
+
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -49,12 +113,45 @@
         .logo-container {
             margin-bottom: 1.5rem;
             animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 3;
         }
 
         .logo-container img {
             width: 420px;
             max-width: 90%;
             height: auto;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+            transition: all 0.3s ease;
+        }
+
+        .logo-container:hover img {
+            filter: drop-shadow(0 0 30px rgba(255, 200, 100, 0.3)) 
+                    drop-shadow(0 0 60px rgba(255, 180, 80, 0.2));
+            transform: scale(1.02);
+        }
+
+        /* Floating particles effect */
+        .hero-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 200, 100, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 180, 80, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 220, 120, 0.08) 0%, transparent 50%);
+            animation: floatingOrbs 20s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes floatingOrbs {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-30px, -50px) rotate(120deg); }
+            66% { transform: translate(20px, -30px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
         }
 
         @keyframes fadeInUp {
