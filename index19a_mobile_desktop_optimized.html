@@ -130,67 +130,47 @@
             }
         }
 
-        /* --- Contemporary dark header (replaces TV static effect) --- */
-        .nav-menu {
-            background: linear-gradient(90deg, rgba(20,20,20,0.95), rgba(10,10,10,0.95));
-            backdrop-filter: blur(12px);
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            overflow: visible;
-        }
+ 
+.nav-menu {
+  background: linear-gradient(90deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.95));
+  backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-        /* remove old static overlay entirely */
-        .nav-menu::before { display: none; }
+/* Nav links consistent style */
+.nav-links a {
+  color: #e0e0e0;   /* light grey, not blue */
+  font-weight: 500; /* no bold unless hover */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 3;
-            display: flex;
-            justify-content: center; /* center menu on desktop */
-            align-items: center;
-        }
+.nav-links a:hover {
+  color: #ffffff; /* white on hover */
+}
 
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, #ffffff, #cccccc);
+  transition: width 0.3s ease;
+}
 
-        .nav-links a {
-            color: #cccccc;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            position: relative;
-            padding: 0.5rem 0;
-        }
+.nav-links a:hover::after {
+  width: 100%;
+}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #ffffff, #cccccc);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
 
         /* --- Hamburger toggle for mobile --- */
         .nav-toggle {
