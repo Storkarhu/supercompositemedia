@@ -1,0 +1,171 @@
+        // Printify API Integration
+        const API_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUxMWU5YTgwM2FiN2VlYjNjY2M5NyIsImp0aSI6IjAxYTc3MWQzNzdlNTI0NTYwNTZhYTI4YTQ3MGMzZjhhNWQ2ZTVjMzA4YWEwNzNlMGNkODA2NjQ4Y2YxZTdmNTMwNTU1MGY2NGIwMjQwZjdiIiwiaWF0IjoxNzUzNTM2OTI5Ljc1ODc0NCwibmJmIjoxNzUzNTM2OTI5Ljc1ODc0NiwiZXhwIjoxNzg1MDcyOTI5Ljc1MTc2NSwic3ViIjoiMjQwNDU5NjEiLCJzY29wZXMiOlsic2hvcHMubWFuYWdlIiwic2hvcHMucmVhZCIsImNhdGFsb2cucmVhZCIsIm9yZGVycy5yZWFkIiwib3JkZXJzLndyaXRlIiwicHJvZHVjdHMucmVhZCIsInByb2R1Y3RzLndyaXRlIiwid2ViaG9va3MucmVhZCIsIndlYmhvb2tzLndyaXRlIiwidXBsb2Fkcy5yZWFkIiwidXBsb2Fkcy53cml0ZSIsInByaW50X3Byb3ZpZGVycy5yZWFkIiwidXNlci5pbmZvIl19.anPcZR5d89LuF7kqkhjfaEfseptHG7m4N0c44giKNhABu7aW0zmT_wlf2mTynlXAqtMZIE6DnVEafMkz1UnoQyCFvAb1wps6wSylt1ZHaGwhpasER3tSRTraBqNSBqAeX3266q_VQ6PV4xthZ1UbfeofxxASwlBHh8oqgSa4X7EhGv-NbSxAsePQEA51IhUfj45uPVAyWZaXNAr3S5YpiNIXOmVgTpkfoMcT-rVz6ho46eCW0tMwbHExTwaWPpg51dnbl1_VLLzf8dTOUTf8EYFa1h1hSKnLXQEU_3PJzhP-8aqOShOCIm5ISjk5Vx31f7fz5voK3MTE86rnJEiPylD6cjZXVG4SL5nw1GGaKolVfc4shzjaOOE7uZVzpRyBrGZ9EdfpY1U8-a9HpYvBJKSZFa9RRG2rWe59tR-BJ9rqvcyJJj9jrxlcFNHb8s08cWF932_mrgNQnKSJa6F_JgdguUX7y6rFb9OVFYI2UUSXpEUR5wqqiAHf4miSNpgzAuPDj8f6WMthSS4Glb3C2Dr3ri6xmTO2DBVNFBoc1OBFMt0PHgGC_thkPLTZ8G5EzfOw-OAWzAUAFS9nAuDgcOFMMZjjhiV2TzX_sKved_DxWEM-n4Kpk6X9yYFC9elpwSsZtdk96nbSoCDRCOkVpPQJ2AVdAVcdnVMA5jBPCM4';
+        
+        // Global variables for products
+        let allProducts = {
+            loabProducts: [],
+            galleryProducts: [],
+            totalProducts: 0,
+            error: null
+        };
+
+        // Printify API Client
+        class PrintifyClient {
+            constructor(token) {
+                this.token = token;
+                this.baseURL = 'https://api.printify.com/v1';
+                this.headers = {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                    'User-Agent': 'SupercompositeWebsite/1.0'
+                };
+            }
+
+            async makeRequest(endpoint) {
+                try {
+                    const response = await fetch(`${this.baseURL}${endpoint}`, {
+                        method: 'GET',
+                        headers: this.headers
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+
+                    return await response.json();
+                } catch (error) {
+                    console.error(`Error fetching ${endpoint}:`, error);
+                    throw error;
+                }
+            }
+
+            async getShops() {
+                return await this.makeRequest('/shops.json');
+            }
+
+            async getProducts(shopId, page = 1, limit = 50) {
+                return await this.makeRequest(`/shops/${shopId}/products.json?page=${page}&limit=${limit}`);
+            }
+
+            async getAllProducts(shopId) {
+                const allProducts = [];
+                let page = 1;
+                let hasMorePages = true;
+
+                while (hasMorePages) {
+                    const response = await this.getProducts(shopId, page, 50);
+                    
+                    if (response?.data?.length > 0) {
+                        allProducts.push(...response.data);
+                        hasMorePages = response.current_page < response.last_page;
+                        page++;
+                        
+                        if (hasMorePages) {
+                            await new Promise(resolve => setTimeout(resolve, 200));
+                        }
+                    } else {
+                        hasMorePages = false;
+                    }
+                }
+
+                return allProducts;
+            }
+        }
+
+        // Function to load products from Printify API
+        async function loadProductsFromAPI() {
+            const loadingElement = document.getElementById('loading-indicator');
+            if (loadingElement) {
+                loadingElement.style.display = 'block';
+            }
+
+            try {
+                const client = new PrintifyClient(API_TOKEN);
+                
+                // Get shops
+                const shopsResponse = await client.getShops();
+                if (!shopsResponse?.data?.length) {
+                    throw new Error('No shops found in account');
+                }
+
+                // Find target shop
+                let targetShop = shopsResponse.data.find(shop => 
+                    shop.title.toLowerCase().includes('supercomposite') ||
+                    shop.title.toLowerCase().includes('loab') ||
+                    shop.title.toLowerCase().includes('supercomposite-images')
+                ) || shopsResponse.data[0];
+
+                console.log(`Loading products from shop: ${targetShop.title}`);
+
+                // Get all products
+                const products = await client.getAllProducts(targetShop.id);
+                
+                // Separate products into LOAB and Gallery categories
+                const loabProducts = [];
+                const galleryProducts = [];
+                
+                products.forEach(product => {
+                    const productData = {
+                        id: product.id,
+                        title: product.title,
+                        description: product.description || '',
+                        url: `https://supercomposite-media.printify.me/product/${product.id}`,
+                        image: product.images?.[0]?.src || 'https://via.placeholder.com/150?text=No+Image',
+                        price: product.variants?.[0]?.price || 0,
+                        variants: product.variants?.length || 0,
+                        tags: product.tags || [],
+                        created_at: product.created_at,
+                        visible: product.visible !== false
+                    };
+
+                    // Only include visible products
+                    if (productData.visible) {
+                        // Check if it's a LOAB product
+                        if (product.title.toLowerCase().includes('loab')) {
+                            loabProducts.push(productData);
+                        } else {
+                            // Everything else goes to Gallery
+                            galleryProducts.push(productData);
+                        }
+                    }
+                });
+
+                allProducts = {
+                    loabProducts: loabProducts.sort((a, b) => a.title.localeCompare(b.title)),
+                    galleryProducts: galleryProducts.sort((a, b) => a.title.localeCompare(b.title)),
+                    totalProducts: loabProducts.length + galleryProducts.length,
+                    shop: {
+                        id: targetShop.id,
+                        title: targetShop.title
+                    },
+                    error: null
+                };
+
+                console.log(`Loaded ${allProducts.totalProducts} products: ${loabProducts.length} LOAB products, ${galleryProducts.length} gallery products`);
+
+            } catch (error) {
+                console.error('Error loading products:', error);
+                allProducts = {
+                    loabProducts: [],
+                    galleryProducts: [],
+                    totalProducts: 0,
+                    error: error.message
+                };
+            } finally {
+                if (loadingElement) {
+                    loadingElement.style.display = 'none';
+                }
+            }
+
+            return allProducts;
+        }
+
+        // Fallback data for when API is unavailable
+        const fallbackLoabData = [
+            {
+                "title": "LOAB™ Products",
+                "image": "https://via.placeholder.com/300x300?text=Loading+Products...",
+                "url": "https://supercomposite-media.printify.me/",
+                "description": "Loading current LOAB™ merchandise..."
+            }
+        ];
