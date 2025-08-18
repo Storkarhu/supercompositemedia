@@ -395,8 +395,8 @@
         .merch-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .merch-card {
@@ -843,7 +843,7 @@
             <section class="section" id="shop">
                 <h2 class="section-title">Shop</h2>
                 <div class="section-text" style="text-align: center; margin-bottom: 2rem;">
-                    <p>LOAB™ merchandise available through our online store. The collection includes leggings, scarves, shirts, sleepwear, socks, sweatshirts, footwear, and headwear.</p>
+                    <p>Art prints and other merchandise available through our online store. The LOAB™ collection includes leggings, scarves, shirts, sleepwear, socks, sweatshirts, footwear, and headwear.</p>
                 </div>
                 <div class="merch-grid" id="loabMerchGrid">
                     <!-- Products will be loaded here -->
@@ -861,9 +861,9 @@
         // LOAB Merchandise Data
         const loabMerchData = [
             {
-                "title": "LOAB™ Embroidered Knit Beanie",
-                "image": "https://images-api.printify.com/mockup/6884e82535f0c41bb9090ba1/118231/109442/loab-embroidered-knit-beanie.jpg?camera_label=front",
-                "url": "https://supercomposite-media.printify.me/product/21939932"
+                "title": "LOAB™ - Framed Canvas Print",
+                "image": "https://images-api.printify.com/mockup/68a1043d84924bfb770bea64/111904/107110/loab-framed-canvas-print.jpg?camera_label=front",
+                "url": "https://supercomposite-images.printify.me/product/22477576/loab-framed-canvas-print"
             },
             {
                 "title": "LOAB™ Flip Flops",
@@ -884,22 +884,7 @@
                 "title": "LOAB™ Socks",
                 "image": "https://images-api.printify.com/mockup/6883e8c535f0c41bb908d0df/45134/53204/loab-socks.jpg?camera_label=pose-1",
                 "url": "https://supercomposite-media.printify.me/product/21938386"
-            },
-            {
-                "title": "LOAB™ Unisex Sweatshirt",
-                "image": "https://images-api.printify.com/mockup/6883ed2b1fd9f775a6078fca/36126/234/loab-unisex-sweatshirt.jpg?camera_label=front",
-                "url": "https://supercomposite-media.printify.me/product/21938411"
-            },
-            {
-                "title": "LOAB™ Unisex T-shirt",
-                "image": "https://images-api.printify.com/mockup/6883ebbb081f2eb32109f2fd/73204/100629/loab-unisex-t-shirt.jpg?camera_label=folded",
-                "url": "https://supercomposite-media.printify.me/product/21938407"
-            },
-            {
-                "title": "LOAB™ Women's Pajama Pants",
-                "image": "https://images-api.printify.com/mockup/68840d4bd9d9487c710f8872/94291/78774/loab-womens-pajama-pants.jpg?camera_label=front",
-                "url": "https://supercomposite-media.printify.me/product/21938394"
-            }
+            } 
         ];
 
         function createMerchCard(item) {
@@ -918,7 +903,7 @@
             if (grid && loabMerchData && loabMerchData.length > 0) {
                 const merchCards = loabMerchData.map(createMerchCard).join('');
                 const viewAllButton = `
-                    <a href="https://supercomposite-media.printify.me/" target="_blank" class="view-all-btn">
+                    <a href="https://supercomposite-images.printify.me/" target="_blank" class="view-all-btn">
                         View Full Collection →
                     </a>
                 `;
