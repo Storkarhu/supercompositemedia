@@ -1293,8 +1293,10 @@
                 toggle.classList.remove("expanded");
             } else {
                 content.classList.add("expanded");
-                // Use a generous max-height that accommodates mobile reflow
-                content.style.maxHeight = Math.max(content.scrollHeight + 100, 3000) + "px";
+                // Use a more generous max-height for mobile with narrower margins
+                const isMobile = window.innerWidth <= 768;
+                const minHeight = isMobile ? 4000 : 3000;
+                content.style.maxHeight = Math.max(content.scrollHeight + 200, minHeight) + "px";
                 toggle.classList.add("expanded");
             }
         }
