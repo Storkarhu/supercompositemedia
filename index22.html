@@ -243,6 +243,13 @@
             padding: 0 2rem;
         }
 
+        @media (max-width: 768px) {
+            .container {
+                max-width: 95%;
+                padding: 0 1rem;
+            }
+        }
+
         .section {
             margin-bottom: 3rem;
             padding: 2rem 0;
@@ -668,13 +675,16 @@
                 display: none;
                 flex-direction: column;
                 background: rgba(15, 15, 15, 0.98);
+                backdrop-filter: blur(12px);
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
-                padding: 1rem 0;
+                padding: 0.5rem 0;
                 text-align: center;
-                gap: 1rem;
+                gap: 0.25rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
             }
 
             .nav-links.active {
@@ -872,7 +882,7 @@
                             <!-- Media Archive -->
                             <div class="media-archive">
                                 <div class="archive-header" onclick="toggleArchive()">
-                                    <h3 class="archive-title">Loab — Selected Media & Sources</h3>
+                                    <h3 class="archive-title">Loab – Selected Media & Sources</h3>
                                     <span class="archive-toggle" id="archiveToggle">↓</span>
                                 </div>
                                 <div class="archive-content" id="archiveContent">
@@ -881,16 +891,16 @@
                                         <h4 class="archive-section-title">Origins & Artist's Websites</h4>
                                         <ul class="archive-list">
                                             <li>
-                                                <strong>X (Twitter)</strong> — 
-                                                <time datetime="2022-09">September 2022</time> — 
+                                                <strong>X (Twitter)</strong> – 
+                                                <time datetime="2022-09">September 2022</time> – 
                                                 <a href="https://twitter.com/supercomposite/status/1567162327950032896" target="_blank" rel="noopener">Original Loab thread</a>
                                             </li>
                                             <li>
-                                                <strong>Artist Website</strong> — 
+                                                <strong>Artist Website</strong> – 
                                                 <a href="https://supercompo.site/" target="_blank" rel="noopener">https://supercompo.site/</a>
                                             </li>
                                             <li>
-                                                <strong>Loab Website</strong> — 
+                                                <strong>Loab Website</strong> – 
                                                 <a href="https://loab.ai/" target="_blank" rel="noopener">https://loab.ai/</a>
                                             </li>
                                         </ul>
@@ -901,122 +911,121 @@
                                         <h4 class="archive-section-title">Articles and Books</h4>
                                         <ul class="archive-list">
                                             <li>
-                                                <strong>PC Gamer</strong> — <em>Katie Wickens</em>, <time datetime="2022-09-07">Sep 7, 2022</time> — <a href="https://www.pcgamer.com/ai-image-generaotr-loab-cryptid-supercomposite/" target="_blank" rel="noopener">AI image generator births the horrific "first cryptid of the latent space"</a>
+                                                <strong>PC Gamer</strong> – <em>Katie Wickens</em>, <time datetime="2022-09-07">Sep 7, 2022</time> – <a href="https://www.pcgamer.com/ai-image-generaotr-loab-cryptid-supercomposite/" target="_blank" rel="noopener">AI image generator births the horrific "first cryptid of the latent space"</a>
                                             </li>
                                             <li>
-                                                <strong>IGN</strong> — <em>Anthony Wood</em>, <time datetime="2022-09-07">Sep 7, 2022</time> — <a href="https://www.ign.com/articles/meet-loab-the-terrifying-face-the-internet-has-dubbed-the-first-ai-art-cryptid" target="_blank" rel="noopener">Meet Loab: The Terrifying Face The Internet Has Dubbed the First AI Art Cryptid</a>
+                                                <strong>IGN</strong> – <em>Anthony Wood</em>, <time datetime="2022-09-07">Sep 7, 2022</time> – <a href="https://www.ign.com/articles/meet-loab-the-terrifying-face-the-internet-has-dubbed-the-first-ai-art-cryptid" target="_blank" rel="noopener">Meet Loab: The Terrifying Face The Internet Has Dubbed the First AI Art Cryptid</a>
                                             </li>
                                             <li>
-                                                <strong>Creative Bloq</strong> — <em>Ian Dean</em>, <time datetime="2022-09-08">Sep 8, 2022</time> — <a href="https://www.creativebloq.com/news/meet-loab-the-creepy-ai-art" target="_blank" rel="noopener">This AI art-generated woman is freaking out the internet</a>
+                                                <strong>Creative Bloq</strong> – <em>Ian Dean</em>, <time datetime="2022-09-08">Sep 8, 2022</time> – <a href="https://www.creativebloq.com/news/meet-loab-the-creepy-ai-art" target="_blank" rel="noopener">This AI art-generated woman is freaking out the internet</a>
                                             </li>
                                             <li>
-                                                <strong>CNET</strong> — <em>Jackson Ryan</em>, <time datetime="2022-09-08">Sep 8, 2022</time> — <a href="https://www.cnet.com/science/loab-the-creepy-ai-art-generated-woman-explained/" target="_blank" rel="noopener">Loab, the Creepy AI Art-Generated Woman, Explained</a>
+                                                <strong>CNET</strong> – <em>Jackson Ryan</em>, <time datetime="2022-09-08">Sep 8, 2022</time> – <a href="https://www.cnet.com/science/loab-the-creepy-ai-art-generated-woman-explained/" target="_blank" rel="noopener">Loab, the Creepy AI Art-Generated Woman, Explained</a>
                                             </li>
                                             <li>
-                                                <strong>Rolling Stone</strong> — <em>Miles Klee</em>, <time datetime="2022-09-08">Sep 8, 2022</time> — <a href="https://www.rollingstone.com/culture/culture-news/loab-ai-creepypasta-artist-supercomposite-1234588335/" target="_blank" rel="noopener">Who Is Loab, the AI-Generated Apparition Haunting Our Timelines?</a>
+                                                <strong>Rolling Stone</strong> – <em>Miles Klee</em>, <time datetime="2022-09-08">Sep 8, 2022</time> – <a href="https://www.rollingstone.com/culture/culture-news/loab-ai-creepypasta-artist-supercomposite-1234588335/" target="_blank" rel="noopener">Who Is Loab, the AI-Generated Apparition Haunting Our Timelines?</a>
                                             </li>
                                             <li>
-                                                <strong>Artnet News</strong> — <em>Dorian Batycka</em>, <time datetime="2022-09-12">Sep 12, 2022</time> — <a href="https://news.artnet.com/art-world/meet-loab-the-latest-example-of-a-i-generated-art-creeping-out-the-internet-sorry-in-advance-for-the-nightmares-2173737" target="_blank" rel="noopener">Meet 'Loab,' the Latest Example of A.I.-Generated Art Creeping Out the Internet</a>
+                                                <strong>Artnet News</strong> – <em>Dorian Batycka</em>, <time datetime="2022-09-12">Sep 12, 2022</time> – <a href="https://news.artnet.com/art-world/meet-loab-the-latest-example-of-a-i-generated-art-creeping-out-the-internet-sorry-in-advance-for-the-nightmares-2173737" target="_blank" rel="noopener">Meet 'Loab,' the Latest Example of A.I.-Generated Art Creeping Out the Internet</a>
                                             </li>
                                             <li>
-                                                <strong>IFLScience</strong> — <em>Staff</em>, <time datetime="2022-09-12">Sep 12, 2022</time> — <a href="https://www.iflscience.com/loab-why-does-ai-keep-generating-images-of-this-slightly-terrifying-woman-65259" target="_blank" rel="noopener">"Loab": Why Does AI Keep Generating Images Of This (Slightly Terrifying) Woman</a>
+                                                <strong>IFLScience</strong> – <em>Staff</em>, <time datetime="2022-09-12">Sep 12, 2022</time> – <a href="https://www.iflscience.com/loab-why-does-ai-keep-generating-images-of-this-slightly-terrifying-woman-65259" target="_blank" rel="noopener">"Loab": Why Does AI Keep Generating Images Of This (Slightly Terrifying) Woman</a>
                                             </li>
                                             <li>
-                                                <strong>Analytics Drift</strong> — <em>Sahil Pawar</em>, <time datetime="2022-09-12">Sep 12, 2022</time> — <a href="https://analyticsdrift.com/strange-woman-dubbed-loab-keeps-appearing-in-images-created-by-ai-tools/" target="_blank" rel="noopener">Strange woman dubbed 'Loab' keeps appearing in images created by AI tools</a>
+                                                <strong>Analytics Drift</strong> – <em>Sahil Pawar</em>, <time datetime="2022-09-12">Sep 12, 2022</time> – <a href="https://analyticsdrift.com/strange-woman-dubbed-loab-keeps-appearing-in-images-created-by-ai-tools/" target="_blank" rel="noopener">Strange woman dubbed 'Loab' keeps appearing in images created by AI tools</a>
                                             </li>
                                             <li>
-                                                <strong>Open Data Science</strong> — <em>Staff</em>, <time datetime="2022-09">Sep 2022</time> — <a href="https://opendatascience.com/everyone-meet-loab-the-internets-first-terrifying-ai-cryptid/" target="_blank" rel="noopener">Everyone Meet Loab, the Internet's First Terrifying AI Cryptid</a>
+                                                <strong>Open Data Science</strong> – <em>Staff</em>, <time datetime="2022-09">Sep 2022</time> – <a href="https://opendatascience.com/everyone-meet-loab-the-internets-first-terrifying-ai-cryptid/" target="_blank" rel="noopener">Everyone Meet Loab, the Internet's First Terrifying AI Cryptid</a>
                                             </li>
                                             <li>
-                                                <strong>Smithsonian Magazine</strong> — <em>Nina Raemont</em>, <time datetime="2022-09-13">Sep 13, 2022</time> — <a href="https://www.smithsonianmag.com/smart-news/loab-artificial-intelligence-art-180980743/" target="_blank" rel="noopener">Who Is the Woman Haunting A.I.-Generated Art?</a>
+                                                <strong>Smithsonian Magazine</strong> – <em>Nina Raemont</em>, <time datetime="2022-09-13">Sep 13, 2022</time> – <a href="https://www.smithsonianmag.com/smart-news/loab-artificial-intelligence-art-180980743/" target="_blank" rel="noopener">Who Is the Woman Haunting A.I.-Generated Art?</a>
                                             </li>
                                             <li>
-                                                <strong>TechCrunch</strong> — <em>Devin Coldewey</em>, <time datetime="2022-09-13">Sep 13, 2022</time> — <a href="https://techcrunch.com/2022/09/13/a-terrifying-ai-generated-woman-is-lurking-in-the-abyss-of-latent-space/" target="_blank" rel="noopener">A terrifying AI-generated woman is lurking in the abyss of latent space</a>
+                                                <strong>TechCrunch</strong> – <em>Devin Coldewey</em>, <time datetime="2022-09-13">Sep 13, 2022</time> – <a href="https://techcrunch.com/2022/09/13/a-terrifying-ai-generated-woman-is-lurking-in-the-abyss-of-latent-space/" target="_blank" rel="noopener">A terrifying AI-generated woman is lurking in the abyss of latent space</a>
                                             </li>
                                             <li>
-                                                <strong>The Mary Sue</strong> — <em>Staff</em>, <time datetime="2022-09-13">Sep 13, 2022</time> — <a href="https://www.themarysue.com/a-new-ai-demon-has-dropped-and-her-name-is-loab/" target="_blank" rel="noopener">A New AI Demon Has Dropped, and Her Name is Loab</a>
+                                                <strong>The Mary Sue</strong> – <em>Staff</em>, <time datetime="2022-09-13">Sep 13, 2022</time> – <a href="https://www.themarysue.com/a-new-ai-demon-has-dropped-and-her-name-is-loab/" target="_blank" rel="noopener">A New AI Demon Has Dropped, and Her Name is Loab</a>
                                             </li>
                                             <li>
-                                                <strong>de Volkskrant (NL)</strong> — <em>Laurens Verhagen</em>, <time datetime="2022-09-23">Sep 23, 2022</time> — <a href="https://www.volkskrant.nl/wetenschap/de-geest-in-de-machine~b1e9c5a7/" target="_blank" rel="noopener">De geest in de machine</a>
+                                                <strong>de Volkskrant (NL)</strong> – <em>Laurens Verhagen</em>, <time datetime="2022-09-23">Sep 23, 2022</time> – <a href="https://www.volkskrant.nl/wetenschap/de-geest-in-de-machine~b1e9c5a7/" target="_blank" rel="noopener">De geest in de machine</a>
                                             </li>
                                             <li>
-                                                <strong>Der Spiegel (DE)</strong> — <em>Jörg Breithut</em>, <time datetime="2022-09-25">Sep 25, 2022</time> — <a href="https://www.spiegel.de/netzwelt/web/kuenstliche-intelligenz-woher-kommen-die-ki-monster-a-64842a08-0530-4c31-98b0-4e8a2a33a9c7" target="_blank" rel="noopener">Woher kommen die KI-Monster?</a>
+                                                <strong>Der Spiegel (DE)</strong> – <em>Jörg Breithut</em>, <time datetime="2022-09-25">Sep 25, 2022</time> – <a href="https://www.spiegel.de/netzwelt/web/kuenstliche-intelligenz-woher-kommen-die-ki-monster-a-64842a08-0530-4c31-98b0-4e8a2a33a9c7" target="_blank" rel="noopener">Woher kommen die KI-Monster?</a>
                                             </li>
                                             <li>
-                                                <strong>The Atlantic</strong> — <em>Stephen Marche</em>, <time datetime="2022-09-27">Sep 27, 2022</time> — <a href="https://www.theatlantic.com/technology/archive/2022/09/loab-ai-generated-art-cryptid/671482/" target="_blank" rel="noopener">We're Witnessing the Birth of a New Artistic Medium</a>
+                                                <strong>The Atlantic</strong> – <em>Stephen Marche</em>, <time datetime="2022-09-27">Sep 27, 2022</time> – <a href="https://www.theatlantic.com/technology/archive/2022/09/loab-ai-generated-art-cryptid/671482/" target="_blank" rel="noopener">We're Witnessing the Birth of a New Artistic Medium</a>
                                             </li>
                                             <li>
-                                                <strong>Dazed</strong> — <em>Thom Waite</em>, <time datetime="2022-09">Sep 2022</time> — <a href="https://www.dazeddigital.com/life-culture/article/56964/1/loab-the-horrifying-cryptid-haunting-ai-latent-space-supercomposite" target="_blank" rel="noopener">Loab: the horrifying cryptid haunting AI's latent space</a>
+                                                <strong>Dazed</strong> – <em>Thom Waite</em>, <time datetime="2022-09">Sep 2022</time> – <a href="https://www.dazeddigital.com/life-culture/article/56964/1/loab-the-horrifying-cryptid-haunting-ai-latent-space-supercomposite" target="_blank" rel="noopener">Loab: the horrifying cryptid haunting AI's latent space</a>
                                             </li>
                                             <li>
-                                                <strong>New Scientist</strong> — <em>Matthew Sparkes</em>, <time datetime="2022-09">Sep 2022</time> — <a href="https://www.newscientist.com/article/2291323-why-do-ais-keep-creating-nightmarish-images-of-strange-characters/" target="_blank" rel="noopener">Why do AIs keep creating nightmarish images of strange characters?</a>
+                                                <strong>New Scientist</strong> – <em>Matthew Sparkes</em>, <time datetime="2022-09">Sep 2022</time> – <a href="https://www.newscientist.com/article/2291323-why-do-ais-keep-creating-nightmarish-images-of-strange-characters/" target="_blank" rel="noopener">Why do AIs keep creating nightmarish images of strange characters?</a>
                                             </li>
                                             <li>
-                                                <strong>Distractify</strong> — <em>Jennifer Tisdale</em>, <time datetime="2022-09">Sep 2022</time> — <a href="https://www.distractify.com/p/what-is-loab" target="_blank" rel="noopener">"She Looks Like a Nice Computer-Generated Lady…" (EXCLUSIVE)</a>
+                                                <strong>Distractify</strong> – <em>Jennifer Tisdale</em>, <time datetime="2022-09">Sep 2022</time> – <a href="https://www.distractify.com/p/what-is-loab" target="_blank" rel="noopener">"She Looks Like a Nice Computer-Generated Lady…" (EXCLUSIVE)</a>
                                             </li>
                                             <li>
-                                                <strong>Medium</strong> — <em>Ceren Aceaser</em>, <time datetime="2022">2022</time> — <a href="https://medium.com/@cerenaceaser/ai-caught-a-case-of-the-zeitgeists-what-loabs-arrival-really-means-4b8b03b8ed3d" target="_blank" rel="noopener">AI caught a case of the zeitgeists, what Loab's arrival really means</a>
+                                                <strong>Medium</strong> – <em>Ceren Aceaser</em>, <time datetime="2022">2022</time> – <a href="https://medium.com/@cerenaceaser/ai-caught-a-case-of-the-zeitgeists-what-loabs-arrival-really-means-4b8b03b8ed3d" target="_blank" rel="noopener">AI caught a case of the zeitgeists, what Loab's arrival really means</a>
                                             </li>
                                             <li>
-                                                <strong>The Mary Sue</strong> — <em>Interview</em>, <time datetime="2022-10-20">Oct 20, 2022</time> — <a href="https://www.themarysue.com/interview-meet-supercomposite-creator-of-the-ai-demon-loab/" target="_blank" rel="noopener">INTERVIEW: Meet Supercomposite, Creator of The AI Demon Loab</a>
+                                                <strong>The Mary Sue</strong> – <em>Interview</em>, <time datetime="2022-10-20">Oct 20, 2022</time> – <a href="https://www.themarysue.com/interview-meet-supercomposite-creator-of-the-ai-demon-loab/" target="_blank" rel="noopener">INTERVIEW: Meet Supercomposite, Creator of The AI Demon Loab</a>
                                             </li>
                                             <li>
-                                                <strong>ABC Background Briefing</strong> — <em>Ange Lavoipierre</em>, <time datetime="2022-11-25">Nov 25, 2022</time> — <a href="https://www.abc.net.au/news/2022-11-26/loab-age-of-artificial-intelligence-future/101678206" target="_blank" rel="noopener">INTERVIEW: Meet Supercomposite, Creator of The AI Demon Loab</a>
+                                                <strong>ABC Background Briefing</strong> – <em>Ange Lavoipierre</em>, <time datetime="2022-11-25">Nov 25, 2022</time> – <a href="https://www.abc.net.au/news/2022-11-26/loab-age-of-artificial-intelligence-future/101678206" target="_blank" rel="noopener">INTERVIEW: Meet Supercomposite, Creator of The AI Demon Loab</a>
                                             </li>
                                             <li>
-                                                <strong>Digital Journal</strong> — <em>Paul Wallis</em>, <time datetime="2022-11-26">Nov 26, 2022</time> — <a href="https://www.digitaljournal.com/tech-science/op-ed-loab-ai-scripted-ugliness-and-threats-of-reality-collapse/article" target="_blank" rel="noopener">Op-Ed: 'Loab' — AI-scripted ugliness and threats of 'reality collapse'</a>
+                                                <strong>Digital Journal</strong> – <em>Paul Wallis</em>, <time datetime="2022-11-26">Nov 26, 2022</time> – <a href="https://www.digitaljournal.com/tech-science/op-ed-loab-ai-scripted-ugliness-and-threats-of-reality-collapse/article" target="_blank" rel="noopener">Op-Ed: 'Loab' – AI-scripted ugliness and threats of 'reality collapse'</a>
                                             </li>
                                             <li>
-                                                <strong>Boing Boing</strong> — <em>Staff</em>, <time datetime="2022-11-30">Nov 30, 2022</time> — <a href="https://boingboing.net/2022/11/30/who-is-loab-and-what-lesson-about-ai-is-she-trying-to-teach-us.html" target="_blank" rel="noopener">Who is "Loab" and what lesson about AI is she trying to teach us?</a>
+                                                <strong>Boing Boing</strong> – <em>Staff</em>, <time datetime="2022-11-30">Nov 30, 2022</time> – <a href="https://boingboing.net/2022/11/30/who-is-loab-and-what-lesson-about-ai-is-she-trying-to-teach-us.html" target="_blank" rel="noopener">Who is "Loab" and what lesson about AI is she trying to teach us?</a>
                                             </li>
                                             <li>
-                                                <strong>ScienceAlert</strong> — <em>Carly Cassella</em>, <time datetime="2022-12">Dec 2022</time> — <a href="https://www.sciencealert.com/a-nightmare-face-is-haunting-ai-art-and-there-s-a-reason-we-shouldn-t-look-away" target="_blank" rel="noopener">A Nightmare Face Is Haunting AI Art, And There's A Reason We Shouldn't Look Away</a>
+                                                <strong>ScienceAlert</strong> – <em>Carly Cassella</em>, <time datetime="2022-12">Dec 2022</time> – <a href="https://www.sciencealert.com/a-nightmare-face-is-haunting-ai-art-and-there-s-a-reason-we-shouldn-t-look-away" target="_blank" rel="noopener">A Nightmare Face Is Haunting AI Art, And There's A Reason We Shouldn't Look Away</a>
                                             </li>
                                             <li>
-                                                <strong>Galleries West</strong> — <em>Sarah Swan</em>, <time datetime="2022-12-27">Dec 27, 2022</time> — <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/" target="_blank" rel="noopener">You Want It Darker?</a>
+                                                <strong>Galleries West</strong> – <em>Sarah Swan</em>, <time datetime="2022-12-27">Dec 27, 2022</time> – <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/" target="_blank" rel="noopener">You Want It Darker?</a>
                                             </li>
                                             <li>
-                                                <strong>The Washington Post</strong> — <em>Tatum Hunter</em>, <time datetime="2023-01-18">Jan 18, 2023</time> — <a href="https://www.washingtonpost.com/technology/2023/01/18/chatgpt-personal-use/" target="_blank" rel="noopener">When you should (and shouldn't) rely on AI tools</a>
+                                                <strong>The Washington Post</strong> – <em>Tatum Hunter</em>, <time datetime="2023-01-18">Jan 18, 2023</time> – <a href="https://www.washingtonpost.com/technology/2023/01/18/chatgpt-personal-use/" target="_blank" rel="noopener">When you should (and shouldn't) rely on AI tools</a>
                                             </li>
                                             <li>
-                                                <strong>WIRED</strong> — <em>Joel Warner</em>, <time datetime="2023-02">Feb 2023</time> — <a href="https://www.wired.com/story/generative-ai-marquis-de-sade-chatgpt/" target="_blank" rel="noopener">The ChatGPT Reincarnation of the Marquis de Sade Is Coming</a>
+                                                <strong>WIRED</strong> – <em>Joel Warner</em>, <time datetime="2023-02">Feb 2023</time> – <a href="https://www.wired.com/story/generative-ai-marquis-de-sade-chatgpt/" target="_blank" rel="noopener">The ChatGPT Reincarnation of the Marquis de Sade Is Coming</a>
                                             </li>
                                             <li>
-                                                <strong>Religions</strong> — <em>Hannah Lucas</em>, <time datetime="2023-06">Jun 2023</time> — <a href="https://www.mdpi.com/2077-1444/14/6/812" target="_blank" rel="noopener">"Negative Capabilities: Investigating Apophasis in AI Text-to-Image Models"</a>
+                                                <strong>Religions</strong> – <em>Hannah Lucas</em>, <time datetime="2023-06">Jun 2023</time> – <a href="https://www.mdpi.com/2077-1444/14/6/812" target="_blank" rel="noopener">"Negative Capabilities: Investigating Apophasis in AI Text-to-Image Models"</a>
                                             </li>
                                             <li>
-                                            <li>
-                                                <strong>Rue Morgue</strong> — <em>Forest Williams</em>, <time datetime="2023-09">Sep 2023</time> — <a href="https://rue-morgue.com/doomsday-is-here-in-rue-morgue-214-sep-oct-2023-halloween-special-issue/" target="_blank" rel="noopener">"Ghosts in the Machine: Meet Loab, A Recurring Nightmare That Crawled From The Mind of AI, and the World's First Cyber-Cryptid"</a> pp. 18-19 (print only)
+                                                <strong>Rue Morgue</strong> – <em>Forest Williams</em>, <time datetime="2023-09">Sep 2023</time> – <a href="https://rue-morgue.com/doomsday-is-here-in-rue-morgue-214-sep-oct-2023-halloween-special-issue/" target="_blank" rel="noopener">"Ghosts in the Machine: Meet Loab, A Recurring Nightmare That Crawled From The Mind of AI, and the World's First Cyber-Cryptid"</a> pp. 18-19 (print only)
                                             </li>
                                             <li>
-                                                <strong>Der Spiegel (DE)</strong> — <em>Interview</em>, <time datetime="2023-12-28">Dec 28, 2023</time> — <a href="https://www.spiegel.de/netzwelt/web/ki-phaenomen-loab-jemand-sagte-mir-ich-haette-einen-daemon-erschaffen-a-de1e7c74-ed34-4f1f-91a8-c9a4fd1ac192" target="_blank" rel="noopener">»Jemand sagte mir, ich hätte einen Dämon erschaffen«</a>
+                                                <strong>Der Spiegel (DE)</strong> – <em>Interview</em>, <time datetime="2023-12-28">Dec 28, 2023</time> – <a href="https://www.spiegel.de/netzwelt/web/ki-phaenomen-loab-jemand-sagte-mir-ich-haette-einen-daemon-erschaffen-a-de1e7c74-ed34-4f1f-91a8-c9a4fd1ac192" target="_blank" rel="noopener">»Jemand sagte mir, ich hätte einen Dämon erschaffen«</a>
                                             </li>
                                             <li>
-                                                <strong>VICE</strong> — <em>Staff</em>, <time datetime="2024-08-09">Aug 9, 2024</time> — <a href="https://www.vice.com/en/article/why-does-this-horrifying-woman-keep-appearing-in-ai-generated-images/" target="_blank" rel="noopener">Why Does This Horrifying Woman Keep Appearing in AI-Generated Images?</a>
+                                                <strong>VICE</strong> – <em>Staff</em>, <time datetime="2024-08-09">Aug 9, 2024</time> – <a href="https://www.vice.com/en/article/why-does-this-horrifying-woman-keep-appearing-in-ai-generated-images/" target="_blank" rel="noopener">Why Does This Horrifying Woman Keep Appearing in AI-Generated Images?</a>
                                             </li>
                                             <li>
-                                                <strong>DN (SV)</strong> — <em>Viktor Andersson</em>, <time datetime="2024-10-25">Oct 25, 2024</time> — <a href="https://www.dn.se/kultur/ai-demon-upptackt-av-svensk-kan-bli-hollywoodfilm/" target="_blank" rel="noopener">"AI-demon" upptäckt av svensk — kan bli Hollywoodfilm</a>
+                                                <strong>DN (SV)</strong> – <em>Viktor Andersson</em>, <time datetime="2024-10-25">Oct 25, 2024</time> – <a href="https://www.dn.se/kultur/ai-demon-upptackt-av-svensk-kan-bli-hollywoodfilm/" target="_blank" rel="noopener">"AI-demon" upptäckt av svensk – kan bli Hollywoodfilm</a>
                                             </li>
                                             <li>
-                                                <strong>Yahoo News</strong> — <em>ScienceAlert</em>, <time datetime="2024-10-31">Oct 31, 2024</time> — <a href="https://www.yahoo.com/news/creepy-true-story-nightmare-face-225758900.html" target="_blank" rel="noopener">The Creepy True Story of The Nightmare Face Haunting The Internet</a>
+                                                <strong>Yahoo News</strong> – <em>ScienceAlert</em>, <time datetime="2024-10-31">Oct 31, 2024</time> – <a href="https://www.yahoo.com/news/creepy-true-story-nightmare-face-225758900.html" target="_blank" rel="noopener">The Creepy True Story of The Nightmare Face Haunting The Internet</a>
                                             </li>
                                             <li>
-                                                <strong>UNT (SV)</strong> — <em>Maria Larsdotter</em>, <time datetime="2024-11-02">Nov 2, 2024</time> — <a href="https://www.unt.se/kultur/konst/artikel/uppsalakonstnar-kritisk-mot-ai-trots-eget-viralt-ai-verk/jne1wvmj" target="_blank" rel="noopener">Uppsalakonstnären om sin AI-demon "Loab": "Jag fick en chock"</a>
+                                                <strong>UNT (SV)</strong> – <em>Maria Larsdotter</em>, <time datetime="2024-11-02">Nov 2, 2024</time> – <a href="https://www.unt.se/kultur/konst/artikel/uppsalakonstnar-kritisk-mot-ai-trots-eget-viralt-ai-verk/jne1wvmj" target="_blank" rel="noopener">Uppsalakonstnären om sin AI-demon "Loab": "Jag fick en chock"</a>
                                             </li>
                                             <li>
-                                                <strong>Critical AI</strong> — <em>Eryk Salvaggio, Caroline Sinders & Steph Maj Swanson</em>, <time datetime="2025-01-17">Jan 17, 2025</time> — <a href="https://criticalai.org/2025/01/17/sneak-preview-eryk-salvaggio-caroline-sinders-steph-maj-swansons-cultural-red-teaming-arrg-creative-misuse-of-ai-systems/" target="_blank" rel="noopener">Cultural Red Teaming: ARRG! & Creative Misuse of AI Systems</a>
+                                                <strong>Critical AI</strong> – <em>Eryk Salvaggio, Caroline Sinders & Steph Maj Swanson</em>, <time datetime="2025-01-17">Jan 17, 2025</time> – <a href="https://criticalai.org/2025/01/17/sneak-preview-eryk-salvaggio-caroline-sinders-steph-maj-swansons-cultural-red-teaming-arrg-creative-misuse-of-ai-systems/" target="_blank" rel="noopener">Cultural Red Teaming: ARRG! & Creative Misuse of AI Systems</a>
                                             </li>
                                             <li>
-                                                <strong>Critical Meme Reader III: Breaking the Meme</strong>  — <em>Gabriele de Seta</em>, <time datetime="2024-05">May 2024</time>  —  </strong> — <a href="https://networkcultures.org/blog/publication/critical-meme-reader-iii-breaking-the-meme/" target="_blank" rel="noopener">An Algorithmic Folklore: Vernacular Creativity in Times of Everyday Automation</a> pp. 234-354 (mentions Loab in context of algorithmic folklore)
+                                                <strong>Critical Meme Reader III: Breaking the Meme</strong>  – <em>Gabriele de Seta</em>, <time datetime="2024-05">May 2024</time>  –  <a href="https://networkcultures.org/blog/publication/critical-meme-reader-iii-breaking-the-meme/" target="_blank" rel="noopener">An Algorithmic Folklore: Vernacular Creativity in Times of Everyday Automation</a> pp. 234-354 (mentions Loab in context of algorithmic folklore)
                                             </li>
                                             <li>
-                                                <strong>The Unseen Internet: Conjuring the Occult in Digital Discourse</strong> — <em>Shira Chess</em>, <time datetime="2025-02">Feb 2025</time> — <a href="https://mitpress.mit.edu/9780262553889/the-unseen-internet/" target="_blank" rel="noopener">MIT Press</a> (mentions Loab in context of digital occult discourse)
+                                                <strong>The Unseen Internet: Conjuring the Occult in Digital Discourse</strong> – <em>Shira Chess</em>, <time datetime="2025-02">Feb 2025</time> – <a href="https://mitpress.mit.edu/9780262553889/the-unseen-internet/" target="_blank" rel="noopener">MIT Press</a> (mentions Loab in context of digital occult discourse)
                                             </li>
                                             <li>
-                                                <strong>Aya Data</strong> — <em>Staff</em>, <time datetime="2025-03">Mar 2025</time> — <a href="https://www.ayadata.ai/digital-cryptids-how-ai-is-making-monsters/" target="_blank" rel="noopener">Digital Cryptids: How AI is Making Monsters</a>
+                                                <strong>Aya Data</strong> – <em>Staff</em>, <time datetime="2025-03">Mar 2025</time> – <a href="https://www.ayadata.ai/digital-cryptids-how-ai-is-making-monsters/" target="_blank" rel="noopener">Digital Cryptids: How AI is Making Monsters</a>
                                             </li>
                                             <li>
-                                                <strong>Wikipedia</strong> — <em>Community-edited</em>, <time datetime="2025-06-27">Jun 27, 2025</time> — <a href="https://en.wikipedia.org/wiki/Loab" target="_blank" rel="noopener">Loab</a>
+                                                <strong>Wikipedia</strong> – <em>Community-edited</em>, <time datetime="2025-06-27">Jun 27, 2025</time> – <a href="https://en.wikipedia.org/wiki/Loab" target="_blank" rel="noopener">Loab</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1026,19 +1035,19 @@
                                         <h4 class="archive-section-title">Conferences</h4>
                                         <ul class="archive-list">
                                             <li>
-                                                <strong>Museum of Contemporary Art, Belgrade</strong> — <em>Nov 2024</em> — <a href="https://msub.org.rs/accompanying-program/conference-coding-the-gaze-technology-art-and-society-feminist-perspectives/?lang=en" target="_blank" rel="noopener">"AI's Katabatic Turn - Data belongs to the Underworld"</a>
+                                                <strong>Museum of Contemporary Art, Belgrade</strong> – <em>Nov 2024</em> – <a href="https://msub.org.rs/accompanying-program/conference-coding-the-gaze-technology-art-and-society-feminist-perspectives/?lang=en" target="_blank" rel="noopener">"AI's Katabatic Turn - Data belongs to the Underworld"</a>
                                             </li>
                                             <li>
-                                                <strong>IDA (Danish Society of Engineers), Copenhagen</strong> — <em>Aug 2024</em> — Queers in the Machine Symposium
+                                                <strong>IDA (Danish Society of Engineers), Copenhagen</strong> – <em>Aug 2024</em> – Queers in the Machine Symposium
                                             </li>
                                             <li>
-                                                <strong>Chaos Communication Congress, Hamburg</strong> — <em>Dec 28, 2023</em> — <a href="https://media.ccc.de/v/37c3-12052-what_i_learned_from_loab_ai_as_a_creative_adversary" target="_blank" rel="noopener">"What I Learned from LOAB™: AI as a creative adversary"</a>
+                                                <strong>Chaos Communication Congress, Hamburg</strong> – <em>Dec 28, 2023</em> – <a href="https://media.ccc.de/v/37c3-12052-what_i_learned_from_loab_ai_as_a_creative_adversary" target="_blank" rel="noopener">"What I Learned from LOAB™: AI as a creative adversary"</a>
                                             </li>
                                             <li>
-                                                <strong>Svenska Tecknare, Stockholm</strong> — <em>Oct 2023</em> — "Kreativitet och artificiell intelligens" panel
+                                                <strong>Svenska Tecknare, Stockholm</strong> – <em>Oct 2023</em> – "Kreativitet och artificiell intelligens" panel
                                             </li>
                                             <li>
-                                                <strong>DEFCON 31, Las Vegas</strong> — <em>Aug 2023</em> — <a href="https://www.cyberneticforests.com/defcon31" target="_blank" rel="noopener">"AI Village panel discussion"</a>
+                                                <strong>DEFCON 31, Las Vegas</strong> – <em>Aug 2023</em> – <a href="https://www.cyberneticforests.com/defcon31" target="_blank" rel="noopener">"AI Village panel discussion"</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1048,13 +1057,13 @@
                                         <h4 class="archive-section-title">Radio</h4>
                                         <ul class="archive-list">
                                             <li>
-                                                <strong>BBC Woman's Hour</strong> — <em>Jan 2023</em> — <a href="https://www.bbc.com/audio/play/m001gx5g" target="_blank" rel="noopener">AI art discussion with Krupa Padhy</a>
+                                                <strong>BBC Woman's Hour</strong> – <em>Jan 2023</em> – <a href="https://www.bbc.com/audio/play/m001gx5g" target="_blank" rel="noopener">AI art discussion with Krupa Padhy</a>
                                             </li>
                                             <li>
-                                                <strong>RTÉ lyric fm</strong> — <em>Dec 2022</em> — <a href="https://www.rte.ie/radio/lyricfm/clips/22183238/" target="_blank" rel="noopener">"Culture File" segment</a>
+                                                <strong>RTÉ lyric fm</strong> – <em>Dec 2022</em> – <a href="https://www.rte.ie/radio/lyricfm/clips/22183238/" target="_blank" rel="noopener">"Culture File" segment</a>
                                             </li>
                                             <li>
-                                                <strong>ABC Radio National</strong> — <em>Nov 2022</em> — <a href="https://www.abc.net.au/listen/programs/backgroundbriefing/has-the-age-of-ai-already-begun-loab-generative-art/101694260" target="_blank" rel="noopener">"Background Briefing" - "Has the age of AI already begun?"</a>
+                                                <strong>ABC Radio National</strong> – <em>Nov 2022</em> – <a href="https://www.abc.net.au/listen/programs/backgroundbriefing/has-the-age-of-ai-already-begun-loab-generative-art/101694260" target="_blank" rel="noopener">"Background Briefing" - "Has the age of AI already begun?"</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1064,19 +1073,19 @@
                                         <h4 class="archive-section-title">Podcasts</h4>
                                         <ul class="archive-list">
                                             <li>
-                                                <strong>The Data Fix</strong> — <em>Mar 11, 2024</em> — <a href="https://shows.acast.com/the-data-fix/episodes/adversarial-with-steph-maj-swanson" target="_blank" rel="noopener">"Adversarial, with Steph Maj Swanson" with Dr. Mél Hogan</a>
+                                                <strong>The Data Fix</strong> – <em>Mar 11, 2024</em> – <a href="https://shows.acast.com/the-data-fix/episodes/adversarial-with-steph-maj-swanson" target="_blank" rel="noopener">"Adversarial, with Steph Maj Swanson" with Dr. Mél Hogan</a>
                                             </li>
                                             <li>
-                                                <strong>Cool Stuff Ride Home</strong> — <em>Sep 7, 2022</em> — <a href="https://podcasts.apple.com/ca/podcast/wed-09-07-the-haunting-of-loab-ais-first-cryptid/id1501544101?i=1000578747714" target="_blank" rel="noopener">"Wed. 09/07 - The Haunting of Loab: AI's First Cryptid"</a>
+                                                <strong>Cool Stuff Ride Home</strong> – <em>Sep 7, 2022</em> – <a href="https://podcasts.apple.com/ca/podcast/wed-09-07-the-haunting-of-loab-ais-first-cryptid/id1501544101?i=1000578747714" target="_blank" rel="noopener">"Wed. 09/07 - The Haunting of Loab: AI's First Cryptid"</a>
                                             </li>
                                             <li>
-                                                <strong>Squaring the Strange</strong> — <em>Pascual Romero and Celestia Ward</em>, <time datetime="2022">2022</time> — <a href="https://squaringthestrange.libsyn.com/episode-189-ai-cryptid-loab-and-lesser-known-lake-monsters" target="_blank" rel="noopener">Episode 189 - "AI Cryptid" Loab and Lesser-known Lake Monsters</a>
+                                                <strong>Squaring the Strange</strong> – <em>Pascual Romero and Celestia Ward</em>, <time datetime="2022">2022</time> – <a href="https://squaringthestrange.libsyn.com/episode-189-ai-cryptid-loab-and-lesser-known-lake-monsters" target="_blank" rel="noopener">Episode 189 - "AI Cryptid" Loab and Lesser-known Lake Monsters</a>
                                             </li>
                                             <li>
-                                                <strong>Last Podcast On The Left</strong> — <em>Sep 14, 2022</em> — <a href="https://podcasts.apple.com/us/podcast/side-stories-loab/id437299706?i=1000579518556" target="_blank" rel="noopener">"Side Stories: Loab"</a>
+                                                <strong>Last Podcast On The Left</strong> – <em>Sep 14, 2022</em> – <a href="https://podcasts.apple.com/us/podcast/side-stories-loab/id437299706?i=1000579518556" target="_blank" rel="noopener">"Side Stories: Loab"</a>
                                             </li>
                                             <li>
-                                                <strong>An Acquired Taste Podcast</strong> — <em>Oct 12, 2022</em> — <a href="https://podcasts.apple.com/us/podcast/this-creepy-woman-keeps-appearing-in-a-i-art-weird/id1138061190?i=1000582488351" target="_blank" rel="noopener">"This Creepy Woman Keeps Appearing in A.I. Art & Weird Science Headlines"</a>
+                                                <strong>An Acquired Taste Podcast</strong> – <em>Oct 12, 2022</em> – <a href="https://podcasts.apple.com/us/podcast/this-creepy-woman-keeps-appearing-in-a-i-art-weird/id1138061190?i=1000582488351" target="_blank" rel="noopener">"This Creepy Woman Keeps Appearing in A.I. Art & Weird Science Headlines"</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1086,10 +1095,10 @@
                                         <h4 class="archive-section-title">Videos</h4>
                                         <ul class="archive-list">
                                             <li>
-                                                <strong>Nexpo (YouTube)</strong> — <em>Sep 2022</em> — <a href="https://www.youtube.com/watch?v=i9InAbpM7mU" target="_blank" rel="noopener">"The Disturbing Art of A.I." (Video ID: i9InAbpM7mU)</a>
+                                                <strong>Nexpo (YouTube)</strong> – <em>Sep 2022</em> – <a href="https://www.youtube.com/watch?v=i9InAbpM7mU" target="_blank" rel="noopener">"The Disturbing Art of A.I." (Video ID: i9InAbpM7mU)</a>
                                             </li>
                                             <li>
-                                                <strong>Professor Casey Fiesler (TikTok)</strong> — <a href="https://www.tiktok.com/@professorcasey/video/7140789282028981547" target="_blank" rel="noopener">AI Ethics & Loab Analysis</a>
+                                                <strong>Professor Casey Fiesler (TikTok)</strong> – <a href="https://www.tiktok.com/@professorcasey/video/7140789282028981547" target="_blank" rel="noopener">AI Ethics & Loab Analysis</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1125,7 +1134,7 @@
                                 
                                 <p><strong><em>Suicide III</em> Festival Screenings:</strong><br>
                                 • ALC VideoArt Festival, Alicante, Spain (Sep 2025)<br>
-                                • Badnäm Film Festival, Bangalore, India (Apr 2025)<br>
+                                • BadNäm Film Festival, Bangalore, India (Apr 2025)<br>
                                 • <a href="https://shortfilmfestival.com/en/">Uppsala Short Film Festival</a>, Sweden (Oct 2024)<br>
                                 • Videomedeja Festival, Novi Sad, Serbia (Oct 2024)<br>
                                 • Philip K Dick Film Festival, The Museum of the Moving Image, New York (Apr 2024)<br>
@@ -1142,7 +1151,7 @@
                     </div>
                     <div class="subsection-content">
                         <div class="subsection-title">Film Curator</div>
-                        <p><strong><a href="https://shortfilmfestival.com/en/program-2024/">2024 Uppsala Short Film Festival</a></strong> — Steph served as a film curator and reviewer for the Uppsala Short Film Festival, one of Europe's leading short film events.</p>
+                        <p><strong><a href="https://shortfilmfestival.com/en/program-2024/">2024 Uppsala Short Film Festival</a></strong> – Steph served as a film curator and reviewer for the Uppsala Short Film Festival, one of Europe's leading short film events.</p>
 
                         <p>At the 2024 edition, Steph curated and hosted the special program <a href="https://shortfilmfestival.com/en/program-2024/specialprogram-2024/algorithmic-grotesque-unravelling-a-i/"><em>Algorithmic Grotesque: Unravelling A.I.</em></a>, showcasing filmmakers who examine algorithmic society through the lens of artificial intelligence. The selection explored themes including distorted gender norms, surveillance, and eugenics, and featured works by Eryk Salvaggio, Marion Balac, Ada Ada Ada, Ines Sieulle, Conner O'Malley & Dan Streit, and Ryan Worsley & Negativland.</p>
                     </div>
@@ -1226,21 +1235,8 @@
             {
                 "title": "LOAB™ - Framed Canvas Print",
                 "image": "https://images-api.printify.com/mockup/68a1043d84924bfb770bea64/111904/107110/loab-framed-canvas-print.jpg?camera_label=front",
-                "url": "https://supercomposite-images.printify.me/product/22477576/loab-framed-canvas-print"
-            },
- 
-            {
-                "title": "LOAB™- Lightweight Scarf",
-                "image": "https://images-api.printify.com/mockup/689e19fbcddb353ba30801d4/100848/93941/loab-lightweight-scarf.jpg?camera_label=folded",
-                "url": "https://supercomposite-images.printify.me/product/22422050/loab-lightweight-scarf"
-            } ,
-
-            {
-                "title": "LOAB™- Unisex T-shirt",
-                "image": "https://images-api.printify.com/mockup/689e1581d04b60f4bd04c128/38192/100619/loab-unisex-t-shirt.jpg?camera_label=person-2-front",
                 "url": "https://supercomposite-images.printify.me/product/22421622/loab-unisex-t-shirt"
             } ,
-
 
             {
                 "title": "LOAB™- Embroidered Knit Beanie",
@@ -1287,21 +1283,21 @@
             }
         }
 
-function toggleArchive() {
-  const content = document.getElementById("archiveContent");
-  const toggle = document.getElementById("archiveToggle");
+        function toggleArchive() {
+            const content = document.getElementById("archiveContent");
+            const toggle = document.getElementById("archiveToggle");
 
-  if (content.classList.contains("expanded")) {
-    content.style.maxHeight = "0px";
-    content.classList.remove("expanded");
-    toggle.classList.remove("expanded");
-  } else {
-    content.classList.add("expanded");
-    // Use a generous max-height that accommodates mobile reflow
-    content.style.maxHeight = Math.max(content.scrollHeight + 100, 3000) + "px";
-    toggle.classList.add("expanded");
-  }
-}
+            if (content.classList.contains("expanded")) {
+                content.style.maxHeight = "0px";
+                content.classList.remove("expanded");
+                toggle.classList.remove("expanded");
+            } else {
+                content.classList.add("expanded");
+                // Use a generous max-height that accommodates mobile reflow
+                content.style.maxHeight = Math.max(content.scrollHeight + 100, 3000) + "px";
+                toggle.classList.add("expanded");
+            }
+        }
 
         // Smooth scrolling for navigation links
         document.addEventListener('DOMContentLoaded', function() {
@@ -1348,5 +1344,16 @@ function toggleArchive() {
         });
     </script>
 </body>
+</html> "https://supercomposite-images.printify.me/product/22477576/loab-framed-canvas-print"
+            },
  
-</html>
+            {
+                "title": "LOAB™- Lightweight Scarf",
+                "image": "https://images-api.printify.com/mockup/689e19fbcddb353ba30801d4/100848/93941/loab-lightweight-scarf.jpg?camera_label=folded",
+                "url": "https://supercomposite-images.printify.me/product/22422050/loab-lightweight-scarf"
+            } ,
+
+            {
+                "title": "LOAB™- Unisex T-shirt",
+                "image": "https://images-api.printify.com/mockup/689e1581d04b60f4bd04c128/38192/100619/loab-unisex-t-shirt.jpg?camera_label=person-2-front",
+                "url":
