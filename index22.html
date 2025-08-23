@@ -435,18 +435,17 @@
             color: #ffffff;
         }
 
-        .archive-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            padding: 0 1.5rem;
-        }
+.archive-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 1.5rem;
+}
 
-        .archive-content.expanded {
-            max-height: auto;
-            padding: 0 1.5rem 1.5rem;
-        }
-
+.archive-content.expanded {
+  /* max-height will be set dynamically via JS */
+  padding: 0 1.5rem 1.5rem;
+}
         .archive-section {
             margin-bottom: 2rem;
         }
@@ -1288,18 +1287,20 @@
             }
         }
 
-        function toggleArchive() {
-            const content = document.getElementById('archiveContent');
-            const toggle = document.getElementById('archiveToggle');
-            
-            if (content.classList.contains('expanded')) {
-                content.classList.remove('expanded');
-                toggle.classList.remove('expanded');
-            } else {
-                content.classList.add('expanded');
-                toggle.classList.add('expanded');
-            }
-        }
+function toggleArchive() {
+  const content = document.getElementById("archiveContent");
+  const toggle = document.getElementById("archiveToggle");
+
+  if (content.classList.contains("expanded")) {
+    content.style.maxHeight = "0px";
+    content.classList.remove("expanded");
+    toggle.classList.remove("expanded");
+  } else {
+    content.classList.add("expanded");
+    content.style.maxHeight = content.scrollHeight + "px";
+    toggle.classList.add("expanded");
+  }
+}
 
         // Smooth scrolling for navigation links
         document.addEventListener('DOMContentLoaded', function() {
