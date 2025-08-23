@@ -1297,7 +1297,8 @@ function toggleArchive() {
     toggle.classList.remove("expanded");
   } else {
     content.classList.add("expanded");
-    content.style.maxHeight = content.scrollHeight + "px";
+    // Use a generous max-height that accommodates mobile reflow
+    content.style.maxHeight = Math.max(content.scrollHeight + 100, 3000) + "px";
     toggle.classList.add("expanded");
   }
 }
