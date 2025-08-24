@@ -400,44 +400,51 @@
         }
 
         /* Media Archive Styles */
-        .media-archive {
-            margin-top: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(10px);
-        }
+.media-archive {
+    margin-top: 1rem; /* Changed from 2rem to 1rem */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(10px);
+}
 
-        .archive-header {
-            padding: 1.5rem;
-            cursor: pointer;
-            user-select: none;
-            border-radius: 8px 8px 0 0;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.archive-header {
+    padding: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add subtle border */
+}
 
-        .archive-header:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-        }
+.archive-header:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%); /* More noticeable hover */
+}
 
-        .archive-title {
-            color: #ffffff;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 0;
-        }
+.archive-title {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
 
-        .archive-toggle {
-            color: #cccccc;
-            font-size: 1.5rem;
-            font-weight: 300;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
+.archive-title::after {
+    content: ' (click to expand)'; /* Add hint text */
+    font-size: 0.85rem;
+    color: #cccccc;
+    font-weight: 400;
+    opacity: 0.7;
+}
 
-        .archive-toggle.expanded {
+.archive-toggle {
+    color: #ffffff; /* Make arrow more visible */
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease, color 0.3s ease;
+}        .archive-toggle.expanded {
             transform: rotate(180deg);
             color: #ffffff;
         }
