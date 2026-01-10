@@ -162,16 +162,16 @@
         }
 
         /* Modern dark header effect */
-		.nav-menu {
-			background: linear-gradient(90deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.95));
-			backdrop-filter: blur(12px);
-			padding: 1rem 0;
-			border-bottom: 1px solid rgba(255,255,255,0.08);
-			position: sticky;
-			top: 0;
-			z-index: 100;
-			min-height: 60px;  /* ADD THIS - prevents collapse */
-		}
+			.nav-menu {
+				background: linear-gradient(90deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.95));
+				backdrop-filter: blur(12px);
+				padding: 1rem 0;
+				border-bottom: 1px solid rgba(255,255,255,0.08);
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				will-change: transform;  /* ADD THIS - hints to browser to optimize */
+			}
 
         .nav-container {
             max-width: 1200px;
