@@ -16,6 +16,7 @@
 
         html {
             scroll-behavior: smooth;
+
         }
 
         body {
@@ -407,8 +408,6 @@
     border-radius: 8px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
     backdrop-filter: blur(10px);
-    contain: layout;
-    transform: translateZ(0);
 }
 
 .archive-header {
@@ -866,7 +865,7 @@
                                 </div>
                             </div>
                             
-                            <p>For general enquiries, speaking engagements, or commission requests, please email <a href="/cdn-cgi/l/email-protection#b3d0dcddc7d2d0c7f3c0c6c3d6c1d0dcdec3dc9dc0dac7d6"><span class="__cf_email__" data-cfemail="660509081207051226151316031405090b160948150f1203">[email&#160;protected]</span></a>.</p>
+                            <p>For general enquiries, speaking engagements, or commission requests, please email <a href="/cdn-cgi/l/email-protection#4e2d21203a2f2d3a0e3d3b3e2b3c2d21233e21603d273a2b"><span class="__cf_email__" data-cfemail="573438392336342317242227322534383a273879243e2332">[email&#160;protected]</span></a>.</p>
                         </div>
                     </div>
                 </div>
@@ -1648,4 +1647,16 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
         // Observe all sections for animation
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySe
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+            });
+        });
+
+        // Trigger observer
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
