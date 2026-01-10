@@ -169,7 +169,6 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            will-change: transform;
         }
 
         .nav-container {
@@ -408,6 +407,8 @@
     border-radius: 8px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
     backdrop-filter: blur(10px);
+    contain: layout;
+    transform: translateZ(0);
 }
 
 .archive-header {
@@ -1605,7 +1606,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 			} else {
 				content.classList.add("expanded");
 				const isMobile = window.innerWidth <= 768;
-				const minHeight = isMobile ? 2000 : 2000;
+				const minHeight = isMobile ? 4000 : 3000;
 				content.style.maxHeight = Math.max(content.scrollHeight + 200, minHeight) + "px";
 				toggle.classList.add("expanded");
 			}
