@@ -402,11 +402,15 @@
 
         /* Media Archive Styles */
 .media-archive {
-    margin-top: 1rem; /* Changed from 2rem to 1rem */
+    margin-top: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
-    backdrop-filter: blur(10px);
+    /* backdrop-filter removed for Chrome mobile compatibility */
+    /* Chrome mobile optimizations */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: auto;
 }
 
 .archive-header {
@@ -418,7 +422,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add subtle border */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    list-style: none;
+    /* Chrome mobile touch optimizations */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Remove default details marker across browsers */
+.archive-header::-webkit-details-marker {
+    display: none;
+}
+
+.archive-header::marker {
+    display: none;
 }
 
 .archive-header:hover {
@@ -445,21 +462,28 @@
     font-size: 1.5rem;
     font-weight: 300;
     transition: transform 0.3s ease, color 0.3s ease;
-}        .archive-toggle.expanded {
-            transform: rotate(180deg);
-            color: #ffffff;
-        }
-
-.archive-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease;
-  padding: 0 1.5rem;
 }
 
-.archive-content.expanded {
-  /* max-height will be set dynamically via JS */
+details[open] .archive-toggle {
+    transform: rotate(180deg);
+    color: #ffffff;
+}
+
+.archive-content {
   padding: 0 1.5rem 1.5rem;
+  animation: fadeIn 0.3s ease-out;
+  /* Chrome mobile scroll fix */
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
         .archive-section {
             margin-bottom: 2rem;
@@ -748,13 +772,12 @@
                 gap: 1.5rem;
             }
 
-            .archive-content.expanded {
-                max-height: 5000px;
-                padding: 0 1rem 1rem;
-            }
-
             .archive-header {
                 padding: 1rem;
+            }
+            
+            .archive-content {
+                padding: 0 1rem 1rem;
             }
         }
 
@@ -776,9 +799,16 @@
        MOBILE VIEWPORT STABILITY FIX
        =============================== */
 
-    html, body {
+    html {
         width: 100%;
         overflow-x: hidden;
+    }
+    
+    body {
+        width: 100%;
+        /* overflow-x on body causes Chrome mobile scroll freeze - use clip instead */
+        overflow-x: clip;
+        overflow-y: auto;
     }
 
     .nav-menu {
@@ -928,12 +958,12 @@
 
 
                            <!-- Media Archive -->
-                            <div class="media-archive">
-								 <div class="archive-header" onclick="toggleArchive('media')">
+                            <details class="media-archive">
+								 <summary class="archive-header">
 									<h3 class="archive-title">Media Archive</h3>
-									<span class="archive-toggle" id="mediaArchiveToggle">↓</span>
-								</div>
-								<div class="archive-content" id="mediaArchiveContent">
+									<span class="archive-toggle">↓</span>
+								</summary>
+								<div class="archive-content">
                                     <!-- Origins & Artist's Websites -->
                                     <div class="archive-section">
                                         <h4 class="archive-section-title">Origins & Artist's Websites</h4>
@@ -1239,15 +1269,15 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </details>
 
                             <!-- Academic Archive -->
-                            <div class="media-archive">
-								<div class="archive-header" onclick="toggleArchive('academic')">
+                            <details class="media-archive">
+								<summary class="archive-header">
 									<h3 class="archive-title">Academic Archive</h3>
-									<span class="archive-toggle" id="academicArchiveToggle">↓</span>
-								</div>
-								<div class="archive-content" id="academicArchiveContent">
+									<span class="archive-toggle">↓</span>
+								</summary>
+								<div class="archive-content">
                                     
                                     <!-- Journal Articles and Essays -->
                                     <div class="archive-section">
@@ -1415,7 +1445,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </details>
                         </div>
                     </div>
                 </div>
@@ -1449,7 +1479,7 @@
                                 • Badnām Film Festival, Bangalore, India (Apr 2025)<br>
                                 • <a href="https://shortfilmfestival.com/en/">Uppsala Short Film Festival</a>, Sweden (Oct 2024)<br>
                                 • Videomedeja Festival, Novi Sad, Serbia (Oct 2024)<br>
-                                • Philip K Dick Film Festival, The Museum of the Moving Image, New York (Apr 2024)<br>
+                                • <a href="https://www.thephilipkdickfilmfestival.com/">Philip K Dick Film Festival</a>, The Museum of the Moving Image, New York (Apr 2024)<br>
                                 • Almaty Underground Screening Series, Kazakhstan (Mar 2024)<br>
                                 • SXSW Sydney event, Sydney, Australia (Oct 2023)</p>
                             </div>
@@ -1669,20 +1699,6 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             }
         }
 
-        function toggleArchive(type) {
-            const content = document.getElementById(type + "ArchiveContent");
-            const toggle = document.getElementById(type + "ArchiveToggle");
-
-            if (content.classList.contains("expanded")) {
-                content.style.maxHeight = "0px";
-                content.classList.remove("expanded");
-                toggle.classList.remove("expanded");
-            } else {
-                content.classList.add("expanded");
-                content.style.maxHeight = "5500px";
-                toggle.classList.add("expanded");
-            }
-        }
         // Smooth scrolling for navigation links
         document.addEventListener('DOMContentLoaded', function() {
             loadLoabMerch();
