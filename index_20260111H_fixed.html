@@ -453,14 +453,13 @@
 .archive-content {
   max-height: 0;
   overflow: hidden;
+  transition: max-height 0.3s ease;
   padding: 0 1.5rem;
 }
 
-/* Only animate on desktop - mobile Chrome struggles with large max-height */
-@media (min-width: 769px) {
-  .archive-content {
-    transition: max-height 0.3s ease;
-  }
+/* Disable transition on Chrome to prevent stuttering */
+body.is-chrome .archive-content {
+  transition: none !important;
 }
 
 .archive-content.expanded {
@@ -1675,17 +1674,35 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             }
         }
 
+        // Detect Chrome browser
+        const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        
+        // Add class to body if Chrome
+        if (isChrome) {
+            document.body.classList.add('is-chrome');
+        }
+        
         function toggleArchive(type) {
             const content = document.getElementById(type + "ArchiveContent");
             const toggle = document.getElementById(type + "ArchiveToggle");
 
             if (content.classList.contains("expanded")) {
-                content.style.maxHeight = "0px";
+                // On Chrome, collapse instantly
+                if (isChrome) {
+                    content.style.maxHeight = "0px";
+                } else {
+                    content.style.maxHeight = "0px";
+                }
                 content.classList.remove("expanded");
                 toggle.classList.remove("expanded");
             } else {
                 content.classList.add("expanded");
-                content.style.maxHeight = "5500px";
+                // On Chrome, expand instantly with no max-height limit
+                if (isChrome) {
+                    content.style.maxHeight = "none";
+                } else {
+                    content.style.maxHeight = "5500px";
+                }
                 toggle.classList.add("expanded");
             }
         }
