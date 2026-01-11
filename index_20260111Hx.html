@@ -24,6 +24,8 @@
             color: #ffffff;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             min-height: 100vh;
+			 height: 100%;
+			overflow: hidden;
         }
 
         .hero-section {
@@ -36,7 +38,7 @@
             text-align: center;
             padding: 2rem 1rem 1rem;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
         /* Digital interference and AI glitch effects */
@@ -63,6 +65,12 @@
             animation: neuralSignal 8s linear infinite;
             z-index: 1;
         }
+		
+		.page-scroll {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
 
         .hero-section::after {
             content: '';
@@ -773,6 +781,7 @@
     </style>
 </head>
 <body>
+ <div class="page-scroll">
     <section class="hero-section">
         <div class="hero-container">
             <div class="logo-container">
@@ -1662,5 +1671,6 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             });
         });
     </script>
+	</div>
 </body>
 </html>
