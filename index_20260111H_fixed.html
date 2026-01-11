@@ -459,6 +459,7 @@
 .archive-content.expanded {
   /* max-height will be set dynamically via JS */
   padding: 0 1.5rem 1.5rem;
+  overflow: visible;
 }
         .archive-section {
             margin-bottom: 2rem;
@@ -1679,7 +1680,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             } else {
                 content.classList.add("expanded");
                 toggle.classList.add("expanded");
-                // Remove max-height constraint entirely
+                // Set to auto to remove height constraint
                 content.style.maxHeight = "none";
             }
         }
