@@ -804,17 +804,18 @@ details[open] .archive-toggle {
         overflow-x: hidden;
     }
     
+	/* Only apply overflow-x: clip on mobile where we use fixed positioning anyway */
+	@media (max-width: 768px) {
     body {
         width: 100%;
-        /* overflow-x on body causes Chrome mobile scroll freeze - use clip instead */
         overflow-x: clip;
         overflow-y: auto;
     }
-
+    
     .nav-menu {
         height: 64px;
     }
-
+}
  
     </style>
 </head>
