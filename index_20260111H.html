@@ -770,6 +770,22 @@
             margin-top: 0.5rem;
             text-align: center;
         }
+
+
+    /* ===============================
+       MOBILE VIEWPORT STABILITY FIX
+       =============================== */
+
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .nav-menu {
+        height: 64px;
+    }
+
+ 
     </style>
 </head>
 <body>
@@ -787,7 +803,7 @@
                 <span></span><span></span><span></span>
             </div>
             <div class="nav-links" id="navLinks">
-                <a href="#about">About</a>
+               <a href="#about">About</a>
                 <a href="#visual-art">Visual Art</a>
                 <a href="#film">Film</a>
                 <a href="#speaking">Public Speaking</a>
