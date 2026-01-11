@@ -453,10 +453,14 @@
 .archive-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 0 1.5rem;
-  will-change: max-height;
-  transform: translateZ(0);
+}
+
+/* Only animate on desktop - mobile Chrome struggles with large max-height */
+@media (min-width: 769px) {
+  .archive-content {
+    transition: max-height 0.3s ease;
+  }
 }
 
 .archive-content.expanded {
@@ -1681,8 +1685,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 toggle.classList.remove("expanded");
             } else {
                 content.classList.add("expanded");
-                // Calculate actual content height for smoother animation
-                content.style.maxHeight = content.scrollHeight + "px";
+                content.style.maxHeight = "5500px";
                 toggle.classList.add("expanded");
             }
         }
