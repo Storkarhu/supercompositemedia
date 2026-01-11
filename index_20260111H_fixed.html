@@ -1678,8 +1678,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 toggle.classList.remove("expanded");
             } else {
                 content.classList.add("expanded");
-                content.style.maxHeight = "999999px";
                 toggle.classList.add("expanded");
+                // Remove max-height constraint entirely
+                content.style.maxHeight = "none";
             }
         }
         // Smooth scrolling for navigation links
