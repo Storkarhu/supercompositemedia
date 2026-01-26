@@ -964,7 +964,7 @@ details[open] .archive-toggle {
                                 </div>
                             </div>
                             
-                            <p>For general enquiries, speaking engagements, or commission requests, please email <a href="/cdn-cgi/l/email-protection#12717d7c66737166526167627760717d7f627d3c617b6677"><span class="__cf_email__" data-cfemail="ff9c90918b9e9c8bbf8c8a8f9a8d9c90928f90d18c968b9a">[email&#160;protected]</span></a>.</p>
+                            <p>For general enquiries, speaking engagements, or commission requests, please email <a href="mailto:contact@supercompo.site">contact@supercompo.site</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -995,21 +995,16 @@ details[open] .archive-toggle {
                                 <div class="quote-text">Loab might seem like standard creepypasta, but her origins are a whole lot more mysterious.</div>
                                 <div class="quote-source">Rolling Stone</div>
                             </div>
-                            
-                            <div style="background: rgba(255, 180, 100, 0.1); border-left: 4px solid rgba(255, 180, 100, 0.5); padding: 1.5rem; margin: 1.5rem 0; border-radius: 8px;">
-                                <h3 style="margin: 0 0 0.75rem 0; font-size: 1.1em; color: rgba(255, 180, 100, 0.95);">Upcoming Exhibition</h3>
-                                <p style="margin: 0 0 1.5rem 0;">
-                                    <strong><a href="https://www.fotomuseum.ch/en/exhibitions-post/schattenwesen-von-der-geisterfotografie-zu-den-phantomen-des-algorithmus/" target="_blank" rel="noopener noreferrer" style="color: rgba(255, 180, 100, 0.9); text-decoration: none;">Shadow Creatures – From Spirit Photography to the Ghosts of the Algorithm</a></strong><br>
-                                    <em>Fotomuseum Winterthur, Switzerland</em><br>
-                                    <time datetime="2026-06-27">June 27</time> – <time datetime="2026-10-11">October 11, 2026</time><br>
-                                    <span style="font-size: 0.95em;">Loab artwork featured in this exploration of digital cryptids and algorithmic beings.</span>
+							
+							   <div style="background: rgba(255, 180, 100, 0.1); border-left: 4px solid rgba(255, 180, 100, 0.5); padding: 1.25rem; margin: 1.5rem 0; border-radius: 8px;">
+                                <p style="margin: 0 0 0.75rem 0;">
+                                    <strong>Featured Interview:</strong> 
+                                    <a href="https://www.permanentbeta.network/episode/219" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">Loab: A Spirit Guide into the Digital Underworld</a>, interview with Steph by Bogna Konior (NYU Shanghai), <em>Permanent Beta</em> / Fotomuseum Winterthur (<time datetime="2026-01-26">Jan 2026</time>)
                                 </p>
                                 
-                                <h3 style="margin: 0 0 0.75rem 0; font-size: 1.1em; color: rgba(255, 180, 100, 0.95);">Featured Interview</h3>
                                 <p style="margin: 0;">
-                                    <strong><a href="https://www.permanentbeta.network/episode/219" target="_blank" rel="noopener noreferrer" style="color: rgba(255, 180, 100, 0.9); text-decoration: none;">Loab: A Spirit Guide into the Digital Underworld</a></strong><br>
-                                    Interview with <em>Steph Maj Swanson</em> by media theorist <em>Bogna Konior</em><br>
-                                    <span style="font-size: 0.95em;">Published by <em>Permanent Beta / Fotomuseum Winterthur</em>, <time datetime="2026-01-26">January 26, 2026</time></span>
+                                    <strong>Upcoming Exhibition:</strong> 
+                                    <a href="https://www.fotomuseum.ch/en/exhibitions-post/schattenwesen-von-der-geisterfotografie-zu-den-phantomen-des-algorithmus/" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">Shadow Creatures – From Spirit Photography to the Ghosts of the Algorithm</a>, Fotomuseum Winterthur, Switzerland (<time datetime="2026-06-27">Jun</time>–<time datetime="2026-10-11">Oct 2026</time>)
                                 </p>
                             </div>
                             
@@ -1771,7 +1766,7 @@ details[open] .archive-toggle {
         </div>
     </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
         // Mobile navigation toggle
         document.getElementById('navToggle').addEventListener('click', () => {
             document.getElementById('navLinks').classList.toggle('active');
@@ -1870,4 +1865,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    e
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            document.queryS
