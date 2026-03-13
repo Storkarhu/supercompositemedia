@@ -458,6 +458,8 @@ padding: 0 1rem 1rem;   /* changed from 1.5rem */
 li .media-archive {
     margin-top: 0;
     margin-bottom: 0;
+	max-width: 100%;
+	overflow: hidden;
 }
 
 li .archive-header {
@@ -538,9 +540,9 @@ details[open] .archive-toggle {
 .archive-content {
 	padding: 0 1rem 1rem;   /* changed from 1.5rem */
   animation: fadeIn 0.3s ease-out;
-  /* Chrome mobile scroll fix */
+  /* Chrome mobile scroll fix*/
   overflow: visible;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; 
 }
 
 @keyframes fadeIn {
@@ -578,7 +580,8 @@ details[open] .archive-toggle {
             color: #e0e0e0;
             font-size: 0.95rem;
             line-height: 1.5;
-			word-break: word-break;
+			overflow-wrap: break-word;
+			word-break: break-word;
         }
 
         .archive-list strong {
