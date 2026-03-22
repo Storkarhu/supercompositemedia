@@ -879,11 +879,12 @@ details[open] .archive-toggle {
     
 	/* Only apply overflow-x: clip on mobile where we use fixed positioning anyway */
 	@media (max-width: 768px) {
-    body {
-        width: 100%;
-        overflow-x: clip;
-        overflow-y: auto;
-    }
+	body {
+		width: 100%;
+	}
+	.main-content {
+		overflow-x: clip;
+	}
     
     .nav-menu {
         height: 64px;
@@ -1692,7 +1693,16 @@ details[open] .archive-toggle {
     </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-
+        // Mobile navigation toggle
+        document.getElementById('navToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+// Close mobile menu when a link is clicked
+document.querySelectorAll('#navLinks a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+    });
+});
 
         // LOAB Merchandise Data
         const loabMerchData = [
@@ -1754,18 +1764,6 @@ details[open] .archive-toggle {
 
         // Smooth scrolling for navigation links
         document.addEventListener('DOMContentLoaded', function() {
-		    //  ADD hamburger toggle here
-				document.getElementById('navToggle').addEventListener('click', () => {
-					document.getElementById('navLinks').classList.toggle('active');
-				});
-				document.querySelectorAll('#navLinks a').forEach(link => {
-					link.addEventListener('click', () => {
-						document.getElementById('navLinks').classList.remove('active');
-					});
-				});
-					
-		
-		
             loadLoabMerch();
             
             // Add smooth scrolling to navigation links
