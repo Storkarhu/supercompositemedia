@@ -795,133 +795,165 @@ details[open] .archive-toggle {
     }
 }
  
+
+        /* =====================================================
+           LAYOUT SYSTEM: aligned headings, group labels, entry lists
+           ===================================================== */
+
+        /* Section heading sits in the text column, level with the image */
+        .section--aligned .content-wrapper {
+            grid-template-rows: auto 1fr;
+            row-gap: 0;
+            margin-top: 0;
+        }
+        .section--aligned .section-title {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: left;
+            font-size: 2.25rem;
+            margin: 0 0 2rem;
+        }
+        .section--aligned .section-title::after {
+            left: 0;
+            transform: none;
+        }
+        .section--aligned .media-container {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+        }
+        .section--aligned .text-container {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        /* Subsection headings (LOAB, Still & Moving Images, Director & Writer...) */
+        h3.subsection-title {
+            display: block;
+            font-size: 1.4rem;
+            margin: 0 0 1rem;
+            line-height: 1.3;
+        }
+
+        /* Group labels: small caps-style label with a rule underneath */
+        .group-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #aaa;
+            margin: 2.5rem 0 0.5rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Entry list: date column + title + secondary line.
+           Sizes match body text (1.1rem) so entries read as content. */
+        .entry-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .entry-list > li {
+            display: grid;
+            grid-template-columns: 6rem 1fr;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            line-height: 1.6;
+        }
+        .entry-list > li:last-child {
+            border-bottom: none;
+        }
+        .entry-list time {
+            color: #999;
+            font-size: 0.95rem;
+            padding-top: 0.15rem;
+            white-space: nowrap;
+        }
+        .entry-title {
+            display: block;
+            color: #f0f0f0;
+            font-size: 1.1rem;
+        }
+        .entry-meta {
+            display: block;
+            color: #c4c4c4;
+            font-size: 1rem;
+            margin-top: 0.15rem;
+        }
+        .entry-list a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.3);
+            text-underline-offset: 2px;
+            transition: text-decoration-color 0.3s ease;
+        }
+        .entry-list a:hover {
+            text-decoration-color: #fff;
+        }
+        /* Venues nested under one exhibition */
+        .entry-venues {
+            list-style: none;
+            padding: 0;
+            margin: 0.3rem 0 0;
+        }
+        .entry-venues li {
+            position: relative;
+            padding: 0.1rem 0 0.1rem 1rem;
+            color: #c4c4c4;
+            font-size: 1rem;
+        }
+        .entry-venues li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: #777;
+        }
+        .file-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            color: #999;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            padding: 0 0.3rem;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+        }
+        .group-text {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-top: 0.75rem;
+        }
+        .section-note {
+            margin-top: 2.5rem;
+            color: #ccc;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .section--aligned .content-wrapper {
+                row-gap: 1.5rem;
+            }
+            .section--aligned .section-title,
+            .section--aligned .media-container,
+            .section--aligned .text-container {
+                grid-column: 1;
+                grid-row: auto;
+            }
+            .section--aligned .section-title {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+        @media (max-width: 500px) {
+            .entry-list > li {
+                grid-template-columns: 1fr;
+                gap: 0.1rem;
+            }
+        }
     </style>
-	<style>
-/* ---------- Section heading aligned to the text column ---------- */
-/* The h2 becomes a grid item: right column on desktop,
-   first item (above the image) on mobile. */
-.section--aligned .content-wrapper {
-    grid-template-rows: auto 1fr;
-    row-gap: 0;
-    margin-top: 0;
-}
-.section--aligned .section-title {
-    grid-column: 2;
-    grid-row: 1;
-    text-align: left;
-    font-size: 2.25rem;
-    margin: 0 0 2rem;
-}
-.section--aligned .section-title::after {
-    left: 0;
-    transform: none;
-}
-.section--aligned .media-container {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-}
-.section--aligned .text-container {
-    grid-column: 2;
-    grid-row: 2;
-}
-
-/* ---------- Group labels (replaces <strong>Label:</strong><br>) ---------- */
-.group-label {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #999;
-    margin: 2.5rem 0 0.5rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-/* ---------- Entry list: date column + title + muted meta line ---------- */
-.entry-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.entry-list li {
-    display: grid;
-    grid-template-columns: 5.5rem 1fr;
-    gap: 1rem;
-    padding: 0.7rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    line-height: 1.5;
-}
-.entry-list li:last-child {
-    border-bottom: none;
-}
-.entry-list time {
-    color: #888;
-    font-size: 0.85rem;
-    padding-top: 0.2rem;
-    white-space: nowrap;
-}
-.entry-title {
-    display: block;
-    color: #fff;
-    font-size: 1.05rem;
-}
-.entry-meta {
-    display: block;
-    color: #aaa;
-    font-size: 0.9rem;
-    margin-top: 0.15rem;
-}
-.entry-list a {
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.3);
-    text-underline-offset: 2px;
-    transition: text-decoration-color 0.3s ease;
-}
-.entry-list a:hover {
-    text-decoration-color: #fff;
-}
-.file-tag {
-    font-size: 0.7rem;
-    letter-spacing: 0.05em;
-    color: #888;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-    padding: 0 0.3rem;
-    margin-left: 0.4rem;
-    vertical-align: middle;
-}
-
-/* ---------- Closing note ---------- */
-.section-note {
-    margin-top: 2.5rem;
-    color: #ccc;
-    font-style: italic;
-}
-
-/* ---------- Mobile ---------- */
-@media (max-width: 768px) {
-    .section--aligned .content-wrapper {
-        row-gap: 1.5rem;
-    }
-    .section--aligned .section-title,
-    .section--aligned .media-container,
-    .section--aligned .text-container {
-        grid-column: 1;
-        grid-row: auto;
-    }
-    .section--aligned .section-title {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-    }
-}
-@media (max-width: 500px) {
-    .entry-list li {
-        grid-template-columns: 1fr;
-        gap: 0.1rem;
-    }
-}
-</style>
 </head>
 <body>
     <section class="hero-section">
@@ -951,9 +983,9 @@ details[open] .archive-toggle {
     <div class="main-content">
         <div class="container">
             
-            <section class="section" id="about">
-                <h2 class="section-title">About</h2>
+            <section class="section section--aligned" id="about">
                 <div class="content-wrapper">
+                    <h2 class="section-title">About</h2>
                     <div class="media-container">
                         <img src="gallery/Steph Swanson by Kristina Chap.webp" alt="Steph Maj Swanson portrait" class="media-item">
                         <div class="photo-credit">Photo by Kristina Chap</div>
@@ -1010,15 +1042,15 @@ details[open] .archive-toggle {
                 </div>
             </section>
 
-            <section class="section" id="visual-art">
-                <h2 class="section-title">Visual Art</h2>
+            <section class="section section--aligned" id="visual-art">
                 <div class="content-wrapper">
+                    <h2 class="section-title">Visual Art</h2>
                     <div class="media-container">
                         <img src="gallery/60a3a3d4-a962-46c4-ac40-785eb148_gans-ts1664055830f5b8.png" alt="Loab artwork" class="media-item">
                     </div>
                     <div class="text-container">
                         <div class="section-text">
-						<div class="subsection-title">LOAB<sup>&reg;</sup></div>
+						<h3 class="subsection-title">LOAB<sup>&reg;</sup></h3>
                             <p>Steph Maj Swanson gained international recognition as creator of the Loab cryptid. <a href="https://twitter.com/supercomposite/status/1567162288087470081" target="_blank" rel="noopener noreferrer">Steph's story</a> about the character sparked global conversations about AI ethics and creative expression. Featured across major media outlets including <em>Rolling Stone</em>, <em>Der Spiegel</em>, <em>Artnet News</em>, BBC Radio, ABC, <em>Forbes</em>, <em>The Atlantic</em>, and <em>Smithsonian Magazine</em>.</p>
                             
                             <div class="quote-block">
@@ -1491,17 +1523,36 @@ details[open] .archive-toggle {
                         <img src="gallery/artwork_4%20-%20stor-ts1675869272f5b8.jpg" alt="AI generated artwork" class="media-item">
                     </div>
                     <div class="subsection-content">
-					<div class="subsection-title">Still & Moving Images</div>
+					<h3 class="subsection-title">Still &amp; Moving Images</h3>
                         <p>Steph's body of video and still image work was described by <em>Galleries West</em> as <a href="https://www.gallerieswest.ca/magazine/stories/you-want-it-darker/" target="_blank" rel="noopener noreferrer">"the merging of repulsive with beautiful."</a></p>
-						<p><strong>Exhibitions:</strong><br>
-						<em><a href="https://www.somersethouse.org.uk/whats-on/wonder" target="_blank" rel="noopener noreferrer">WONDER: Why We Believe in Magic</a></em>, group exhibition, curated by Claire Catterall
-						<span style="display: block; padding-left: 1rem;">– <a href="https://www.somersethouse.org.uk/" target="_blank" rel="noopener noreferrer">Somerset House</a>, London, UK (Feb 4 – Apr 18, 2027)</span><br>
-						<em><a href="https://www.fotomuseum.ch/en/exhibitions-post/schattenwesen-von-der-geisterfotografie-zu-den-phantomen-des-algorithmus/" target="_blank" rel="noopener noreferrer">Shadow Creatures – From Spirit Photography to the Ghosts of the Algorithm</a></em>, group exhibition, curated by Marco De Mutiis
-						<span style="display: block; padding-left: 1rem;">– <a href="https://fotomuseum.ch/" target="_blank" rel="noopener noreferrer">Fotomuseum Winterthur</a>, Switzerland (Jun 27 – Oct 11, 2026)</span>
-						<span style="display: block; padding-left: 1rem;">– <a href="https://kutxafundazioa.eus/" target="_blank" rel="noopener noreferrer">Kutxa Fundazioa</a>, San Sebastián, Spain (dates TBA)</span></p>
 
-						<p><strong>Cover Artwork:</strong><br>
-						Recent work includes a series of cover artwork for <a href="https://stemcellmusic.com/artwork" target="_blank" rel="noopener noreferrer">STEMcell</a>, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. For the STEMcell releases, Steph developed a unique artistic process: "To create the artwork, an AI model was pummelled by analog waveforms from optical sound-on-film, causing sound information to heavily distort the fabric of the image."</p>
+						<h4 class="group-label">Exhibitions</h4>
+						<ul class="entry-list">
+							<li>
+								<time datetime="2027-02">Feb 2027</time>
+								<div>
+									<a class="entry-title" href="https://www.somersethouse.org.uk/whats-on/wonder" target="_blank" rel="noopener noreferrer"><em>WONDER: Why We Believe in Magic</em></a>
+									<span class="entry-meta">Group exhibition, curated by Claire Catterall</span>
+									<ul class="entry-venues">
+										<li><a href="https://www.somersethouse.org.uk/" target="_blank" rel="noopener noreferrer">Somerset House</a>, London, UK · Feb 4 – Apr 18, 2027</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<time datetime="2026-06">Jun 2026</time>
+								<div>
+									<a class="entry-title" href="https://www.fotomuseum.ch/en/exhibitions-post/schattenwesen-von-der-geisterfotografie-zu-den-phantomen-des-algorithmus/" target="_blank" rel="noopener noreferrer"><em>Shadow Creatures – From Spirit Photography to the Ghosts of the Algorithm</em></a>
+									<span class="entry-meta">Group exhibition, curated by Marco De Mutiis</span>
+									<ul class="entry-venues">
+										<li><a href="https://fotomuseum.ch/" target="_blank" rel="noopener noreferrer">Fotomuseum Winterthur</a>, Switzerland · Jun 27 – Oct 11, 2026</li>
+										<li><a href="https://kutxafundazioa.eus/" target="_blank" rel="noopener noreferrer">Kutxa Fundazioa</a>, San Sebastián, Spain · dates TBA</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+
+						<h4 class="group-label">Cover Artwork</h4>
+						<p class="group-text">Recent work includes a series of cover artwork for <a href="https://stemcellmusic.com/artwork" target="_blank" rel="noopener noreferrer">STEMcell</a>, an artist collective and record label featuring established electronic artists from labels including Houndstooth, Samurai Music, Monkeytown, and Aus. For the STEMcell releases, Steph developed a unique artistic process: "To create the artwork, an AI model was pummelled by analog waveforms from optical sound-on-film, causing sound information to heavily distort the fabric of the image."</p>
 						
 						<!-- Exhibition & Cover Art Press -->
 						<details class="media-archive">
@@ -1544,26 +1595,69 @@ details[open] .archive-toggle {
                 </div>
             </section>
 
-            <section class="section" id="film">
-                <h2 class="section-title">Film</h2>
-                <div class="film-section-layout">
-                    <div class="film-media-aligned">
+            <section class="section section--aligned" id="film">
+                <div class="content-wrapper">
+                    <h2 class="section-title">Film</h2>
+                    <div class="media-container">
                         <img src="gallery/Defcon%20cut.00_07_19_22.Still009-ts1692465003f5b8.png" alt="Film work" class="media-item">
                     </div>
                     <div class="text-container">
+                        <h3 class="subsection-title">Director &amp; Writer</h3>
                         <div class="section-text">
-                            <div class="section-subsection">
-                                <div class="subsection-title">Director & Writer</div>
-                                <p><strong><em>Suicide III</em></strong> - Short film written and directed by Steph Maj Swanson for <a href="https://cyberneticforests.substack.com/p/the-algorithmic-resistance-research" target="_blank" rel="noopener noreferrer">The Algorithmic Resistance Research Group (ARRG!)</a> video art installation at DEFCON 31 Las Vegas (Aug 2023). The work employs deepfakes and synthetic imagery to construct a satirical counter-narrative to AI hype culture. Festival screenings:</p>
-								<span style="display:block; padding-left:1rem;">– ALC VideoArt Festival, Alicante, Spain (Sep 2025)</span>
-								<span style="display:block; padding-left:1rem;">– Badnām Film Festival, Bangalore, India (Apr 2025)</span>
-								<span style="display:block; padding-left:1rem;">– <a href="https://shortfilmfestival.com/en/" target="_blank" rel="noopener noreferrer">Uppsala Short Film Festival</a>, Sweden (Oct 2024)</span>
-								<span style="display:block; padding-left:1rem;">– Videomedeja Festival, Novi Sad, Serbia (Oct 2024)</span>
-								<span style="display:block; padding-left:1rem;">– <a href="https://www.thephilipkdickfilmfestival.com/festivalprogramming/2-1" target="_blank" rel="noopener noreferrer">Philip K Dick Film Festival</a>, The Museum of the Moving Image, New York (Apr 2024)</span>
-								<span style="display:block; padding-left:1rem;">– Almaty Underground Screening Series, Kazakhstan (Mar 2024)</span>
-								<span style="display:block; padding-left:1rem;">– SXSW Sydney event, Sydney, Australia (Oct 2023)</span>
-							</div>
-                        </div> 
+                            <p><strong><em>Suicide III</em></strong> - Short film written and directed by Steph Maj Swanson for <a href="https://cyberneticforests.substack.com/p/the-algorithmic-resistance-research" target="_blank" rel="noopener noreferrer">The Algorithmic Resistance Research Group (ARRG!)</a> video art installation at DEFCON 31 Las Vegas (Aug 2023). The work employs deepfakes and synthetic imagery to construct a satirical counter-narrative to AI hype culture.</p>
+                        </div>
+                        <h4 class="group-label">Festival Screenings</h4>
+                        <ul class="entry-list">
+                            <li>
+                                <time datetime="2025-09">Sep 2025</time>
+                                <div>
+                                    <span class="entry-title">ALC VideoArt Festival</span>
+                                    <span class="entry-meta">Alicante, Spain</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2025-04">Apr 2025</time>
+                                <div>
+                                    <span class="entry-title">Badnām Film Festival</span>
+                                    <span class="entry-meta">Bangalore, India</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2024-10">Oct 2024</time>
+                                <div>
+                                    <span class="entry-title"><a href="https://shortfilmfestival.com/en/" target="_blank" rel="noopener noreferrer">Uppsala Short Film Festival</a></span>
+                                    <span class="entry-meta">Sweden</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2024-10">Oct 2024</time>
+                                <div>
+                                    <span class="entry-title">Videomedeja Festival</span>
+                                    <span class="entry-meta">Novi Sad, Serbia</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2024-04">Apr 2024</time>
+                                <div>
+                                    <span class="entry-title"><a href="https://www.thephilipkdickfilmfestival.com/festivalprogramming/2-1" target="_blank" rel="noopener noreferrer">Philip K Dick Film Festival</a></span>
+                                    <span class="entry-meta">The Museum of the Moving Image, New York</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2024-03">Mar 2024</time>
+                                <div>
+                                    <span class="entry-title">Almaty Underground Screening Series</span>
+                                    <span class="entry-meta">Kazakhstan</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2023-10">Oct 2023</time>
+                                <div>
+                                    <span class="entry-title">SXSW Sydney event</span>
+                                    <span class="entry-meta">Sydney, Australia</span>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
@@ -1572,184 +1666,208 @@ details[open] .archive-toggle {
                         <img src="gallery/algogroUppsala.png" alt="Uppsala Film Festival" class="media-item">
                     </div>
                     <div class="subsection-content">
-                        <div class="subsection-title">Film Curator</div>
+                        <h3 class="subsection-title">Film Curator</h3>
                         <p><strong>2024 <a href="https://shortfilmfestival.com/en/" target="_blank" rel="noopener noreferrer">Uppsala Short Film Festival</a></strong> - Steph served as a film curator for the Uppsala Short Film Festival, one of Europe's leading short film events. Steph curated and hosted the special program <a href="https://shortfilmfestival.com/en/program-2024/specialprogram-2024/algorithmic-grotesque-unravelling-a-i/" target="_blank" rel="noopener noreferrer"><em>Algorithmic Grotesque: Unravelling A.I.</em></a>, showcasing filmmakers who examine algorithmic society through the lens of artificial intelligence. The selection explored themes including distorted gender norms, surveillance, and eugenics, and featured works by Eryk Salvaggio, Marion Balac, Ada Ada Ada, Ines Sieulle, Conner O'Malley & Dan Streit, and Ryan Worsley & Negativland.</p>
 				</div> 
                 </div>
                 
             </section>
 
- <section class="section section--aligned" id="speaking">
-    <div class="content-wrapper">
-
-        <h2 class="section-title">Public Speaking</h2>
-
-        <div class="media-container">
-            <img src="gallery/Chaos%20Communication%20Congress%20Hamburg.png" alt="Steph Maj Swanson speaking at Chaos Communication Congress, Hamburg" class="media-item">
-            <iframe src="https://www.youtube.com/embed/hJxRD4YX1RU" title="What I Learned from LOAB: AI as a creative adversary (37C3 talk)" loading="lazy" frameborder="0" allowfullscreen class="media-item video-item"></iframe>
-        </div>
-
-        <div class="text-container">
-            <div class="section-text">
-                <p>Steph Maj Swanson speaks at major conferences and institutions, and appears on podcasts and radio shows, offering critical insights on AI and creative labor—especially the ethical implications of how AI tools are designed, built, and deployed.</p>
-            </div>
-
-            <!-- ===== Speaking Engagements ===== -->
-            <h4 class="group-label">Speaking Engagements</h4>
-            <ul class="entry-list">
-                <li>
-                    <time datetime="2026-07">Jul 2026</time>
-                    <div>
-                        <span class="entry-title">AI IMAGES: working with them, working against them</span>
-                        <span class="entry-meta"><a href="https://www.newschool.edu/parsons/mfa-photography-visiting-artists/" target="_blank" rel="noopener noreferrer">Visiting Artist Lecture, MFA Photography Program, Parsons School of Design</a>, New York</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2026-06">Jun 2026</time>
-                    <div>
-                        <a class="entry-title" href="https://www.fotomuseum.ch/en/events-post/artist-talk-und-book-launch/" target="_blank" rel="noopener noreferrer">Artist Talk &amp; Book Launch</a>
-                        <span class="entry-meta"><a href="https://www.fotomuseum.ch/en/exhibitions-post/schattenwesen-von-der-geisterfotografie-zu-den-phantomen-des-algorithmus/" target="_blank" rel="noopener noreferrer"><em>Shadow Creatures – From Spirit Photography to the Ghosts of the Algorithm</em></a>, Fotomuseum Winterthur, Switzerland</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2026-01">Jan 2026</time>
-                    <div>
-                        <span class="entry-title">AI:ns undre värld</span>
-                        <span class="entry-meta"><a href="https://www.tekniskamuseet.se/en/" target="_blank" rel="noopener noreferrer">Tekniska museet (National Museum of Science and Technology)</a>, Stockholm</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2025-10">Oct 2025</time>
-                    <div>
-                        <span class="entry-title">Where Are We Going From Here? Film Festivals and Their New Realities: Animation and AI</span>
-                        <span class="entry-meta">Panel with Katja de Vries, Ulu Braun, and Hannah Ohlén · <a href="https://shortfilmfestival.com/" target="_blank" rel="noopener noreferrer">Uppsala Short Film Festival</a></span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2024-11">Nov 2024</time>
-                    <div>
-                        <a class="entry-title" href="https://rifdt.ifdt.bg.ac.rs/bitstream/handle/123456789/4514/bitstream_16335.pdf" target="_blank" rel="noopener noreferrer">AI's Katabatic Turn – Data belongs to the Underworld</a><span class="file-tag">PDF</span>
-                        <span class="entry-meta">"Coding the Gaze" conference, Museum of Contemporary Art, Belgrade</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2024-08">Aug 2024</time>
-                    <div>
-                        <a class="entry-title" href="https://cybernauterne.dk/blog/symposium-lgbt-personer-og-kunstig-intelligens/" target="_blank" rel="noopener noreferrer">Loab<sup>&reg;</sup> and Other Queer Data-Horrors of Generative AI</a>
-                        <span class="entry-meta">Queers in the Machine Symposium, IDA (Danish Society of Engineers), Copenhagen</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2023-12">Dec 2023</time>
-                    <div>
-                        <a class="entry-title" href="https://media.ccc.de/v/37c3-12052-what_i_learned_from_loab_ai_as_a_creative_adversary" target="_blank" rel="noopener noreferrer">What I Learned from LOAB<sup>&reg;</sup>: AI as a creative adversary</a>
-                        <span class="entry-meta">Chaos Communication Congress, Hamburg</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2023-10">Oct 2023</time>
-                    <div>
-                        <a class="entry-title" href="https://press.svenskatecknare.se/posts/pressreleases/samtal-om-ai-och-kreativitet-pa-kolla-dagen" target="_blank" rel="noopener noreferrer">Kreativitet och artificiell intelligens</a>
-                        <span class="entry-meta">Kolla!-dagen, Svenska Tecknare (Swedish Illustrators and Designers), Stockholm</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2023-08">Aug 2023</time>
-                    <div>
-                        <a class="entry-title" href="https://www.cyberneticforests.com/defcon31" target="_blank" rel="noopener noreferrer">Creative Misuse of AI Systems</a>
-                        <span class="entry-meta">Talk and panel with Caroline Sinders and Eryk Salvaggio · <a href="https://defcon.outel.org/defcon31/dc31-consolidated_page_split_Sat.html" target="_blank" rel="noopener noreferrer">DEFCON 31</a>, Las Vegas</span>
-                    </div>
-                </li>
-            </ul>
-
-            <!-- ===== Media Appearances ===== -->
-            <!-- Outlet name first here: it's the recognizable part. -->
-            <h4 class="group-label">Media Appearances</h4>
-            <ul class="entry-list">
-                <li>
-                    <time datetime="2025-10">Oct 2025</time>
-                    <div>
-                        <a class="entry-title" href="https://www.mixcloud.com/extraextramagazine/night-walker-16-steph-maj-swanson-uppsala/" target="_blank" rel="noopener noreferrer">Extra Extra Magazine</a>
-                        <span class="entry-meta">"Nightwalker: Valborg in Uppsala," curated by Maia Kenney</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2024-03">Mar 2024</time>
-                    <div>
-                        <a class="entry-title" href="https://shows.acast.com/the-data-fix/episodes/adversarial-with-steph-maj-swanson" target="_blank" rel="noopener noreferrer">The Data Fix</a>
-                        <span class="entry-meta">"Adversarial, with Steph Maj Swanson," with Dr. Mél Hogan</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2023-01">Jan 2023</time>
-                    <div>
-                        <a class="entry-title" href="https://www.bbc.com/audio/play/m001gx5g" target="_blank" rel="noopener noreferrer">BBC Woman's Hour</a>
-                        <span class="entry-meta">"The Offbeat Sari exhibition, Iran latest, coldwater swimming and is AI pushing the boundaries of art?" with Krupa Padhy</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2022-12">Dec 2022</time>
-                    <div>
-                        <a class="entry-title" href="https://www.rte.ie/radio/lyricfm/clips/22183238/" target="_blank" rel="noopener noreferrer">RTÉ lyric fm – Culture File</a>
-                        <span class="entry-meta">"Steph Swanson," with Lorcan Murray</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2022-12">Dec 2022</time>
-                    <div>
-                        <a class="entry-title" href="https://www.rte.ie/radio/podcasts/22186382-summoning-loab-culture-file/" target="_blank" rel="noopener noreferrer">RTÉ Podcast – Culture File</a>
-                        <span class="entry-meta">"Summoning Loab," on Lorcan Murray's Classic Drive</span>
-                    </div>
-                </li>
-                <li>
-                    <time datetime="2022-11">Nov 2022</time>
-                    <div>
-                        <a class="entry-title" href="https://www.abc.net.au/listen/programs/backgroundbriefing/has-the-age-of-ai-already-begun-loab-generative-art/101694260" target="_blank" rel="noopener noreferrer">ABC Radio National – Background Briefing</a>
-                        <span class="entry-meta">"Has the age of AI already begun?" with Ange Lavoipierre</span>
-                    </div>
-                </li>
-            </ul>
-
-            <p class="section-note" lang="sv">Steph håller föredrag med en unik, kritisk blick på AI – även på svenska!</p>
-        </div>
-
-    </div>
-</section>
-
-            <section class="section" id="publications">
-                <h2 class="section-title">Publications</h2>
+            <section class="section section--aligned" id="speaking">
                 <div class="content-wrapper">
+
+                    <h2 class="section-title">Public Speaking</h2>
+
+                    <div class="media-container">
+                        <img src="gallery/Chaos%20Communication%20Congress%20Hamburg.png" alt="Steph Maj Swanson speaking at Chaos Communication Congress, Hamburg" class="media-item">
+                        <iframe src="https://www.youtube.com/embed/hJxRD4YX1RU" title="What I Learned from LOAB: AI as a creative adversary (37C3 talk)" loading="lazy" frameborder="0" allowfullscreen class="media-item video-item"></iframe>
+                    </div>
+
+                    <div class="text-container">
+                        <div class="section-text">
+                            <p>Steph Maj Swanson speaks at major conferences and institutions, and appears on podcasts and radio shows, offering critical insights on AI and creative labor—especially the ethical implications of how AI tools are designed, built, and deployed.</p>
+                        </div>
+
+                        <!-- ===== Speaking Engagements ===== -->
+                        <h4 class="group-label">Speaking Engagements</h4>
+                        <ul class="entry-list">
+                            <li>
+                                <time datetime="2026-07">Jul 2026</time>
+                                <div>
+                                    <span class="entry-title">AI IMAGES: working with them, working against them</span>
+                                    <span class="entry-meta"><a href="https://www.newschool.edu/parsons/mfa-photography-visiting-artists/" target="_blank" rel="noopener noreferrer">Visiting Artist Lecture, MFA Photography Program, Parsons School of Design</a>, New York</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2026-06">Jun 2026</time>
+                                <div>
+                                    <a class="entry-title" href="https://www.fotomuseum.ch/en/events-post/artist-talk-und-book-launch/" target="_blank" rel="noopener noreferrer">Artist Talk &amp; Book Launch</a>
+                                    <span class="entry-meta"><a href="https://www.fotomuseum.ch/en/exhibitions-post/schattenwesen-von-der-geisterfotografie-zu-den-phantomen-des-algorithmus/" target="_blank" rel="noopener noreferrer"><em>Shadow Creatures – From Spirit Photography to the Ghosts of the Algorithm</em></a>, Fotomuseum Winterthur, Switzerland</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2026-01">Jan 2026</time>
+                                <div>
+                                    <span class="entry-title">AI:ns undre värld</span>
+                                    <span class="entry-meta"><a href="https://www.tekniskamuseet.se/en/" target="_blank" rel="noopener noreferrer">Tekniska museet (National Museum of Science and Technology)</a>, Stockholm</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2025-10">Oct 2025</time>
+                                <div>
+                                    <span class="entry-title">Where Are We Going From Here? Film Festivals and Their New Realities: Animation and AI</span>
+                                    <span class="entry-meta">Panel with Katja de Vries, Ulu Braun, and Hannah Ohlén · <a href="https://shortfilmfestival.com/" target="_blank" rel="noopener noreferrer">Uppsala Short Film Festival</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2024-11">Nov 2024</time>
+                                <div>
+                                    <a class="entry-title" href="https://rifdt.ifdt.bg.ac.rs/bitstream/handle/123456789/4514/bitstream_16335.pdf" target="_blank" rel="noopener noreferrer">AI's Katabatic Turn – Data belongs to the Underworld</a><span class="file-tag">PDF</span>
+                                    <span class="entry-meta">"Coding the Gaze" conference, Museum of Contemporary Art, Belgrade</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2024-08">Aug 2024</time>
+                                <div>
+                                    <a class="entry-title" href="https://cybernauterne.dk/blog/symposium-lgbt-personer-og-kunstig-intelligens/" target="_blank" rel="noopener noreferrer">Loab<sup>&reg;</sup> and Other Queer Data-Horrors of Generative AI</a>
+                                    <span class="entry-meta">Queers in the Machine Symposium, IDA (Danish Society of Engineers), Copenhagen</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2023-12">Dec 2023</time>
+                                <div>
+                                    <a class="entry-title" href="https://media.ccc.de/v/37c3-12052-what_i_learned_from_loab_ai_as_a_creative_adversary" target="_blank" rel="noopener noreferrer">What I Learned from LOAB<sup>&reg;</sup>: AI as a creative adversary</a>
+                                    <span class="entry-meta">Chaos Communication Congress, Hamburg</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2023-10">Oct 2023</time>
+                                <div>
+                                    <a class="entry-title" href="https://press.svenskatecknare.se/posts/pressreleases/samtal-om-ai-och-kreativitet-pa-kolla-dagen" target="_blank" rel="noopener noreferrer">Kreativitet och artificiell intelligens</a>
+                                    <span class="entry-meta">Kolla!-dagen, Svenska Tecknare (Swedish Illustrators and Designers), Stockholm</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2023-08">Aug 2023</time>
+                                <div>
+                                    <a class="entry-title" href="https://www.cyberneticforests.com/defcon31" target="_blank" rel="noopener noreferrer">Creative Misuse of AI Systems</a>
+                                    <span class="entry-meta">Talk and panel with Caroline Sinders and Eryk Salvaggio · <a href="https://defcon.outel.org/defcon31/dc31-consolidated_page_split_Sat.html" target="_blank" rel="noopener noreferrer">DEFCON 31</a>, Las Vegas</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- ===== Media Appearances ===== -->
+                        <!-- Outlet name first here: it's the recognizable part. -->
+                        <h4 class="group-label">Media Appearances</h4>
+                        <ul class="entry-list">
+                            <li>
+                                <time datetime="2025-10">Oct 2025</time>
+                                <div>
+                                    <a class="entry-title" href="https://www.mixcloud.com/extraextramagazine/night-walker-16-steph-maj-swanson-uppsala/" target="_blank" rel="noopener noreferrer">Extra Extra Magazine</a>
+                                    <span class="entry-meta">"Nightwalker: Valborg in Uppsala," curated by Maia Kenney</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2024-03">Mar 2024</time>
+                                <div>
+                                    <a class="entry-title" href="https://shows.acast.com/the-data-fix/episodes/adversarial-with-steph-maj-swanson" target="_blank" rel="noopener noreferrer">The Data Fix</a>
+                                    <span class="entry-meta">"Adversarial, with Steph Maj Swanson," with Dr. Mél Hogan</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2023-01">Jan 2023</time>
+                                <div>
+                                    <a class="entry-title" href="https://www.bbc.com/audio/play/m001gx5g" target="_blank" rel="noopener noreferrer">BBC Woman's Hour</a>
+                                    <span class="entry-meta">"The Offbeat Sari exhibition, Iran latest, coldwater swimming and is AI pushing the boundaries of art?" with Krupa Padhy</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2022-12">Dec 2022</time>
+                                <div>
+                                    <a class="entry-title" href="https://www.rte.ie/radio/lyricfm/clips/22183238/" target="_blank" rel="noopener noreferrer">RTÉ lyric fm – Culture File</a>
+                                    <span class="entry-meta">"Steph Swanson," with Lorcan Murray</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2022-12">Dec 2022</time>
+                                <div>
+                                    <a class="entry-title" href="https://www.rte.ie/radio/podcasts/22186382-summoning-loab-culture-file/" target="_blank" rel="noopener noreferrer">RTÉ Podcast – Culture File</a>
+                                    <span class="entry-meta">"Summoning Loab," on Lorcan Murray's Classic Drive</span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2022-11">Nov 2022</time>
+                                <div>
+                                    <a class="entry-title" href="https://www.abc.net.au/listen/programs/backgroundbriefing/has-the-age-of-ai-already-begun-loab-generative-art/101694260" target="_blank" rel="noopener noreferrer">ABC Radio National – Background Briefing</a>
+                                    <span class="entry-meta">"Has the age of AI already begun?" with Ange Lavoipierre</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <p class="section-note" lang="sv">Steph håller föredrag med en unik, kritisk blick på AI – även på svenska!</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="section section--aligned" id="publications">
+                <div class="content-wrapper">
+                    <h2 class="section-title">Publications</h2>
                     <div class="media-container">
                         <img src="gallery/image-ts1692463318f5b8.png" alt="Published writing" class="media-item">
                     </div>
                     <div class="text-container">
                         <div class="section-text">
                             <p>Steph Maj Swanson's research and critical writing on AI appears in major media and academic publications.</p>
-
-							<p><strong>Solo Publications:</strong><br>
-							• “Katabatički zaokret veštačke inteligencije – Podaci pripadaju podzemnom svetu” ["AI's Katabatic Turn – Data Belongs to the Underworld," printed in Serbian].
-							    <em> <a href="https://ogled.org/magazin/oko-tehnologije/">[O]GLED: Oko tehnologije</a></em>, anonymous said: (2024)<br>
-							• <a href="https://www.vice.com/en/article/i-coaxed-chatgpt-into-a-deeply-unsettling-bdsm-relationship/">
-							  "I Coaxed ChatGPT Into a Deeply Unsettling BDSM Relationship."
-							  </a> <em>Vice</em> (2023)<br>
-							• <a href="https://www.vice.com/en/article/chatgpt-generated-child-sex-abuse-when-asked-to-write-bdsm-scenarios/">
-							  "ChatGPT Generated Child Sex Abuse When Asked to Write BDSM Scenarios."
-							  </a> <em>Vice</em> (2023)
-							</p>
-							<p><strong>Co-authored Work:</strong><br>
-							• <a href="https://read.dukeupress.edu/critical-ai/article-abstract/doi/10.1215/2834703X-11700228/401274/Cultural-Red-Teaming-ARRG-and-Creative-Misuse-of">
-							  "Cultural Red Teaming: ARRG! and Creative Misuse of AI Systems."
-							  </a> <em>Critical AI</em>, Vol. 3(1), Duke University Press (2025). 
-							  Co‑authored with Eryk Salvaggio and Caroline Sinders.
-							</p>
-							<p><strong>Editorial Work:</strong><br>
-							• <em>Models for Making Distance</em>, Vol. 1. ARRG! Algorithmic Resistance Research Group (2025). 
-							  A collection of manifestos, writing, and instructions for art that confounds, confuses, and misuses algorithmic systems. 
-							  Co‑edited with Eryk Salvaggio, Caroline Sinders, Laura Forlano, and Şerife Wong. 
-							  Supported by the <a href="https://criticalfutureslab.org/">Critical Futures Lab</a> at Northeastern University's College of Arts, Media, and Design. 
-							  Analog publication only.
-							</p>
                         </div>
+
+                        <h4 class="group-label">Solo Publications</h4>
+                        <ul class="entry-list">
+                            <li>
+                                <time datetime="2024">2024</time>
+                                <div>
+                                    <span class="entry-title">“Katabatički zaokret veštačke inteligencije – Podaci pripadaju podzemnom svetu”</span>
+                                    <span class="entry-meta">["AI's Katabatic Turn – Data Belongs to the Underworld," printed in Serbian] · <a href="https://ogled.org/magazin/oko-tehnologije/" target="_blank" rel="noopener noreferrer"><em>[O]GLED: Oko tehnologije</em></a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2023">2023</time>
+                                <div>
+                                    <a class="entry-title" href="https://www.vice.com/en/article/i-coaxed-chatgpt-into-a-deeply-unsettling-bdsm-relationship/" target="_blank" rel="noopener noreferrer">“I Coaxed ChatGPT Into a Deeply Unsettling BDSM Relationship”</a>
+                                    <span class="entry-meta"><em>Vice</em></span>
+                                </div>
+                            </li>
+                            <li>
+                                <time datetime="2023">2023</time>
+                                <div>
+                                    <a class="entry-title" href="https://www.vice.com/en/article/chatgpt-generated-child-sex-abuse-when-asked-to-write-bdsm-scenarios/" target="_blank" rel="noopener noreferrer">“ChatGPT Generated Child Sex Abuse When Asked to Write BDSM Scenarios”</a>
+                                    <span class="entry-meta"><em>Vice</em></span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h4 class="group-label">Co-authored Work</h4>
+                        <ul class="entry-list">
+                            <li>
+                                <time datetime="2025">2025</time>
+                                <div>
+                                    <a class="entry-title" href="https://read.dukeupress.edu/critical-ai/article-abstract/doi/10.1215/2834703X-11700228/401274/Cultural-Red-Teaming-ARRG-and-Creative-Misuse-of" target="_blank" rel="noopener noreferrer">“Cultural Red Teaming: ARRG! and Creative Misuse of AI Systems”</a>
+                                    <span class="entry-meta"><em>Critical AI</em>, Vol. 3(1), Duke University Press · with Eryk Salvaggio and Caroline Sinders</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h4 class="group-label">Editorial Work</h4>
+                        <ul class="entry-list">
+                            <li>
+                                <time datetime="2025">2025</time>
+                                <div>
+                                    <span class="entry-title"><em>Models for Making Distance</em>, Vol. 1</span>
+                                    <span class="entry-meta">ARRG! Algorithmic Resistance Research Group · co-edited with Eryk Salvaggio, Caroline Sinders, Laura Forlano, and Şerife Wong</span>
+                                    <span class="entry-meta">A collection of manifestos, writing, and instructions for art that confounds, confuses, and misuses algorithmic systems. Supported by the <a href="https://criticalfutureslab.org/" target="_blank" rel="noopener noreferrer">Critical Futures Lab</a> at Northeastern University's College of Arts, Media, and Design. Analog publication only.</span>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
